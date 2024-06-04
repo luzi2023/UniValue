@@ -1,0 +1,504 @@
+city,region,country,rank display,institution,location code,size,focus,research,age band,status,ar score,er score,fsr score,cpf score,ifr score,isr score,irn score,ger score,score scaled,year,Cost of Living Index,Rent Index,Cost of Living Plus Rent Index,Groceries Index,Restaurant Price Index,Local Purchasing Power Index,check_city,longitude,latitude
+Cambridge,North America,United States,1,Massachusetts Institute of Technology (MIT) ,US,M,CO,VH,B,100,100,100,100,100,88.2,94.3,100,95.2,100,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-71.09673492,42.36009097
+Cambridge,Europe,United Kingdom,2,University of Cambridge,UK,L,FC,VH,A,100,100,100,92.3,100,95.8,99.9,100,97.3,99.2,2024,69.2,44.3,57.4,64,69.7,103.9,yes,0.111920724,52.20021695
+Oxford,Europe,United Kingdom,3,University of Oxford,UK,L,FC,VH,A,100,100,100,90.6,98.2,98.2,100,100,97.8,98.9,2024,72.6,45.6,59.8,69.1,64.2,82,yes,-1.256941723,51.7548163
+Cambridge,North America,United States,4,Harvard University,US,L,FC,VH,B,100,100,98.3,100,84.6,66.8,100,100,96.7,98.3,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-71.12081722,42.37464067
+Stanford,North America,United States,5,Stanford University,US,L,FC,VH,B,100,100,100,99.9,99.9,51.2,95.8,100,94.4,98.1,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-122.1726349,37.42765997
+London,Europe,United Kingdom,6,Imperial College London,UK,L,FC,VH,A,98.3,99.4,98.5,94,100,100,96.7,83,94.4,97.8,2024,80.1,71.6,76.1,64.2,79.7,83,yes,-0.177448423,51.498822
+Zurich,Europe,Switzerland,7,ETH Zurich - Swiss Federal Institute of Technology,CH,L,FO,VH,A,98.8,83.6,72.1,98.9,100,98.5,96,79.1,88.4,93.3,2024,118.3,64.4,92.7,121,109,132.7,yes,8.545053076,47.37638887
+Singapore,Asia,Singapore,8,National University of Singapore (NUS),SG,XL,FC,VH,A,99.4,88.6,76.5,93.2,100,81.9,76.3,100,88.1,92.7,2024,81.9,71.9,77.1,75,55.3,103,yes,103.773819,1.296642598
+London,Europe,United Kingdom,9,UCL,UK,XL,FC,VH,A,99.5,97.9,98.4,74.3,99.1,100,100,51.6,92.5,92.4,2024,80.1,71.6,76.1,64.2,79.7,83,yes,-0.136876473,51.523217
+Berkeley,North America,United States,10,"University of California, Berkeley (UCB)",US,XL,FC,VH,A,100,100,20.5,99.9,92.2,63.9,92.4,98.7,100,90.4,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-122.2620355,37.8701509
+Chicago,North America,United States,11,University of Chicago,US,L,FC,VH,B,99.1,95.4,92.5,78.5,81.2,84.4,61.4,98.3,81.7,90.3,2024,80,58.8,69.9,87,74.1,119.9,yes,-88.06160667,41.8332617
+Philadelphia,North America,United States,12,University of Pennsylvania,US,L,FC,VH,B,96.4,89.1,99.9,68.4,96,70.3,83.3,100,99.9,89.4,2024,76.6,44,61.2,80.5,68.1,113.8,yes,-75.19578862,39.95221877
+Ithaca,North America,United States,13,Cornell University,US,L,FC,VH,B,98.1,90.5,52.9,99.1,68.7,64,79.9,98,94.7,89.3,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-76.47607762,42.45344917
+Parkville,Oceania,Australia,14,The University of Melbourne,AU,XL,FC,VH,A,98.4,92.3,15.4,92.1,92.9,99.7,97.2,93.3,90.4,87.9,2024,72.8,36.6,55.6,73.9,66.9,93.6,no,144.9583991,-37.79834587
+Pasadena,North America,United States,15,California Institute of Technology (Caltech),US,S,CO,VH,B,96.1,93.7,100,100,100,81,22.8,34.2,41.4,87.8,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-118.1278439,34.1376575
+New Haven,North America,United States,16,Yale University,US,M,FC,VH,B,99.9,99.9,100,45.8,89.8,78.8,85.8,99.9,99.2,87.7,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-72.94581538,41.30285621
+Beijing,Asia,China,17,Peking University,CN,XL,FC,VH,A,99.4,95.4,90.4,97.5,50.8,23.5,43.2,82.6,68.8,87,2024,37.1,26.4,32,37.8,23.9,82.2,yes,116.3012497,39.99149654
+Princeton,North America,United States,17,Princeton University,US,M,CO,VH,B,99.8,97.5,64.5,100,16.7,57.5,52.5,94.6,79.3,87,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-74.75042552,40.34828406
+Sydney,Oceania,Australia,19,The University of New South Wales (UNSW Sydney),AU,XL,FC,VH,A,89.7,88.1,18.2,95.9,100,99.1,99,95.5,99.6,86.7,2024,75.9,55.4,66.2,76.7,63.3,86.2,yes,151.2286926,-33.91734697
+Sydney,Oceania,Australia,19,The University of Sydney,AU,XL,FC,VH,A,96,87.7,11.8,93.5,99.5,100,91.9,88.1,99.7,86.7,2024,75.9,55.4,66.2,76.7,63.3,86.2,yes,151.1841899,-33.888404
+Toronto,North America,Canada,21,University of Toronto,CA,XL,FC,VH,A,99.7,96,54.2,57.2,95.7,96.4,95.5,96.4,99.9,86.3,2024,71.6,50,61.4,72.3,67.9,84.5,yes,-79.40580325,43.65845088
+Edinburgh,Europe,United Kingdom,22,The University of Edinburgh,UK,XL,FC,VH,A,98.1,96.9,72.4,58.7,98.8,99.9,99.6,48.1,99.7,86.1,2024,69.7,38.8,55.1,64,70.6,85.3,yes,-3.191816223,55.94451577
+New York City,North America,United States,23,Columbia University,US,XL,FC,VH,B,99.6,98.3,100,40.7,56.1,96.8,97.6,99.9,94.2,85.9,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-73.96514762,40.80753547
+Paris,Europe,France,24,University PSL,FR,L,CO,VH,A,73.7,97,99.3,95.7,69.2,72.7,100,60.8,80.4,85.8,2024,75.4,42,59.5,78.7,70.1,81.4,yes,2.335018076,48.85464847
+Beijing,Asia,China,25,Tsinghua University,CN,XL,FC,VH,A,99.1,96.9,93.9,98.9,9.4,15.7,47.8,82.2,55.8,84.9,2024,37.1,26.4,32,37.8,23.9,82.2,yes,116.323869,39.99966737
+Singapore,Asia,Singapore,26,"Nanyang Technological University, Singapore (NTU)",SG,L,FC,VH,A,91,67.1,77.6,94.4,100,80.2,66.1,68.4,78.2,84.5,2024,81.9,71.9,77.1,75,55.3,103,yes,103.6805598,1.348309898
+Hong Kong,Asia,Hong Kong (China),26,The University of Hong Kong,HK,L,FC,VH,A,97.6,51.4,82.9,82.3,100,99,42.7,99.5,97.3,84.5,2024,71.5,61.4,66.7,79.6,47,84.1,yes,114.1339872,22.28308907
+Baltimore,North America,United States,28,Johns Hopkins University,US,L,FC,VH,B,87.3,59.7,100,89.4,64.4,91.4,98.1,74.5,84.6,84.5,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-76.6638669,39.33490609
+Tokyo,Asia,Japan,28,The University of Tokyo,JP,L,FC,VH,A,100,99.8,90.4,70,10.3,29.2,70,99.8,99.7,84.3,2024,57.4,29.3,44.1,67,35.4,98.6,yes,139.7601623,35.71381507
+Los Angeles,North America,United States,29,"University of California, Los Angeles (UCLA)",US,XL,FC,VH,A,100,99.8,36.6,84.8,43.4,24.8,89.8,97,91.2,83.8,2024,85.1,67.1,76.6,84.4,87.7,135.8,yes,-118.4464244,34.0699181
+Montreal,North America,Canada,30,McGill University,CA,XL,FC,VH,A,93.7,87.6,64,62.1,88.9,93.3,86.2,92.5,94.2,83.7,2024,65.5,31.3,49.3,68.7,68.6,84.5,yes,-73.58128145,45.50755963
+Manchester,Europe,United Kingdom,32,The University of Manchester,UK,XL,FC,VH,A,95.4,98,53.8,49.1,93.5,99.4,99.7,71.9,92.3,82.2,2024,67,34,51.3,59.7,66.2,80.4,yes,-2.236458623,53.4668497
+Ann Arbor,North America,United States,33,University of Michigan-Ann Arbor,US,XL,FC,VH,A,98.3,89.9,82.2,56.2,67,27.6,95.4,94.3,83.7,81.7,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-83.74078202,42.27714497
+Canberra,Oceania,Australia,34,The Australian National University,AU,L,FC,VH,A,93.2,70.2,34.9,92.8,100,93.3,78.5,43.9,87.4,81.5,2024,87.5,42.4,66.1,80.8,105.7,66.2,yes,149.1157489,-35.2812532
+Vancouver,North America,Canada,34,University of British Columbia,CA,XL,FC,VH,A,98.2,93.5,44.4,57,96.4,74.1,96.3,60.1,99.9,81.5,2024,74.4,54.9,65.2,80.6,67.2,71.9,yes,-123.9647102,51.54680444
+Lausanne,Europe,Switzerland,36,EPFL,CH,M,FO,VH,A,84.6,59.9,92.4,98,100,100,65.6,19.4,42.3,80.4,2024,117.7,46.4,83.9,123.3,106.2,106.7,yes,6.564182676,46.51905567
+Munich,Europe,Germany,37,Technical University of Munich,DE,XL,FO,VH,A,83.9,98.2,88.8,59.6,76.5,97.3,86.7,25,84.8,80,2024,66.7,38.5,53.3,58.6,61.9,109.7,yes,11.56482898,48.14900797
+Palaiseau Cedex,Europe,France,38,Institut Polytechnique de Paris,FR,M,CO,VH,A,44.8,99.6,97.3,93.8,98.5,98.3,76.9,90.3,72.5,79.5,2024,66,22.3,45.3,68.6,57.9,83.4,no,2.208181476,48.71260917
+New York City,North America,United States,38,New York University (NYU),US,XL,FC,VH,B,95.9,98.5,95.5,26.7,26.4,95,85.4,99.7,98.3,79.5,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-74.00843129,40.72340279
+London,Europe,United Kingdom,40,King's College London,UK,XL,FC,VH,A,89.5,82.3,64.6,61.1,98.8,100,99.2,34.4,81.1,79.3,2024,80.1,71.6,76.1,64.2,79.7,83,yes,-0.143385276,51.4907204
+Seoul,Asia,South Korea,41,Seoul National University,KR,L,FC,VH,A,99,98.2,85.1,64.9,11.5,14.5,36.9,100,73.8,78.5,2024,70.3,29.1,50.8,92.1,37.4,91.3,yes,126.9489045,37.46594157
+Melbourne,Oceania,Australia,42,Monash University,AU,XL,FC,VH,A,88.4,75.2,9.6,88.4,100,100,86.8,61,71.8,78.2,2024,70.2,42,56.9,68.8,64.1,100.5,yes,144.8852726,-37.86799703
+Brisbane City,Oceania,Australia,43,The University of Queensland,AU,XL,FC,VH,A,87.1,73.7,21.6,87,100,100,95,44.4,73.1,78.1,2024,72.8,36.6,55.6,73.9,66.9,93.6,no,135.1160199,-18.852458
+Hangzhou,Asia,China,44,Zhejiang University,CN,XL,FC,VH,A,73.8,95.7,66.5,97.6,97.7,26.5,74.7,37.7,51.5,77.8,2024,35.5,12.9,24.8,42.7,22,64.9,yes,120.0839246,30.30868437
+London,Europe,United Kingdom,45,The London School of Economics and Political Science (LSE),UK,M,SP,VH,A,67.7,96.1,39.6,80.2,100,100,32.4,98.6,97.8,76.9,2024,80.1,71.6,76.1,64.2,79.7,83,yes,-0.119026223,51.514438
+Kyoto,Asia,Japan,46,Kyoto University,JP,L,FC,VH,A,98.7,99.1,94.7,49.3,14.9,20.8,57.3,53.2,88.4,76.3,2024,50.7,15.1,33.8,55.4,30.9,99.5,no,135.7782469,35.02624437
+Delft,Europe,Netherlands,47,Delft University of Technology,NL,L,CO,VH,A,73,79,36.9,84.9,100,89.3,91.4,42.1,98.4,76.2,2024,61.5,32.9,48,58.2,56.1,94,yes,4.371001677,52.00219187
+Evanston,North America,United States,47,Northwestern University,US,L,FC,VH,B,83.8,60.2,98.9,70.3,48.2,44.2,79.2,97.7,78,76.2,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-87.73505614,41.97717829
+Hong Kong,Asia,Hong Kong (China),47,The Chinese University of Hong Kong (CUHK),HK,L,FC,VH,A,88.4,46.3,60,92.3,100,77.1,32.7,78.6,61.3,76.2,2024,71.5,61.4,66.7,79.6,47,84.1,yes,114.2041857,22.41962498
+Shanghai,Asia,China,50,Fudan University,CN,XL,FC,VH,A,84.7,89.8,84.5,72.4,88.3,33,22.7,49.6,43.8,74.4,2024,42.1,30.7,36.7,45.8,26.9,60.4,yes,121.5010429,31.29741967
+Shanghai,Asia,China,51,Shanghai Jiao Tong University,CN,XL,FC,VH,A,83.7,83.3,54.7,99.4,39.2,35.5,38.3,55.5,44.1,74.3,2024,42.1,30.7,36.7,45.8,26.9,60.4,yes,121.3536707,31.10973748
+Pittsburgh,North America,United States,52,Carnegie Mellon University,US,L,FC,VH,B,71.2,75.3,49.1,99.9,46.6,98.2,57.4,60,47.2,73.7,2024,76.1,37.6,57.8,84.8,62,114.3,yes,-79.94713582,40.44517462
+Amsterdam,Europe,Netherlands,53,University of Amsterdam,NL,XL,FC,VH,A,83.6,44.2,21.2,98.1,92.4,79.9,97.4,49.9,64.8,73.4,2024,69.9,49.9,60.4,58.1,76.7,90,yes,4.892597238,52.35959609
+Munich,Europe,Germany,54,Ludwig-Maximilians-Universitat Munchen,DE,XL,FC,VH,A,92.7,83.5,46.7,51.4,73.3,37.7,94.4,48.5,77.3,72.5,2024,66.7,38.5,53.3,58.6,61.9,109.7,yes,11.57728598,48.15091847
+Bristol,Europe,United Kingdom,55,University of Bristol,UK,L,FC,VH,A,74.9,84.7,47.3,64.7,85.5,86.8,84.4,39.6,81.3,72.4,2024,64.4,40.6,53.1,57.5,64.6,88.5,yes,-2.604750723,51.45853757
+Daejeon,Asia,South Korea,56,KAIST - Korea Advanced Institute of Science & Technology,KR,M,CO,VH,A,89.9,88.8,66.2,97.7,22.3,11.6,10.6,41.8,14.2,72.2,2024,64.4,17.1,42,83.1,32.4,90.6,no,127.3578151,36.37214267
+Durham,North America,United States,57,Duke University,US,L,FC,VH,B,85.7,69.3,100,40.2,16.8,52.2,90,89.3,95,72,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-78.94080352,36.00142577
+Austin,North America,United States,58,University of Texas at Austin,US,XL,FC,VH,A,93.5,83.2,8.9,86.7,9.3,11,79.4,70,77.7,71.8,2024,73.3,58.9,66.5,69.8,77,123.4,yes,-97.73609752,30.28502837
+Paris,Europe,France,59,Sorbonne University,FR,XL,FC,VH,A,88.6,53.2,43.3,85.4,35.2,49.8,100,39.5,75.8,71.7,2024,75.4,42,59.5,78.7,70.1,81.4,yes,-15.15664939,28.361527
+Hong Kong,Asia,Hong Kong (China),60,The Hong Kong University of Science and Technology,HK,M,CO,VH,A,83.3,42.6,53.6,99.1,100,91.4,5.3,50.3,31,71.1,2024,71.5,61.4,66.7,79.6,47,84.1,yes,114.260874,22.33654132
+Leuven,Europe,Belgium,61,KU Leuven,BE,XL,FC,VH,A,84.6,42.4,7,92.7,93.1,45.7,99.9,56.1,75.6,70.1,2024,58.3,23.7,41.9,52.6,55.1,93.5,yes,4.697601777,50.88005667
+San Diego,North America,United States,62,"University of California, San Diego (UCSD)",US,XL,FC,VH,A,89.1,50.4,49.6,74.3,68.1,51.3,94.9,17.7,72.5,70,2024,86.4,78.5,82.6,77.2,82.5,102.6,yes,-117.2369354,32.88116797
+Seattle,North America,United States,63,University of Washington,US,XL,FC,VH,A,84,50.4,19.1,93.5,19,33.2,94,70,88.1,69.2,2024,87.7,61.9,75.4,87.1,79.9,156.2,yes,-122.3100328,47.65464067
+Champaign,North America,United States,64,University of Illinois at Urbana-Champaign,US,XL,FC,VH,A,85,70.8,7.5,86.5,11.1,49.2,76.4,66,83.5,69.1,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-88.22973642,40.10195227
+Hong Kong,Asia,Hong Kong (China),65,The Hong Kong Polytechnic University,HK,L,CO,VH,A,68.1,30.2,68,88.8,100,87.4,42,49.2,92.8,68.7,2024,71.5,61.4,66.7,79.6,47,84.1,yes,114.1769219,22.30571907
+Kuala Lumpur,Asia,Malaysia,65,Universiti Malaya (UM),MY,L,FC,VH,A,81.2,96,71.6,32.7,52.8,58.9,79.3,28.1,93.4,68.7,2024,34.6,11.8,23.8,39.9,22,77.8,yes,101.6544193,3.121926797
+Coventry,Europe,United Kingdom,67,The University of Warwick,UK,L,FC,VH,A,71.3,88,37.3,49,98.2,99.3,89.7,47.2,62.5,68.6,2024,66.6,34.9,51.6,58.1,65.6,108.6,yes,-1.564045323,52.37925247
+Auckland,Oceania,New Zealand,68,The University of Auckland,NZ,L,FC,VH,A,81.6,40.8,19.3,61.7,100,91.6,64.4,94.3,99.6,68,2024,73.2,39.1,57,75.9,63.2,95.4,yes,174.7663733,-36.85193607
+Taipei City,Asia,Taiwan,69,National Taiwan University (NTU),TW,XL,FC,VH,A,92.8,91.3,30.9,47,17.7,20,33.2,99.7,95.6,67.9,2024,49,13.7,32.2,61.8,24.8,80,no,121.5371769,25.01734048
+Hong Kong,Asia,Hong Kong (China),70,City University of Hong Kong,HK,M,CO,VH,A,59.6,27.3,86.6,99.9,100,100,17.4,29.5,82.1,67.7,2024,71.5,61.4,66.7,79.6,47,84.1,yes,114.1514029,22.33748509
+Gif-sur-Yvette,Europe,France,71,University Paris-Saclay,FR,XL,CO,VH,A,58.9,99.1,99.8,45.8,39.1,60.8,98.7,34.3,73.6,67.6,2024,66,22.3,45.3,68.6,57.9,83.4,no,2.161751121,48.70400244
+Perth,Oceania,Australia,72,The University of Western Australia,AU,L,FC,VH,A,56.2,44.6,16.5,98.9,100,99.8,90,66,70.1,66.9,2024,75.6,38.8,58.2,76.9,69.9,97.1,yes,115.7825378,-31.9831404
+Providence,North America,United States,73,Brown University,US,M,FC,VH,B,58.3,42.4,77.8,85.9,84.5,52,58.3,74.8,70.4,66.4,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-71.40534252,41.82681227
+Stockholm,Europe,Sweden,73,KTH Royal Institute of Technology ,SE,L,CO,VH,A,45.7,51.1,66.2,90.2,93.2,68.1,80.7,56.9,96.1,66.4,2024,68.8,34.5,52.5,65.3,63.1,93.2,yes,18.06768168,59.34987057
+Leeds,Europe,United Kingdom,75,University of Leeds,UK,XL,FC,VH,A,70.3,76.7,37.3,42.3,85.2,90,98.7,37.8,90.9,65.5,2024,62.6,29.4,46.8,51.8,64.5,102.5,yes,-1.557607723,53.8066814
+Glasgow,Europe,United Kingdom,76,University of Glasgow,UK,XL,FC,VH,A,76.3,70.7,41.7,31.8,96,99.5,90,26.7,99.5,65.2,2024,66.2,31.7,49.8,58.3,64.5,94.5,yes,-4.292575823,55.87242557
+Seoul,Asia,South Korea,76,Yonsei University,KR,L,FC,VH,B,80,96.3,87.4,36.2,19.6,49.7,25,70.9,38.1,65.2,2024,70.3,29.1,50.8,92.1,37.4,91.3,yes,126.9361317,37.56639367
+Durham,Europe,United Kingdom,78,Durham University,UK,L,FC,VH,A,59.5,89.3,27.8,53.3,97.5,86.9,86.2,29.2,97.6,65.1,2024,63.7,33.5,49.4,55.5,63.9,90.1,no,-28.55720946,39.682637
+Seoul,Asia,South Korea,79,Korea University,KR,L,FC,VH,B,82.2,94,81,36.6,13.6,36.3,19.6,70.6,58.6,64.7,2024,70.3,29.1,50.8,92.1,37.4,91.3,yes,126.500065,37.0983166
+Osaka City,Asia,Japan,80,Osaka University,JP,L,FC,VH,A,81.3,89.1,55.3,62.7,28.6,13.2,26.7,23.4,58.6,63.9,2024,50.7,15.1,33.8,55.4,30.9,99.5,no,135.5218927,34.82201387
+Dublin,Europe,Ireland,81,"Trinity College Dublin, The University of Dublin",IE,L,FC,VH,A,69.3,39.8,23.7,64.1,99.8,92.5,82.2,70.6,75.6,63.5,2024,73.4,56.9,65.6,63.3,76.7,79.9,yes,-6.257146523,53.34379347
+Southampton,Europe,United Kingdom,81,University of Southampton,UK,L,FC,VH,A,51.5,51.2,52.8,71.4,96.1,97.4,97,32.5,82.7,63.5,2024,63.7,33.5,49.4,55.5,63.9,90.1,no,-1.519854633,50.98687261
+University Park,North America,United States,83,Pennsylvania State University,US,XL,FC,VH,A,77.5,63,28.4,62.9,23.4,26.8,96.6,47.5,95.1,63.1,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-77.86248332,40.79821327
+Birmingham,Europe,United Kingdom,84,University of Birmingham,UK,XL,FC,VH,A,67.5,75.7,41.3,38.2,92.3,83.9,96,29.5,80.4,63,2024,61.6,30.8,47,51.9,60.8,97.5,yes,-1.95165666,52.46852274
+Lund,Europe,Sweden,85,Lund University,SE,L,FC,VH,A,69.3,47.5,50.2,37.7,98.8,77.4,95.2,66,99.1,62.8,2024,62.2,23.1,43.6,61.8,56.1,94.6,no,13.20091808,55.71194827
+Sao Paulo,Latin America,Brazil,85,Universidade de Sao Paulo,BR,XL,FC,VH,A,92.4,82.9,19.2,29.9,6,2.3,90.9,89.7,96.1,62.8,2024,40,14.3,27.8,36.5,35.2,25.6,yes,-46.78043094,-23.523715
+Moscow,Europe,Russia,87,Lomonosov Moscow State University,RU,XL,FC,VH,A,81.2,78.3,99.8,4.6,20.3,92.3,85.2,82.2,13.4,62.2,2024,35.7,21.1,28.8,30.2,32.6,60.6,yes,37.52609468,55.70393487
+Heidelberg,Europe,Germany,87,Ruprecht-Karls-Universitat Heidelberg,DE,L,FO,VH,A,78.3,52,99.7,38.2,52.5,50.4,89.7,19.8,42.6,62.2,2024,64.6,31.6,49,60.7,58.3,110.9,yes,8.704779126,49.41027202
+Adelaide,Oceania,Australia,89,The University of Adelaide,AU,L,FC,VH,A,54.2,36.5,16.2,87.1,100,99.6,78.8,38.4,96.3,62,2024,81.7,35,59.6,80.5,87.8,72.2,yes,138.6036528,-34.92060297
+Haymarket,Oceania,Australia,90,University of Technology Sydney,AU,L,CO,VH,A,43.4,57.8,9,95.3,96.6,93.6,79.7,30.1,93.1,61.8,2024,72.8,36.6,55.6,73.9,66.9,93.6,no,151.198037,-33.88365367
+Tokyo,Asia,Japan,91,Tokyo Institute of Technology (Tokyo Tech),JP,M,CO,VH,A,74.4,94.8,84.4,53,31.8,31.7,8.9,19.7,18,61.6,2024,57.4,29.3,44.1,67,35.4,98.6,yes,139.6802762,35.60608357
+Zurich,Europe,Switzerland,91,University of Zurich,CH,L,FC,VH,A,59.1,27.6,89.9,52,100,53,87.2,75.2,80.2,61.6,2024,118.3,64.4,92.7,121,109,132.7,yes,8.546087976,47.37458957
+Boston,North America,United States,93,Boston University,US,L,FC,VH,B,61.7,68.3,32.7,60.1,21.6,87.5,72.6,68.6,85.9,61.4,2024,89.2,72.7,81.4,94.5,85.7,113.6,yes,-71.10797402,42.35049967
+Mexico city,Latin America,Mexico,93,Universidad Nacional Autonoma de Mexico (UNAM),MX,XL,FC,VH,A,96.6,98.2,39.8,2.7,8.3,2.5,84.5,68.4,88.5,61.4,2024,43.8,17,31.1,45.6,36.7,38,no,-99.31904371,19.33589489
+Buenos Aires,Latin America,Argentina,95,Universidad de Buenos Aires (UBA),AR,XL,FC,VH,A,93.3,98,73.5,1.7,62.6,66.7,28.1,26.2,18.8,61,2024,27.5,10.9,19.6,25.8,24.6,29.1,yes,-58.96010955,-34.5386959
+St. Andrews,Europe,United Kingdom,95,University of St Andrews,UK,M,FO,VH,A,47.3,67.2,64.9,57.7,98.7,100,51.1,22.4,92.1,61,2024,63.7,33.5,49.4,55.5,63.9,90.1,no,-2.796842323,56.3417135
+Atlanta,North America,United States,97,Georgia Institute of Technology,US,L,CO,VH,A,67.4,85.1,15.3,67.1,38.8,65.4,33.2,41.7,70.4,60.9,2024,80.3,47.4,64.7,81,78,139.2,yes,-84.39885992,33.77561777
+Berlin,Europe,Germany,98,Freie Universitaet Berlin,DE,L,FC,VH,A,80.8,51,4.4,71.4,62.8,43.6,84.9,21.9,60.1,60.8,2024,65.7,36.1,51.7,59.2,55.3,100.2,yes,13.21492423,52.44184822
+West Lafayette,North America,United States,99,Purdue University,US,XL,FC,VH,A,63.9,81.2,10.3,68.4,41.5,45.8,75.4,53.4,67.4,60.7,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-86.92376952,40.42370537
+Pohang ,Asia,South Korea,100,Pohang University of Science And Technology (POSTECH),KR,S,FO,VH,B,51.6,75.9,99.9,98.3,33.8,2.6,1.3,13.4,16.9,60.4,2024,64.4,17.1,42,83.1,32.4,90.6,no,129.3206087,36.01388567
+Nottingham,Europe,United Kingdom,100,University of Nottingham,UK,XL,FC,VH,A,60.7,72.1,32.2,46.5,90,75.2,98.4,24.4,80,60.4,2024,64.8,27.1,46.9,62.2,55.9,92.9,yes,-1.200680623,52.93879217
+Madison,North America,United States,102,University of Wisconsin-Madison,US,XL,FC,VH,A,80.2,47.8,61.3,37.4,30.9,22.8,83.6,73.1,83.7,60,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-89.41506242,43.07659197
+Santiago,Latin America,Chile,103,Pontificia Universidad Catolica de Chile (UC),CL,L,FC,VH,B,92.9,99.5,20.6,11.6,16.4,3.5,56.8,76.3,91.3,59.9,2024,43.1,13.4,29,43.3,40.6,35.7,yes,-70.64401632,-33.4416814
+Sheffield,Europe,United Kingdom,104,The University of Sheffield,UK,L,FC,VH,A,58.7,52.3,54.7,46.9,84,97.5,96.1,24.9,76.3,59.7,2024,63.4,27.5,46.4,54.3,57.8,84.8,yes,-1.490997823,53.3813501
+Uppsala,Europe,Sweden,105,Uppsala University,SE,L,FC,VH,A,62.7,30.5,47.7,45.6,98.3,82.4,95.5,58.2,99.4,59.4,2024,63.1,20.4,42.8,62.1,55.2,84.3,yes,17.62691158,59.85754527
+Aachen,Europe,Germany,106,RWTH Aachen University,DE,XL,FC,VH,A,49.7,93,5.5,78.7,49,83,63.5,23.9,53.4,59.3,2024,61.3,20.5,42,56.7,52.1,110.7,yes,6.060319023,50.78440525
+Copenhagen,Europe,Denmark,107,University of Copenhagen,DK,XL,FC,VH,A,74.1,25.8,100,21.2,91.4,22.5,98.2,60.1,87.4,58.8,2024,79,43.2,62,67.5,89.2,95.1,yes,12.56983468,55.68023027
+Utrecht,Europe,Netherlands,107,Utrecht University,NL,XL,FC,VH,A,66.6,31.6,32.6,80.8,57.1,21.2,95,26.5,83.5,58.8,2024,64.3,32.8,49.4,56.7,63.3,110,yes,5.173131277,52.08518247
+Espoo,Europe,Finland,109,Aalto University,FI,L,FO,VH,A,44.6,41.8,40.2,79.4,95.5,37.7,56.2,88.9,95,58.7,2024,75.7,28.1,53.1,71.9,81.3,88.6,yes,24.82570258,60.18667468
+Newcastle upon Tyne,Europe,United Kingdom,110,Newcastle University,UK,L,FC,VH,A,48,74.5,35.6,50.2,90,70.9,96.1,24.1,98.8,58.6,2024,63,30,47.3,58.1,61.6,84.5,yes,-1.617235723,54.979187
+Edmonton,North America,Canada,111,University of Alberta,CA,XL,FC,VH,A,56.8,36.5,42.8,59.1,97.9,73.2,92.1,46,76.1,58.3,2024,64.6,24.5,45.6,66.8,53.1,106.1,yes,-116.1458639,52.28417414
+Waterloo,North America,Canada,112,University of Waterloo,CA,XL,CO,VH,A,40.7,66.7,6.8,82.9,76.8,77.9,55.4,55.9,97.1,58.1,2024,68.4,36,53.1,70.7,64,83.3,no,-80.54743252,43.47228537
+Sendai City,Asia,Japan,113,Tohoku University,JP,L,FC,VH,A,72.4,84.2,98.5,29.6,14.2,13.8,27.6,17.2,74.8,58,2024,50.7,15.1,33.8,55.4,30.9,99.5,no,140.8714991,38.25383397
+London,North America,Canada,114,Western University,CA,XL,FC,VH,A,32.1,47.4,3.7,98.3,99.7,54.6,56.4,93.3,99.6,57.4,2024,68.4,36,53.1,70.7,64,83.3,no,-81.28600157,43.0000309
+Helsinki,Europe,Finland,115,University of Helsinki,FI,L,CO,VH,A,65.1,32.3,63.4,49.8,71.5,5.4,96,65.7,82.7,57.2,2024,69.4,26.7,49.1,65.2,71.8,94,yes,24.94795198,60.16948167
+Los Angeles,North America,United States,116,University of Southern California,US,XL,FC,VH,B,52.5,47.6,21.7,68,31.8,73.5,62.8,93.1,98.9,57.1,2024,85.1,67.1,76.6,84.4,87.7,135.8,yes,-118.3358579,34.0406582
+Oslo,Europe,Norway,117,University of Oslo,NO,L,FC,VH,A,55.8,11.2,81.7,64.2,86.1,25.4,95.9,41.8,91.8,56.9,2024,80,33.5,57.9,80.1,75.8,99.1,yes,10.71895478,59.94049917
+Stockholm,Europe,Sweden,118,Stockholm University,SE,L,CO,VH,A,54.1,15.2,28.2,71.9,81.5,84.1,95.3,76.2,75.1,56.8,2024,68.8,34.5,52.5,65.3,63.1,93.2,yes,18.05394868,59.36544757
+Karlsruhe,Europe,Germany,119,"KIT, Karlsruhe Institute of Technology",DE,L,CO,VH,A,45.6,76.8,36,71.9,70.4,46.7,76,38.7,23.9,56.4,2024,62.7,26.3,45.4,57.6,52.5,101,no,8.414455376,49.01191987
+Berlin,Europe,Germany,120,Humboldt-Universitat zu Berlin,DE,XL,FC,VH,A,90.2,65.9,7.6,31.3,68.1,31.5,86,14.4,37.5,56.3,2024,65.7,36.1,51.7,59.2,55.3,100.2,yes,13.3873048,52.52061309
+Kongens Lyngby,Europe,Denmark,121,Technical University of Denmark,DK,M,FO,VH,A,32.5,16.3,99.8,83.4,100,82,71.6,28.9,54.9,56.2,2024,75.2,28.6,53.1,65,82.6,103.3,no,12.52079488,55.78605117
+Lancaster,Europe,United Kingdom,122,Lancaster University,UK,L,FC,VH,A,39.7,40.2,25.2,79.3,93.6,90.6,75.3,20.7,98,55.7,2024,63.7,33.5,49.4,55.5,63.9,90.1,no,-2.790304323,54.0103941
+Milan,Europe,Italy,123,Politecnico di Milano,IT,XL,FO,VH,A,69.3,71.2,5.2,48.3,63.8,56.6,75.1,36.9,29.4,55.2,2024,69.7,40.6,55.9,65,70.1,49.8,yes,9.150649535,45.49044789
+Eindhoven,Europe,Netherlands,124,Eindhoven University of Technology,NL,M,FO,VH,A,29.3,76.2,40.4,89.7,100,70.8,40.1,19.7,18,55,2024,64.4,34.7,50.3,57.4,61.8,114.5,yes,5.483301577,51.44797507
+Basel,Europe,Switzerland,124,University of Basel,CH,M,FC,VH,A,27.8,17.8,57.4,96.5,100,85,74.4,41.1,70.4,55,2024,120.2,46.6,85.3,135.7,106.7,133.5,yes,7.581294276,47.55852807
+Leiden,Europe,Netherlands,126,Leiden University,NL,XL,FC,VH,A,69.1,26.8,20.2,62.7,85.5,50.2,93.7,26.9,46,54.8,2024,64.3,34.5,50.2,57.4,61,103.3,no,4.484081477,52.15656897
+Bern,Europe,Switzerland,126,University of Bern,CH,M,FO,VH,A,30.5,24.4,54.6,99.2,100,36.9,89.1,26.1,73.6,54.8,2024,110.5,42.3,78.2,108.3,96.5,130.7,yes,7.435611476,46.95037147
+Geneva,Europe,Switzerland,128,University of Geneva,CH,L,FC,VH,A,45.1,14.1,42,75.4,100,96.3,87.3,31,63.1,54.2,2024,109.8,66.8,89.4,114,107.3,112.2,yes,6.142540776,46.19944397
+Gothenburg,Europe,Sweden,129,Chalmers University of Technology,SE,M,FO,VH,B,26.6,51.5,51.1,80.9,100,67.4,52.2,28.7,82.9,54,2024,62,23.6,43.8,61.3,54.2,99.4,yes,11.97390288,57.68937612
+Sydney,Oceania,Australia,130,Macquarie University,AU,L,FC,VH,A,31.6,41,10.3,81.3,98.6,93.6,81.4,43.2,91.8,53.7,2024,75.9,55.4,66.2,76.7,63.3,86.2,yes,151.1100749,-33.7738236
+Vienna,Europe,Austria,130,University of Vienna,AT,XL,FC,VH,A,70.8,42.5,22,14.5,99.3,88.1,93.5,56.8,74.1,53.7,2024,66.2,27.4,47.8,65,61.1,93.4,yes,16.35747548,48.21318547
+Davis,North America,United States,118,"University of California, Davis",US,XL,FC,VH,,63.9,44.7,23.4,59.2,74.8,54.9,77.7,18.9,98.9,56.7,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-121.7642874,38.5382321
+Chapel Hill,North America,United States,132,"University of North Carolina, Chapel Hill",US,XL,FC,VH,A,63,33.9,72.9,42.5,24.7,10.1,82.2,47.9,96.8,53.2,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-79.04948832,35.90491217
+Rome,Europe,Italy,134,Sapienza University of Rome,IT,XL,FC,VH,A,79.2,41,4.6,44.9,3,10.8,96.9,59.8,92,52.9,2024,57.9,28.6,44,53.6,55.8,61.4,yes,12.51186348,41.90376257
+College Station,North America,United States,134,Texas A&M University,US,XL,FC,VH,A,62,59.6,4.5,68.4,23.1,13.3,88.4,30.1,61.3,52.9,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-110.8098797,30.81675
+East Lansing,North America,United States,136,Michigan State University,US,XL,FC,VH,A,59.9,49.4,11.3,58,58.6,12.8,95.6,45.5,71.2,52.7,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-84.55634665,42.72951582
+Gelugor,Asia,Malaysia,137,Universiti Sains Malaysia (USM),MY,L,FC,VH,A,61.4,74.7,55.2,16.2,24.9,88.9,59.6,18.2,85.5,52.6,2024,30.5,8.2,19.9,35.4,18.3,62.1,no,99.69091525,4.339778754
+Hefei,Asia,China,137,University of Science and Technology of China,CN,L,CO,VH,A,52.5,17.5,91.2,98.5,16.8,5.2,32.2,24.8,21.6,52.6,2024,34.1,13.4,24.3,37.6,21,60.5,no,101.5561241,32.046991
+Groningen,Europe,Netherlands,139,University of Groningen,NL,XL,FC,VH,A,52.9,29.9,51.4,42.9,93.5,85.6,92.1,22.3,67.7,52.5,2024,62.8,24.8,44.8,57.4,63.1,100,yes,6.553893898,53.21781449
+Melbourne,Oceania,Australia,140,RMIT University,AU,XL,CO,VH,A,38.6,49.6,5.4,68.6,100,92.8,57.3,28.8,96.2,52.4,2024,70.2,42,56.9,68.8,64.1,100.5,yes,144.9613637,-37.808333
+Nanjing,Asia,China,141,Nanjing University,CN,XL,FC,VH,A,59.6,25.4,31.3,96.9,55.1,7.3,26.4,23.7,39,52.1,2024,31.6,12.6,22.6,37,17.8,63.9,yes,118.7763853,32.05683907
+Montreal,North America,Canada,141,Universite de Montreal ,CA,XL,FC,VH,A,56.6,34.5,77,24.9,88.4,52.2,65.2,36,95.5,52.1,2024,65.5,31.3,49.3,68.7,68.6,84.5,yes,-73.61633412,45.50561557
+Aarhus,Europe,Denmark,143,Aarhus University,DK,L,FC,VH,A,55.8,24.7,32.5,54.1,90.3,13.1,94.8,45.1,98.4,52,2024,77,29.8,54.6,70.1,81.7,103.9,yes,10.17886368,56.15470148
+Jeddah,Asia,Saudi Arabia,143,King Abdulaziz University (KAU),SA,XL,FC,VH,A,54.5,61.6,52.5,37.5,97.5,23.1,84.4,17.3,43.5,52,2024,47.4,12.2,30.7,40.8,32.9,105.1,no,38.45477758,22.13492615
+London,Europe,United Kingdom,145,Queen Mary University of London,UK,L,FC,VH,A,48.8,32.8,38.7,50.7,99.7,99.4,72.8,16.8,69.9,51.9,2024,80.1,71.6,76.1,64.2,79.7,83,yes,-0.071614189,51.520933
+Houston,North America,United States,145,Rice University,US,M,FC,VH,B,38.7,22.9,65.9,82.5,91,94.8,9.8,30,42.6,51.9,2024,68.3,42,55.8,66.4,66.2,139.4,yes,-95.41645209,29.7070727
+Suwon,Asia,South Korea,145,Sungkyunkwan University(SKKU),KR,L,FC,VH,B,64.2,71.6,81.8,37.9,17.8,34,9.8,26.8,27.6,51.9,2024,64.4,17.1,42,83.1,32.4,90.6,no,126.9910311,37.58822697
+Bath,Europe,United Kingdom,148,University of Bath,UK,L,CO,VH,A,35.6,74.3,16.1,61.9,96.3,81.6,59.3,26.5,48.4,51.8,2024,63.7,33.5,49.4,55.5,63.9,90.1,no,-2.329352973,51.37877342
+Mumbai,Asia,India,149,Indian Institute of Technology Bombay (IITB),IN,L,CO,VH,A,55.5,81.9,18.9,73.1,4.7,1.4,8.5,47.4,54.9,51.7,2024,25.2,19,22.2,25.6,21,54.2,yes,72.91253118,19.13306048
+Barcelona,Europe,Spain,149,Universitat Autonoma de Barcelona,ES,XL,FC,VH,A,63.2,39,10.6,70.6,18,17.4,84.2,13.7,94.6,51.7,2024,53.7,32.6,43.7,47.6,52.9,75.2,yes,2.101278676,41.50214207
+Columbus,North America,United States,151,The Ohio State University,US,XL,FC,VH,A,59.4,55.8,53.8,30.8,49.7,16.5,85,35.2,78.4,51.3,2024,71,41.2,56.9,73.2,60.9,106.2,yes,-83.03302952,40.00667227
+Wageningen,Europe,Netherlands,151,Wageningen University & Research,NL,L,FO,VH,A,43.3,19,97.9,46,55,78.5,97.8,19,71.5,51.3,2024,64.3,34.5,50.2,57.4,61,103.3,no,5.665444077,51.98634747
+Exeter,Europe,United Kingdom,153,The University of Exeter,UK,L,FC,VH,A,43,51.1,27.4,43.3,91.6,76.2,89.8,19.7,94.8,50.9,2024,63.7,33.5,49.4,55.5,63.9,90.1,no,-3.543472877,50.72803904
+Bologna,Europe,Italy,154,Alma Mater Studiorum - University of Bologna,IT,XL,FC,VH,A,79.6,40,3.4,49.5,8,10.9,91,34.8,56.5,50.5,2024,65.3,27.1,47.2,62.5,64,57,yes,11.31601999,44.50584579
+Cardiff,Europe,United Kingdom,154,Cardiff University,UK,L,FC,VH,A,46.5,48.3,33.7,39.6,84,70.6,81.6,18.9,97.9,50.5,2024,60.5,29.5,45.8,54.3,58.3,85.6,yes,-3.179391152,51.48537459
+Bologna,Europe,Italy,154,Technische Universitat Berlin (TU Berlin),DE,L,CO,VH,A,56.2,69.3,53,24.9,51.3,68.8,55,25.4,52.1,50.5,2024,65.3,27.1,47.2,62.5,64,57,yes,13.32325158,52.51156597
+St. Louis,North America,United States,154,Washington University in St. Louis,US,L,FC,VH,B,38.6,10.4,99.8,50.7,84.3,68,60.5,33.7,91.4,50.5,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-90.32204996,38.64742103
+Seri Kembangan,Asia,Malaysia,158,Universiti Putra Malaysia (UPM),MY,L,FC,VH,A,58.8,67.5,67.6,22.7,44.3,97.3,45.4,9.7,23.2,50.4,2024,30.5,8.2,19.9,35.4,18.3,62.1,no,101.7030556,2.999540996
+Ghent,Europe,Belgium,159,Ghent University,BE,XL,FC,VH,A,53.4,25.2,78.9,25.1,79.6,21.2,99.8,52,91.3,50.2,2024,63,21.4,43.3,56.1,67.8,90.7,no,3.724798377,51.04665837
+Santiago,Latin America,Chile,159,Universidad de Chile,CL,XL,FC,VH,A,81.5,96.6,9.7,12.5,9,5,48.6,50.4,36.3,50.2,2024,43.1,13.4,29,43.3,40.6,35.7,yes,-72.43413823,-34.40451699
+Bangi,Asia,Malaysia,159,Universiti Kebangsaan Malaysia (UKM),MY,L,FC,VH,A,59.7,70.1,87.5,11.7,52.7,61.1,56.7,11.2,24.4,50.2,2024,30.5,8.2,19.9,35.4,18.3,62.1,no,101.6634593,3.046820855
+Wollongong,Oceania,Australia,162,University of Wollongong,AU,L,FC,VH,A,29.7,25.1,16.3,93.8,95.6,56,72.7,17.1,92.3,50.1,2024,72.8,36.6,55.6,73.9,66.9,93.6,no,150.8752645,-34.40533957
+Santa Barbara,North America,United States,163,"University of California, Santa Barbara (UCSB)",US,L,CO,VH,A,54.8,19,9.5,96.9,70.4,21.6,43.5,10.4,55.8,50,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-119.8515219,34.41396287
+Seoul,Asia,South Korea,164,Hanyang University,KR,L,FC,VH,B,49,81.3,83.5,23.3,16.9,54.3,15.6,24.8,77.7,49.7,2024,70.3,29.1,50.8,92.1,37.4,91.3,yes,127.0428343,37.55717587
+Fukuoka City,Asia,Japan,164,Kyushu University,JP,L,FC,VH,A,57.4,70,85.7,23.9,14.7,25.6,32.8,15.4,77.7,49.7,2024,50.7,15.1,33.8,55.4,30.9,99.5,no,129.500558,32.772756
+Barcelona,Europe,Spain,164,Universitat de Barcelona,ES,XL,FC,VH,A,73.2,23,13.1,41.8,21.8,28.5,97.8,39.8,98.1,49.7,2024,53.7,32.6,43.7,47.6,52.9,75.2,yes,2.161291176,41.38667237
+York,Europe,United Kingdom,167,University of York,UK,L,FC,VH,A,43.5,35.3,45,40.3,88.3,78.2,79.2,19.8,97.8,49.4,2024,63.7,33.5,49.4,55.5,63.9,90.1,no,-1.054346723,53.9461088
+Gainesville,North America,United States,168,University of Florida,US,XL,FC,VH,A,48,58.7,71.3,26.6,18.8,10.8,97.7,39,95.7,49.1,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-82.35590152,29.64654277
+College Park,North America,United States,169,"University of Maryland, College Park",US,XL,FC,VH,A,49.2,26.1,35.1,68.4,31.6,14,85.5,41.6,81.7,48.9,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-76.94382415,38.98262629
+Reading,Europe,United Kingdom,169,University of Reading,UK,L,CO,VH,A,33.2,39.3,16.1,67.4,88.4,81,77.8,32.3,72.5,48.9,2024,63.7,33.5,49.4,55.5,63.9,90.1,no,-0.944670723,51.4403084
+Madrid,Europe,Spain,171,Complutense University of Madrid,ES,XL,FC,VH,A,68.2,69.3,25.8,7,9,25.6,83.4,57.9,96.3,48.8,2024,52.7,31.7,42.7,49.2,52.9,86.4,yes,-3.737465879,40.43110427
+Dublin,Europe,Ireland,171,University College Dublin,IE,L,FC,VH,A,49.8,41.3,20.7,38.9,98.8,60.8,50.5,69,70.1,48.8,2024,73.4,56.9,65.6,63.3,76.7,79.9,yes,-6.224164623,53.30972677
+Doha,Asia,Qatar,173,Qatar University,QA,M,FC,VH,A,27.1,43.9,64.8,38.8,100,96.8,59.8,95.8,35.5,48.7,2024,55.6,42.1,49.2,44.2,51.2,109.6,yes,51.48615578,25.37552818
+Callaghan,Oceania,Australia,173,"The University of Newcastle, Australia (UON)",AU,M,FC,VH,A,29.3,26.9,36.5,91.4,100,17.3,49.2,12.5,93.2,48.7,2024,72.8,36.6,55.6,73.9,66.9,93.6,no,151.7016026,-32.89277177
+Cape Town,Africa,South Africa,173,University of Cape Town,ZA,L,FC,VH,A,44.4,51,12.6,45.7,59.9,21.2,95.4,88.9,75.1,48.7,2024,34.6,16.7,26.1,29.6,29.7,86.9,yes,18.45862418,-33.9576519
+Rotterdam,Europe,Netherlands,176,Erasmus University Rotterdam ,NL,XL,FO,VH,A,37.3,50.9,22.5,53.4,83,60.1,71.6,63.7,49.4,48.5,2024,61.9,33.6,48.5,57.2,56.4,116.4,yes,4.465782781,51.92000156
+Nagoya,Asia,Japan,176,Nagoya University,JP,L,FC,VH,A,61.5,65.1,87.5,33,15.4,19.1,17.6,16.6,24.1,48.5,2024,50.7,15.1,33.8,55.4,30.9,99.5,no,136.9656653,35.15385527
+Liverpool,Europe,United Kingdom,176,University of Liverpool,UK,L,FC,VH,A,44.4,35,39.7,37.9,87.8,79,97.2,25.6,72,48.5,2024,66.4,25.4,46.9,57.6,64.1,81.2,yes,-2.967873923,53.4047823
+Phoenix,North America,United States,179,Arizona State University,US,XL,CO,VH,A,46.7,36.7,6.8,61.5,64.5,30.1,87.9,26.6,97.3,48.1,2024,69,41.4,55.9,65.2,69.5,130.6,yes,-111.9304055,33.42299747
+Dhahran,Asia,Saudi Arabia,180,King Fahd University of Petroleum & Minerals,SA,M,FC,VH,A,32.9,36.5,82.8,65.8,100,31.8,25.7,38.9,20.9,48,2024,47.4,12.2,30.7,40.8,32.9,105.1,no,50.14331888,26.30706238
+Louvain-la-Neuve,Europe,Belgium,180,Universite catholique de Louvain (UCLouvain),BE,L,FC,VH,B,49.1,30.8,4.4,60.2,89.4,39.3,83.2,51.7,54.6,48,2024,63,21.4,43.3,56.1,67.8,90.7,no,4.613300077,50.66967667
+Calgary,North America,Canada,182,University of Calgary,CA,XL,FC,VH,A,37.7,61.2,19.9,41.5,82.8,62,62.3,38.6,91.5,47.9,2024,72.3,33.2,53.8,71.3,64,99.7,yes,-114.1372409,51.0783738
+Perth,Oceania,Australia,183,Curtin University,AU,L,CO,VH,A,32.4,31.8,14.3,86.2,100,26.4,84.9,25.7,50.6,47.8,2024,75.6,38.8,58.2,76.9,69.9,97.1,yes,36.04925965,-2.22972849
+Lyon,Europe,France,184,Ecole Normale Superieure de Lyon,FR,S,CO,VH,A,30.5,14.4,95.7,98.4,70.8,14.6,34.3,10,5.9,47.6,2024,68.9,23.4,47.3,73,57.1,92.4,yes,4.825154196,45.73153963
+Vienna,Europe,Austria,184,Technische Universitat Wien,AT,M,FO,VH,A,32.9,44.4,13.1,85.7,79.3,89,45.1,13.2,19,47.6,2024,66.2,27.4,47.8,65,61.1,93.4,yes,16.36588768,48.19865457
+Monterry,Latin America,Mexico,184,Tecnologico de Monterrey,MX,XL,FC,HI,B,51.3,96.8,63.5,2.3,32.7,11.7,13.5,88.3,65.7,47.6,2024,43.8,17,31.1,45.6,36.7,38,no,-100.3066773,25.6423714
+Gothenburg,Europe,Sweden,187,University of Gothenburg,SE,L,FC,VH,A,36.2,16.9,56.3,39.4,90.6,80.8,86.4,46.3,97.6,47.3,2024,62,23.6,43.8,61.3,54.2,99.4,yes,11.96900738,57.69838547
+Skudai,Asia,Malaysia,188,Universiti Teknologi Malaysia ,MY,L,CO,VH,A,46.6,63.8,42.5,33.9,16,85.2,58.6,13.6,66.8,46.9,2024,30.5,8.2,19.9,35.4,18.3,62.1,no,103.6343899,1.558512798
+Hamilton,North America,Canada,189,McMaster University,CA,L,FC,VH,A,40.5,38.2,75.1,29,99.3,59.5,40.2,37.2,70.1,46.8,2024,68.4,36,53.1,70.7,64,83.3,no,-79.92180032,43.26087897
+Brisbane,Oceania,Australia,189,Queensland University of Technology (QUT),AU,XL,CO,VH,A,40.9,37.6,7.4,64.9,96,26.4,68.8,16.8,90.6,46.8,2024,70.9,38.6,55.6,71.2,67.1,96.3,yes,153.02447,-27.477313
+Brussels,Europe,Belgium,189,Universite libre de Bruxelles,BE,L,FC,VH,A,34.4,38.9,3.3,63.3,97.1,85,69.1,35.7,60.4,46.8,2024,67.3,29.8,49.5,62.2,69.8,93.5,yes,4.379647277,50.81320677
+Freiburg im Breisgau,Europe,Germany,192,Albert-Ludwigs-Universitaet Freiburg,DE,L,FC,VH,A,46.1,19.8,29.1,63.3,68.8,36.3,82.7,25.3,68.2,46.7,2024,66.3,27.3,47.8,63.7,53.9,95.6,yes,7.843363226,47.99277202
+Paris,Europe,France,192,Ecole des Ponts ParisTech,FR,S,FO,VH,A,8.3,57.9,98.2,80.7,34.6,96.8,5.6,30,19.2,46.7,2024,75.4,42,59.5,78.7,70.1,81.4,yes,2.585828876,48.84111987
+Wuhan,Asia,China,194,Wuhan University,CN,XL,FC,VH,A,40.9,44,12.8,87.4,40.7,5,48.4,35,44.4,46.6,2024,32.7,8.6,21.2,35.7,19.2,60.7,yes,114.361747,30.53604847
+Minneapolis,North America,United States,195,University of Minnesota Twin Cities,US,XL,FC,VH,A,59,30.2,30.6,46.4,5.5,9.1,86.1,41.9,88.5,46.4,2024,75,37.7,57.3,72.6,71.7,124.5,yes,-93.25373121,44.9761326
+Sapporo,Asia,Japan,196,Hokkaido University,JP,L,FC,VH,A,57.3,66,75.8,27.8,17.5,14.4,38.1,12.9,30.7,46.2,2024,50.7,15.1,33.8,55.4,30.9,99.5,no,141.3374381,43.07795747
+New Delhi,Asia,India,197,Indian Institute of Technology Delhi (IITD),IN,M,CO,VH,A,51.2,75.9,22,64.3,2.4,1.4,6.6,32.8,37.5,46.1,2024,22.2,6.2,14.6,23.5,15.6,60.7,no,76.95770545,28.5664958
+Bogota,Latin America,Colombia,198,Universidad de los Andes,CO,L,FC,HI,B,65.4,95.7,17.6,5.9,26.4,2,11.1,96.2,40.2,46,2024,31.7,10.2,21.5,30.9,22.5,26.3,yes,-92.98593944,-13.363895
+Atlanta,North America,United States,166,Emory University,US,L,FC,VH,,25.6,16.4,97.3,84,53.5,32.4,56.8,23.6,85.7,49.6,2024,80.3,47.4,64.7,81,78,139.2,yes,-84.32481492,33.79713677
+Mardrid,Europe,Spain,199,Universidad Autonoma de Madrid,ES,L,FC,VH,A,60.4,57.7,34.5,25.1,7.8,12,80.4,19.6,88.8,45.9,2024,48.4,23.6,36.6,45.1,44,78.2,no,-3.696936824,40.5466982
+Tokyo,Asia,Japan,199,Waseda University,JP,XL,CO,VH,B,60.2,97.3,23.7,4.3,27.6,28.6,17.5,65.6,56.5,45.9,2024,57.4,29.3,44.1,67,35.4,98.6,yes,139.7170736,35.70873337
+Belfast,Europe,United Kingdom,202,Queen's University Belfast,UK,L,FC,VH,A,33.6,30.3,27.5,43.5,100,98.9,84.1,14.3,91,45.8,2024,62.7,25.5,45.1,54.2,76,88.7,yes,-5.944691023,54.59136096
+Riyadh,Asia,Saudi Arabia,203,King Saud University,SA,XL,FC,VH,A,36.9,21.3,64.2,32.2,99.7,21.3,88.6,71.7,75.8,45.2,2024,51.2,27.2,39.8,41.7,38.6,103.1,yes,46.5833166,24.72406697
+Ottawa,North America,Canada,203,University of Ottawa,CA,XL,FC,VH,A,26.5,29.7,3.8,79.1,85.9,75.9,85.8,24.3,54.6,45.2,2024,73.3,37.9,56.5,68.7,80.6,81.1,yes,-75.68766977,45.42416687
+Hamburg,Europe,Germany,205,Universitat Hamburg,DE,L,FC,VH,A,51,28.7,16.9,60,41.6,22.3,87.2,26.8,52.8,45.1,2024,69.8,27.8,49.9,61.4,64.9,98.9,yes,9.904678198,53.51352257
+Dunedin,Oceania,New Zealand,206,University of Otago,NZ,L,FC,VH,A,46.3,27.1,11,51,100,29.2,38.1,44.7,98.1,45,2024,68.2,28.8,49.5,71.7,58.8,93,no,168.2744903,-45.44307646
+Amsterdam,Europe,Netherlands,207,Vrije Universiteit Amsterdam,NL,XL,FC,VH,A,39.6,15.7,23.6,68.1,68.5,40.2,70.1,20.2,89.1,44.9,2024,69.9,49.9,60.4,58.1,76.7,90,yes,4.863144977,52.33375677
+Aberdeen,Europe,United Kingdom,208,University of Aberdeen,UK,L,FC,VH,A,29.6,32.5,29.6,42.1,95.8,96.7,73.3,20.5,98.1,44.6,2024,65.1,24.4,45.8,56.1,61.3,113.8,yes,-2.104040823,57.16477607
+Kingston,North America,Canada,209,Queen's University at Kingston,CA,L,FC,VH,A,40.5,56.7,5.3,45.1,70.1,30.6,22.5,71.5,85.4,44.5,2024,68.4,36,53.1,70.7,64,83.3,no,-76.49771612,44.22527947
+Enschede,Europe,Netherlands,210,University of Twente,NL,M,FO,VH,A,20.6,38.3,39.4,65.3,99.3,91.1,67.6,12.6,33.2,44.4,2024,64.3,34.5,50.2,57.4,61,103.3,no,6.847215077,52.23965377
+Bangkok,Asia,Thailand,211,Chulalongkorn University,TH,XL,FC,VH,A,66.6,50.1,31.5,7,15,2.9,49.4,87.2,85.9,44.3,2024,42.4,18.2,30.9,46.5,20.8,31.9,yes,100.5258448,13.73853695
+Loughborough,Europe,United Kingdom,212,Loughborough University,UK,L,CO,VH,A,30.5,66.8,23.6,34.6,87.3,63.5,77.1,18.8,63.4,44.2,2024,63.7,33.5,49.4,55.5,63.9,90.1,no,-1.234665323,52.7650252
+Tubingen,Europe,Germany,213,Eberhard Karls Universitat Tubingen,DE,L,FC,VH,A,45.8,29.9,92.9,19.7,67.6,26.7,89.9,21.1,42.3,44.1,2024,62.7,26.3,45.4,57.6,52.5,101,no,9.057848576,48.52527127
+Tokyo,Asia,Japan,214,Keio University,JP,XL,FC,VH,B,51.4,93.5,58,6,9.6,9.2,9.2,79.8,39.3,44,2024,57.4,29.3,44.1,67,35.4,98.6,yes,139.7405938,35.64895957
+Tel Aviv,Asia,Israel,215,Tel Aviv University,IL,L,FC,VH,A,33.2,23.6,3.8,99.9,40.4,4.6,39.5,72.9,38.4,43.9,2024,67.2,31.2,50.1,60.2,71.9,79.5,no,34.80103408,32.11349597
+Shanghai,Asia,China,216,Tongji University,CN,XL,FC,VH,A,34.4,13.1,28.8,91.8,56.7,32.6,21.3,18,65.4,43.5,2024,42.1,30.7,36.7,45.8,26.9,60.4,yes,121.3617502,31.2739382
+Hsinchu ,Asia,Taiwan,217,National Yang Ming Chiao Tung University,TW,L,FC,VH,A,33.3,67.9,53.9,52.1,19,18.5,4.4,44.6,54.3,43.3,2024,49,13.7,32.2,61.8,24.8,80,no,120.9180513,24.95258446
+Brighton,Europe,United Kingdom,218,University of Sussex,UK,L,FC,VH,A,22.9,8.9,14.6,70.9,96.1,93,62.9,30.6,97.2,43.1,2024,68.8,44.5,57.3,60.6,68,78.1,yes,-0.145142386,50.8430824
+Padova,Europe,Italy,219,Universita di Padova,IT,XL,FC,VH,A,57.3,22,7.8,51.8,12.9,9.4,91.3,13.8,95,43,2024,60.9,25.9,44.3,55.8,55.5,57,yes,11.87223467,45.40822303
+Campinas,Latin America,Brazil,220,Universidade Estadual de Campinas (Unicamp),BR,XL,FC,VH,A,70.3,50.1,13,24.9,11.7,2.9,53.7,9.6,74.8,42.7,2024,35.2,9,22.8,32.4,26,30.1,no,-47.09666452,-22.81900532
+Lausanne,Europe,Switzerland,220,University of Lausanne,CH,L,FO,VH,A,29.4,15.1,36.6,65.1,99.9,56.6,48,27.9,61.6,42.7,2024,117.7,46.4,83.9,123.3,106.2,106.7,yes,6.577585676,46.52108947
+Nijmegen,Europe,Netherlands,222,Radboud University ,NL,L,FC,VH,A,28.9,13.9,27.6,74.9,78.3,20.2,78.8,15.7,82.7,42.5,2024,64.3,34.5,50.2,57.4,61,103.3,no,5.861243777,51.82201887
+Pittsburgh,North America,United States,222,University of Pittsburgh,US,L,FC,VH,A,37.9,15.2,96.1,38.7,7,14.9,81.1,33.1,90.5,42.5,2024,76.1,37.6,57.8,84.8,62,114.3,yes,-79.9631933,40.44443589
+Rochester,North America,United States,224,University of Rochester,US,M,FC,VH,B,22.1,18.4,97.9,51.6,71.4,91.7,31.3,26.6,33.2,42.4,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-77.62857822,43.13055307
+Bangalore,Asia,India,225,Indian Institute of Science,IN,S,SP,,A,41.5,20,46.4,100,4.8,1.7,4.4,13.8,10.7,42.1,2024,29.4,11.4,20.8,31.3,23.1,101.5,yes,77.56514108,13.01438809
+Beirut ,Asia,Lebanon,226,American University of Beirut (AUB),LB,M,FC,VH,B,27.6,41.6,57.3,24.2,67.8,46.8,35.6,88.5,93.2,41.9,2024,46.3,16.5,32.2,33.4,37.8,20.7,no,35.47816908,33.90083587
+Bogota,Latin America,Colombia,226,Universidad Nacional de Colombia,CO,XL,FC,HI,A,69.5,96.8,6.1,3.5,6.4,1.5,13.3,29.9,49.7,41.9,2024,31.7,10.2,21.5,30.9,22.5,26.3,yes,-86.89858747,6.9517808
+Tainan City,Asia,Taiwan,228,National Cheng Kung University (NCKU),TW,L,FC,VH,A,49.4,75.6,32.9,21.2,23.7,15.7,10.9,30.2,78.2,41.8,2024,49,13.7,32.2,61.8,24.8,80,no,120.2142815,22.99676248
+Erlangen,Europe,Germany,229,Friedrich-Alexander-Universitat Erlangen-Nernberg,DE,L,FC,VH,A,25.2,20.9,2.8,95.8,26.8,39.9,75.1,15.5,69.9,41.7,2024,66.3,29.8,49,58.4,54.8,118.7,yes,11.00196878,49.59791167
+Almaty,Asia,Kazakhstan,230,Al-Farabi Kazakh National University,KZ,L,FC,HI,A,51.4,74.9,98.9,1.4,28.8,34,12,11.5,5.1,41.6,2024,35.9,19.4,28.1,33.3,33.7,37.7,yes,76.92000558,43.22526017
+Abu Dhabi,Asia,United Arab Emirates,230,Khalifa University of Science and Technology,AE,S,SP,,A,19.7,20.4,87.2,48.3,100,75.3,29.6,9,66.5,41.6,2024,59.3,46.8,53.4,43.1,63.6,105.9,yes,54.22896433,24.38647392
+Gottinge,Europe,Germany,232,University of Gottingen,DE,L,FC,VH,A,47.4,29,70.1,17.7,49.5,22.5,91.8,21.9,55.5,41.4,2024,62.7,26.3,45.4,57.6,52.5,101,no,9.935020277,51.54149457
+Geelong,Oceania,Australia,233,Deakin University,AU,XL,FC,VH,A,29.6,25.8,4.8,67.4,96.7,59.9,51.4,26.2,54.3,41.3,2024,72.8,36.6,55.6,73.9,66.9,93.6,no,59.79383752,-3.20256381
+Hsinchu City,Asia,Taiwan,233,National Tsing Hua University,TW,L,CO,VH,A,53.1,67.7,28.3,38.3,16.8,20.1,6.7,15.9,30.5,41.3,2024,49,13.7,32.2,61.8,24.8,80,no,120.994095,24.79612167
+Edinburgh,Europe,United Kingdom,235,Heriot-Watt University,UK,M,CO,VH,A,16.4,21.1,18.6,79.4,100,97.6,40.2,21.3,43.5,41.2,2024,69.7,38.8,55.1,64,70.6,85.3,yes,-3.323220923,55.9095154
+Paris,Europe,France,236,Universite de Paris-Cite,FR,XL,FO,VH,A,31.6,5.9,9.2,93.7,19.3,41.5,99.6,11.6,46,41.1,2024,75.4,42,59.5,78.7,70.1,81.4,yes,2.315808334,48.83766931
+Hanover,North America,United States,237,Dartmouth College,US,M,FC,VH,B,21.1,24.2,57.9,78.6,5.3,33.9,6.6,72.1,66.8,40.9,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-72.29126842,43.70444057
+Depok,Asia,Indonesia,237,Universitas Indonesia,ID,XL,FC,VH,A,50.5,73,50.4,2,75.8,4.8,2,58.7,42.3,40.9,2024,28.5,8.3,18.9,33.6,14.4,25.8,no,106.753467,-6.280460256
+Palmerston North,Oceania,New Zealand,239,Massey University,NZ,M,CO,VH,A,30.4,16,43.2,22.7,98.2,97.9,65.2,44.9,94.7,40.6,2024,68.2,28.8,49.5,71.7,58.8,93,no,172.5203615,-38.9873536
+Bonn,Europe,Germany,239,Rheinische Friedrich-Wilhelms-Universitat Bonn,DE,L,FC,VH,A,52.4,19.8,58,22.1,41.5,37.5,90.7,25.9,35.2,40.6,2024,65.9,25.5,46.7,58.2,62.2,84.3,yes,7.084945473,50.73179075
+"Kelburn, Wellington",Oceania,New Zealand,241,Victoria University of Wellington,NZ,L,CO,VH,A,44.8,25.5,9.1,32.3,99.5,34.6,38.1,47,93.6,40.5,2024,68.2,28.8,49.5,71.7,58.8,93,no,92.48291701,-10.302341
+Melbourne,Oceania,Australia,242,La Trobe University,AU,L,CO,VH,A,22.6,20.2,6.9,77.5,94.4,98.4,45.8,14.3,28.9,40.3,2024,70.2,42,56.9,68.8,64.1,100.5,yes,142.4670433,-35.7300927
+Nathan,Oceania,Australia,243,Griffith University,AU,XL,FC,VH,A,26.5,16.2,7.5,65.8,100,31.7,72.7,15.5,93.3,40.1,2024,72.8,36.6,55.6,73.9,66.9,93.6,no,91.51307431,-24.157415
+Guildford,Europe,United Kingdom,244,University of Surrey,UK,L,CO,VH,A,20.4,23.4,23.2,56.2,96.8,88.3,71.1,16.8,57.7,39.9,2024,63.7,33.5,49.4,55.5,63.9,90.1,no,-0.592041323,51.2431428
+Amherst,North America,United States,245,University of Massachusetts Amherst,US,L,CO,VH,A,39.5,11.9,10.7,57.6,71,23.8,52,27.7,93.5,39.8,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-72.53262642,42.38675977
+Darmstadt,Europe,Germany,246,Technical University of Darmstadt,DE,L,FO,VH,A,21,37.5,6.2,79,62.6,74.6,32.5,33.5,19.9,39.7,2024,62.7,26.3,45.4,57.6,52.5,101,no,8.653788477,49.87486987
+Dresden,Europe,Germany,246,Technische Universitat Dresden,DE,L,FC,VH,A,37.5,37.7,91.2,14.8,46.2,35.2,87.4,11.2,30.7,39.7,2024,61.7,20,41.9,54.8,53,103.8,yes,13.72634008,51.02923667
+Prague,Europe,Czech Republic,248,Charles University,CZ,XL,FC,VH,A,45.5,43.5,34.8,9.4,24.8,51.2,90.9,27.6,83.9,39.6,2024,51.5,26.8,39.8,45.5,38.9,65,yes,14.42109488,50.08675972
+Antwerp,Europe,Belgium,248,University of Antwerp,BE,L,FC,VH,A,23.7,11.8,45.3,49.2,90.9,32.3,90,29.6,80.4,39.6,2024,67.1,23.2,46.3,59.1,71.2,83.2,yes,4.407664077,51.22280737
+Hamilton ,Oceania,New Zealand,250,University of Waikato,NZ,M,CO,VH,A,18.4,13.2,11.3,75,99.3,73.3,17.5,44.5,79.8,39.5,2024,68.2,28.8,49.5,71.7,58.8,93,no,175.3156909,-37.78667067
+Jerusalem,Asia,Israel,251,The Hebrew University of Jerusalem,IL,L,FC,VH,A,34.3,29.1,81.2,22.5,54.7,16,37.1,77.7,50.9,39.3,2024,66.1,38.5,53,59.3,70.2,72.3,yes,35.23882598,31.79455777
+Turin,Europe,Italy,252,Politecnico di Torino,IT,XL,FO,VH,A,38.5,44.9,2.4,57.9,4.1,46.7,49.9,21.3,57.4,39.2,2024,59.6,18.2,39.9,58.4,55.2,66.2,yes,7.610783079,45.04680024
+Porto,Europe,Portugal,253,University of Porto,PT,XL,FC,VH,A,39.8,22.9,11.1,58.1,7.3,18.7,93.8,17.6,77.3,39,2024,45.6,24.3,35.5,43.2,35.7,61.5,yes,-8.618274724,41.14654787
+Macau,Asia,Macau ASR,254,University of Macau,MO,M,FO,VH,A,10.6,14.2,12.2,96.9,100,99.3,11.4,41.6,4.3,38.9,2024,50,,,,,,no,113.5432046,22.13000198
+Cleveland,North America,United States,255,Case Western Reserve University,US,M,FC,VH,B,18.4,17.1,83,63.9,38.2,68.3,21,27,34.6,38.8,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-81.6119464,41.50869379
+Harbin,Asia,China,256,Harbin Institute of Technology,CN,L,FO,VH,A,28.6,14.9,41.6,98.8,8.6,8.4,23.2,20.3,15.4,38.7,2024,34.1,13.4,24.3,37.6,21,60.5,no,126.6308557,45.74704357
+Maastricht,Europe,Netherlands,256,Maastricht University ,NL,L,FO,VH,A,23.4,22.3,12.8,62.7,99.5,100,46.5,27,13.7,38.7,2024,67.4,29.3,49.3,59,59.1,97.6,yes,5.676553908,50.84322609
+Christchurch,Oceania,New Zealand,256,University of Canterbury | Te Whare Wananga o Waitaha,NZ,L,CO,VH,A,33.8,33.1,10.9,32.8,99.8,35.3,21.9,62.6,97.1,38.7,2024,64.9,30.1,48.4,72.4,56.5,103.6,yes,172.5768605,-43.52248357
+Brussels,Europe,Belgium,259,Vrije Universiteit Brussel (VUB),BE,L,FC,VH,A,23.1,16.8,75.9,22,93.6,59.2,88.4,31.1,67.4,38.6,2024,67.3,29.8,49.5,62.2,69.8,93.5,yes,4.394332477,50.82223287
+Charlottesville,North America,United States,260,University of Virginia,US,L,FC,VH,A,35.6,32,56.9,34.1,7.9,10.8,57.7,68.5,63.1,38.5,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-78.51055212,38.03355287
+Nashville,North America,United States,261,Vanderbilt University,US,L,FC,VH,B,25.2,19.8,100,37.2,36.4,34.6,47.1,35.7,51.2,38.4,2024,77,51.8,65,78.4,71,114.4,yes,-86.80523002,36.14470337
+Warsaw,Europe,Poland,262,University of Warsaw ,PL,XL,CO,VH,A,48.7,53.4,41.9,6.3,9.8,8.6,62.1,36.7,80,38.1,2024,46,26.4,36.7,38.2,41.4,73,yes,21.01602628,52.24034627
+Yogyakarta,Asia,Indonesia,263,Gadjah Mada University,ID,XL,FC,HI,A,51.7,66.5,54.4,1.7,38.5,1.6,2.1,42.6,47.2,38,2024,28.5,8.3,18.9,33.6,14.4,25.8,no,110.3678526,-7.76650302
+Boulder,North America,United States,264,University of Colorado Boulder,US,XL,CO,VH,A,36.9,13.5,33.2,49.4,27.1,5.5,68.6,30.8,96.4,37.9,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-105.268562,40.0073498
+Johannesburg,Africa,South Africa,264,University of Witwatersrand,ZA,L,FC,VH,A,25.7,43,10.9,27.7,79.9,7.5,92.4,96.7,62.5,37.9,2024,36.1,10.8,24.1,28.9,29.4,88.3,yes,28.02222924,-26.1884992
+Ulsan,Asia,South Korea,266,Ulsan National Institute of Science and Technology (UNIST),KR,S,FO,VH,A,15,11.9,84.1,98.6,41.5,10.9,1.2,8.4,1.8,37.7,2024,64.4,17.1,42,83.1,32.4,90.6,no,129.1870541,35.57341757
+Lisbon ,Europe,Portugal,266,University of Lisbon ,PT,XL,FC,VH,A,42.2,21,12.7,35.1,9.3,30.7,97.4,65.8,66.5,37.7,2024,46.6,25.4,36.5,42.9,37.9,46.5,no,-9.160819924,38.75265777
+Linkoping,Europe,Sweden,268,Linkoping University,SE,L,CO,VH,A,19,26.6,34.8,48.8,77.8,30.3,57.9,34.7,87.4,37.5,2024,62.2,23.1,43.6,61.8,56.1,94.6,no,15.57343228,58.39783637
+Irvine,North America,United States,268,"University of California, Irvine",US,XL,FC,VH,A,37.6,16.6,14.6,50.3,56.9,49.6,65.3,11.4,58.6,37.5,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-117.8583561,33.65339812
+Cologne,Europe,Germany,268,University of Cologne,DE,L,FO,VH,A,36.9,38.5,19.3,31.2,40.5,30.9,80.9,37,57.4,37.5,2024,61.2,26.5,44.7,59.7,50.7,106.5,yes,6.926785877,50.92826317
+Kharagpur,Asia,India,271,Indian Institute of Technology Kharagpur (IIT-KGP),IN,L,FO,VH,A,32.2,43.5,11.8,85.8,3.1,1.3,10.7,21.5,18,37.4,2024,22.2,6.2,14.6,23.5,15.6,60.7,no,87.30795618,22.31492738
+Beijing,Asia,China,272,Beijing Normal University ,CN,L,CO,VH,A,38.4,6.8,25.6,86.4,7.1,23.3,22.8,12.2,30.5,37.3,2024,37.1,26.4,32,37.8,23.9,82.2,yes,116.3546162,39.94890402
+Leicester,Europe,United Kingdom,272,University of Leicester,UK,L,FC,VH,A,21.2,14.2,36.1,45.3,80.8,94.1,75.7,17.8,50.9,37.3,2024,63.7,33.5,49.4,55.5,63.9,90.1,no,-1.127207423,52.62113927
+Raleigh,North America,United States,274,North Carolina State University,US,XL,CO,VH,A,27.8,25,8.9,67.3,63,15.3,49.6,20.8,64.5,37.2,2024,77.3,53.7,66.1,75.9,73.2,101.1,yes,-78.68385732,35.78507437
+Wuhan,Asia,China,275,Huazhong University of Science and Technology,CN,XL,FC,VH,A,22.7,29.2,10,99.3,5.5,3.2,45.4,16.8,27.1,37.1,2024,32.7,8.6,21.2,35.7,19.2,60.7,yes,114.4177007,30.51300427
+Milan,Europe,Italy,276,University of Milan,IT,XL,FC,VH,A,51.2,12.7,5.6,47.8,7.5,6.8,59,24.2,92.1,37,2024,69.7,40.6,55.9,65,70.1,49.8,yes,9.191554876,45.46034197
+Glasgow,Europe,United Kingdom,276,University of Strathclyde,UK,L,CO,VH,A,26.3,34.6,17.7,33.7,93.3,67,61.6,24,59.2,37,2024,66.2,31.7,49.8,58.3,64.5,94.5,yes,-4.246108273,55.86154382
+Kanpur,Asia,India,278,Indian Institute of Technology Kanpur (IITK),IN,M,CO,VH,A,34.7,49.3,14.2,75.5,2.1,1.1,3.3,20.6,21.8,36.9,2024,22.2,6.2,14.6,23.5,15.6,60.7,no,80.23032508,26.51233878
+Miami,North America,United States,278,University of Miami,US,L,FC,VH,B,20.1,44.7,76.8,19.2,84.2,22.8,55,37,50.6,36.9,2024,77.7,71.4,74.7,71,87.4,90.9,yes,-80.28070112,25.71739468
+Pamplona,Europe,Spain,280,University of Navarra,ES,L,FC,HI,B,29,61.2,56.5,15.1,25.2,74.8,28.9,28.4,45.6,36.8,2024,48.4,23.6,36.6,45.1,44,78.2,no,-1.662033624,42.80146917
+Bandung,Asia,Indonesia,281,Bandung Institute of Technology (ITB),ID,L,CO,VH,A,41,65.6,65.6,2.5,84.4,2.3,1.2,35.7,21.2,36.6,2024,28.5,8.3,18.9,33.6,14.4,25.8,no,107.6080842,-6.89147999
+Bergen,Europe,Norway,281,University of Bergen,NO,L,FC,VH,A,32.7,5.4,67.1,31.2,92.3,14.3,69.3,23.6,57.7,36.6,2024,84.5,28,57.7,83.1,81.9,82.2,yes,5.319179977,60.38785858
+Stellenbosch,Africa,South Africa,283,Stellenbosch University,ZA,L,FC,VH,A,25,39.4,3.1,59.9,20,7.8,92,50.1,44.1,36.5,2024,33.8,11.8,23.4,27.6,28.7,84.7,no,18.86187208,-33.93280777
+Subang Jaya,Asia,Malaysia,284,Taylor's University,MY,S,FO,VH,C,24,82.8,63.3,8.5,54.1,98.8,3.8,10.5,2.3,36.2,2024,30.5,8.2,19.9,35.4,18.3,62.1,no,97.5169598,3.683195963
+Chennai,Asia,India,285,Indian Institute of Technology Madras (IITM),IN,M,CO,VH,A,40.1,55.9,26.6,54.7,2.6,1.4,2.7,26,6.5,36.1,2024,22.7,5.8,14.7,26.1,12.6,82.6,yes,80.23111578,12.99149289
+Melbourne,Oceania,Australia,285,Swinburne University of Technology,AU,L,CO,VH,A,13.4,12,11,89.5,97.9,65.5,23.9,10.8,25.8,36.1,2024,70.2,42,56.9,68.8,64.1,100.5,yes,82.9169295,-12.4416045
+Tucson,North America,United States,285,The University of Arizona,US,XL,FC,VH,A,38.5,18.4,72.5,19.5,11,9.3,88,31,71.5,36.1,2024,78.2,37.3,58.8,76.3,75,105.4,yes,-110.9561156,32.23189807
+Tianjin,Asia,China,285,Tianjin University,CN,L,CO,VH,A,18.7,8.6,34.7,98.2,24.3,27.4,18.6,24,25.6,36.1,2024,34.1,13.4,24.3,37.6,21,60.5,no,116.7234696,39.18910164
+Galway,Europe,Ireland,289,University of Galway,IE,L,FC,HI,A,26.3,28.2,61.2,13.5,92.3,39.3,45.7,30.7,90.6,36,2024,62.4,42.9,53.1,58.2,59.6,86.3,yes,-9.064312123,53.27915487
+Al Ain,Asia,United Arab Emirates,290,United Arab Emirates University,AE,M,FC,VH,A,28.3,37.8,52.6,13.8,100,38.7,56.5,60.9,16.3,35.9,2024,57.8,46.9,52.6,45,50,98.7,no,55.67345908,24.20058798
+Xian ,Asia,China,291,Xian Jiaotong University,CN,XL,FC,VH,A,21.4,42.2,17.4,80.9,4.4,4.1,36.8,20.8,34.6,35.8,2024,34.1,13.4,24.3,37.6,21,60.5,no,108.9811181,34.25080297
+Trondheim,Europe,Norway,292,Norwegian University of Science And Technology,NO,XL,FC,VH,A,34,19.4,23.6,27.5,76.1,10.3,88.9,51,65.7,35.7,2024,86.3,30.2,59.7,77.9,87.9,91.5,yes,10.38606314,63.42426723
+Cork,Europe,Ireland,292,University College Cork,IE,L,FC,VH,A,28.4,36.3,29.4,21.6,94.8,47.1,25.1,23.5,96.1,35.7,2024,68.7,43,56.5,62.1,66,91.2,yes,-8.494645423,51.89348597
+Grenoble,Europe,France,294,Universite Grenoble Alpes,FR,XL,FC,VH,A,44.5,10.1,7.8,48.8,18.4,34.9,92.6,14.2,40.8,35.6,2024,66,22.3,45.3,68.6,57.9,83.4,no,5.704550531,45.19163244
+Hong Kong,Asia,Hong Kong (China),295,Hong Kong Baptist University,HK,M,CO,VH,A,19.4,12.6,56,51.9,97.8,100,2.6,15.1,17.2,35.4,2024,71.5,61.4,66.7,79.6,47,84.1,yes,114.1773008,22.34080877
+Norwich,Europe,United Kingdom,295,University of East Anglia (UEA),UK,L,FC,VH,A,19.2,8.5,16.8,66,68,38.2,64.8,12.7,84.3,35.4,2024,63.7,33.5,49.4,55.5,63.9,90.1,no,1.238508877,52.62205227
+Washington D.C.,North America,United States,297,Georgetown University,US,L,FC,VH,B,30.3,34.4,59,18.6,17,39.8,14.4,87.8,66.8,35.3,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-77.07483342,38.90760887
+Halifax,North America,Canada,298,Dalhousie University,CA,L,FC,VH,A,19.2,18,16,41.8,99,74.7,37.2,21.6,94.4,34.9,2024,69.6,37,54.2,72.5,61.6,72.4,yes,-63.59774862,44.63563127
+New Brunswick,North America,United States,299,Rutgers University New Brunswick,US,XL,CO,VH,A,36.9,24.7,48.7,18.1,18.9,32.8,59.7,20.7,95.9,34.8,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-74.44999232,40.50084047
+Kuala Lumpur,Asia,Malaysia,300,UCSI University,MY,M,CO,HI,C,22.5,58.4,72.6,3.2,83.7,98,1.3,15.8,24.6,34.7,2024,34.6,11.8,23.8,39.9,22,77.8,yes,101.7295071,3.081340538
+Shenzhen,Asia,China,301,Southern University of Science and Technology,CN,M,FO,VH,A,9.1,2.1,94.6,95,37.2,1.5,6.8,7.4,6.9,34.6,2024,36.9,19.3,28.5,41.1,24.5,82,yes,113.9963651,22.59396898
+Frankfurt,Europe,Germany,302,Goethe-University Frankfurt am Main,DE,XL,FC,VH,A,44.4,29.1,21.4,21.3,41.3,25.6,82.1,11.5,46.6,34.5,2024,63.9,31.8,48.7,56.9,60.5,123.7,yes,8.665188577,50.12706747
+Blacksburg,North America,United States,302,Virginia Polytechnic Institute and State University,US,XL,FC,VH,A,26.2,40.4,18.7,34.8,71.7,17.9,70,20.7,52.8,34.5,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-80.42599162,37.22838427
+Krakow,Europe,Poland,304,Jagiellonian University,PL,XL,FC,VH,A,37.3,47.2,65.1,6.2,4.9,13.4,59.4,27.9,57.7,34.3,2024,41.9,19.2,31.1,35.9,35.7,66.2,no,19.93032328,50.06106447
+Notre Dame,North America,United States,304,University of Notre Dame,US,L,CO,VH,B,26.5,32.2,59.7,39.1,23.3,17.7,32,45.2,34.6,34.3,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-86.23811882,41.70505037
+Johannesburg,Africa,South Africa,306,University of Johannesburg,ZA,L,CO,VH,A,16.2,21.4,36.8,20.7,96.3,50.6,96.9,43.6,73.6,34,2024,36.1,10.8,24.1,28.9,29.4,88.3,yes,27.8881742,-26.22180061
+Daegu,Asia,South Korea,307,Daegu Gyeongbuk Institute of Science and Technology (DGIST),KR,S,FO,VH,A,10.4,7.5,89,100,5.3,3.7,1,4.7,,34,2024,64.4,17.1,42,83.1,32.4,90.6,no,128.4544876,35.70468747
+Swansea,Europe,United Kingdom,307,Swansea University,UK,L,FC,HI,A,21,45,23.6,27.4,73.1,54.1,59,10.6,61,33.9,2024,63.7,33.5,49.4,55.5,63.9,90.1,no,-4.012387122,51.61414266
+Seri Iskandar,Asia,Malaysia,307,Universiti Teknologi PETRONAS (UTP),MY,S,SP,,B,18.2,31.6,34.6,65.7,85.2,18.5,24.2,9.9,2.9,33.9,2024,30.5,8.2,19.9,35.4,18.3,62.1,no,100.9686336,4.383627596
+Hobart,Oceania,Australia,307,University of Tasmania,AU,M,CO,VH,A,17.2,7.8,17.7,58.1,75.1,95.8,48.8,14.8,47.2,33.9,2024,72.8,36.6,55.6,73.9,66.9,93.6,no,145.29665,-41.96749833
+Doha,Asia,Qatar,310,Hamad Bin Khalifa University,QA,S,FO,VH,A,11.5,3.9,100,88.6,,,28.1,10.3,,33.8,2024,55.6,42.1,49.2,44.2,51.2,109.6,yes,51.42977248,25.31413138
+Barcelona,Europe,Spain,310,Universitat Pompeu Fabra (Barcelona),ES,M,FO,VH,A,30.9,22.8,13.1,55.6,77.9,26.6,38.4,15.3,13.2,33.8,2024,53.7,32.6,43.7,47.6,52.9,75.2,yes,2.174744215,41.38430299
+Stuttgart,Europe,Germany,312,Universitat Stuttgart,DE,L,CO,VH,A,23.7,27.2,6.1,64.8,37.4,49.8,36.5,19.4,33.8,33.7,2024,61.7,27.8,45.6,58.3,53.9,127.8,yes,9.097576283,48.76624696
+Bloomington,North America,United States,313,Indiana University Bloomington,US,XL,FC,VH,A,35.1,24.4,30.5,21.6,40.5,12.7,68.5,52.2,62.5,33.5,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-86.52558222,39.16824487
+Oulu,Europe,Finland,313,University of Oulu,FI,M,FC,VH,A,15.8,17.3,26.4,56.9,52.5,9.4,75.4,16.6,88.4,33.5,2024,65.5,20.8,44.3,61.6,63.8,97.3,no,25.46371858,65.05931768
+Islamabad,Asia,Pakistan,315,Quaid-i-Azam University,PK,M,CO,VH,A,15.8,40.3,2.8,97,3.4,1.4,23,5.8,23,33.4,2024,20.3,4.7,12.9,18.1,14.1,24.7,yes,73.13554608,33.74764797
+Saint Petersburg,Europe,Russia,315,Saint Petersburg State University,RU,L,FC,VH,A,40.8,24,61.6,5.1,5.2,41.7,69.5,52.8,36.1,33.4,2024,31.3,12.6,22.4,26.9,28.2,49.8,yes,30.29634498,59.94189397
+Turku,Europe,Finland,315,University of Turku,FI,L,FC,VH,A,28.3,21.1,52.3,32.4,27.2,4.3,62.9,27.8,77.7,33.4,2024,65.5,20.8,44.3,61.6,63.8,97.3,no,22.28221008,60.45422667
+Burnaby,North America,Canada,318,Simon Fraser University,CA,L,CO,VH,A,25.5,13.5,5.7,42.5,96.8,86.3,34.5,17.6,54.3,33.3,2024,68.4,36,53.1,70.7,64,83.3,no,-123.1779401,49.2811471
+Moscow,Europe,Russia,319,Bauman Moscow State Technical University,RU,L,CO,VH,A,31.3,44.4,100,1.4,53.6,58.9,1,12.2,10.5,33.2,2024,35.7,21.1,28.8,30.2,32.6,60.6,yes,37.68243548,55.76598687
+Paris,Europe,France,319,Sciences Po ,FR,L,SP,,A,17.7,27.6,88,3.2,54.9,97.1,1.4,76.3,54.6,33.2,2024,75.4,42,59.5,78.7,70.1,81.4,yes,-2.122363318,48.8566572
+Madrid,Europe,Spain,319,Universidad Carlos III de Madrid (UC3M),ES,L,FO,VH,A,32.9,49.1,53.3,4.8,56.5,41.2,18.5,12.9,62.5,33.2,2024,52.7,31.7,42.7,49.2,52.9,86.4,yes,-4.025906822,40.43042079
+Victoria,North America,Canada,322,University of Victoria (UVic),CA,L,CO,VH,A,17.3,7.6,3.5,65,95.2,48.6,19,12.2,89.8,33,2024,76.7,47.2,62.7,82.6,70.6,59.8,yes,-123.3147512,48.4631344
+Guangzhou,Asia,China,323,Sun Yat-sen University,CN,XL,FC,VH,A,36.4,22.3,48.8,44.1,2.4,4.2,33.3,16.7,38.4,32.8,2024,35.1,13.3,24.8,40.2,22.4,70,yes,120.2627998,22.63469054
+Chicago,North America,United States,323,University of Illinois at Chicago (UIC),US,XL,FC,VH,A,40.9,23.5,31.6,26.2,8.5,17,50.1,31.5,62.8,32.8,2024,80,58.8,69.9,87,74.1,119.9,yes,-87.65077487,41.87029607
+Pretoria,Africa,South Africa,323,University of Pretoria,ZA,XL,FC,VH,A,23.6,52.3,3.5,20.7,25,6.4,97.6,58.4,78.4,32.8,2024,34.2,10.3,22.9,28.3,27,99.4,yes,28.12283348,-25.7098835
+Magill,Oceania,Australia,326,University of South Australia,AU,L,CO,VH,A,22.5,14,22.4,32.8,99.8,45.1,58.6,15.4,81.7,32.7,2024,72.8,36.6,55.6,73.9,66.9,93.6,no,136.5164252,-35.38884567
+Odense,Europe,Denmark,326,University of Southern Denmark (SDU),DK,L,CO,VH,A,20,18,27.1,40.7,83.2,22.7,49.7,17.7,88.7,32.7,2024,75.2,28.6,53.1,65,82.6,103.3,no,10.35451909,55.37745892
+London,Europe,United Kingdom,328,"City, University of London",UK,L,CO,VH,A,21.4,18.1,6.7,42.2,95,99.3,22.1,28.3,41.7,32.6,2024,80.1,71.6,76.1,64.2,79.7,83,yes,-0.105037323,51.527971
+Gwangju,Asia,South Korea,328,Gwangju Institute of Science and Technology (GIST),KR,S,FO,VH,A,17.4,8.9,38.4,100,21.6,10,1.3,8.1,2.1,32.6,2024,64.4,17.1,42,83.1,32.4,90.6,no,126.8368133,35.22759447
+Paris,Europe,France,328,Universite Paris 1 Pantheon-Sorbonne ,FR,XL,FO,VH,A,65.2,24.9,4.2,3.4,38.2,46.4,30,32.2,16.3,32.6,2024,75.4,42,59.5,78.7,70.1,81.4,yes,2.329484451,48.83990687
+Lugano,Europe,Switzerland,328,USI - Universit? della Svizzera italiana,CH,S,FO,VH,A,5.8,3.9,82.9,56.4,100,100,4.2,7.9,1.2,32.6,2024,112.2,52.8,84,116.7,104.1,118.9,no,8.955580976,46.01070807
+Seoul,Asia,South Korea,332,Kyung Hee University,KR,L,FC,VH,B,28,41.6,84.8,14,14.2,54,16.7,12.1,33.5,32.5,2024,70.3,29.1,50.8,92.1,37.4,91.3,yes,127.0488199,37.59671217
+Santa Cruz,North America,United States,332,"University of California, Santa Cruz",US,L,CO,VH,A,18.4,4.9,7.2,79.6,63.6,8.9,19.3,10.7,89.1,32.5,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-122.0784254,36.973169
+Tehran,Asia,Iran,334,Sharif University of Technology,IR,M,FO,VH,A,10.1,43.8,6.1,99.1,7.3,1.3,9.7,25.7,1.9,32.4,2024,29.7,12.4,21.5,23.1,18.2,18.2,yes,51.34912838,35.70364907
+Naples,Europe,Italy,335,University of Naples - Federico II,IT,XL,FC,VH,A,35.2,17,4.3,61.8,2.4,1.1,81.6,7.1,34.6,32.3,2024,55.7,19.7,38.7,52.6,53.3,53.2,yes,14.25517818,40.84536787
+Aalborg,Europe,Denmark,336,Aalborg University,DK,L,FC,VH,A,20,22.2,31.5,42.4,76.4,18.2,79.2,14.7,35.8,32.2,2024,75.2,28.6,53.1,65,82.6,103.3,no,9.87960093,57.03419775
+Ankara,Asia,Turkey,336,Middle East Technical University,TR,L,CO,VH,A,29,63.7,9,22.2,11.3,17.4,32.2,24.6,84.8,32.2,2024,33.5,12.6,23.6,30.7,25.3,43.5,yes,32.77723688,39.89108802
+Lima,Latin America,Peru,336,Pontificia Universidad Catolica del Peru,PE,L,FO,VH,B,46.3,77.1,25.9,1.8,3.9,1.4,2.5,35.2,31.3,32.2,2024,34.4,13,24.3,34.6,23.5,25.2,yes,-77.08070692,-12.06895214
+Canterbury,Europe,United Kingdom,336,University of Kent,UK,L,CO,VH,A,17,6.7,13.3,43.9,96.6,72.8,43,20.2,85.2,32.2,2024,63.7,33.5,49.4,55.5,63.9,90.1,no,1.060429277,51.29673947
+Beijing,Asia,China,340,Beijing Institute of Technology,CN,L,FO,VH,A,22.7,18.1,41.1,76.4,3.1,4.2,17.1,14.1,23.7,32.1,2024,37.1,26.4,32,37.8,23.9,82.2,yes,116.3098137,39.96037037
+Ashburn,North America,United States,340,George Washington University,US,L,FC,VH,B,26.9,24.5,28.3,29.3,31.6,27.6,61,49.5,62.8,32.1,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-77.05117412,38.89971447
+Moscow,Europe,Russia,342,RUDN University,RU,L,FC,VH,A,22.4,45,92.2,2,8.2,92.7,60.1,12.2,4.4,32,2024,35.7,21.1,28.8,30.2,32.6,60.6,yes,37.48842259,55.6681511
+London,Europe,United Kingdom,343,Brunel University London,UK,L,CO,VH,A,11.3,13.3,7.9,44.2,99.7,99.6,56.9,18.5,62.8,31.9,2024,80.1,71.6,76.1,64.2,79.7,83,yes,-0.475324223,51.532138
+Aveiro,Europe,Portugal,344,University of Aveiro,PT,L,CO,VH,A,13.4,6.6,13.8,84.3,4.3,13.5,72.3,6.7,69.3,31.6,2024,46.6,25.4,36.5,42.9,37.9,46.5,no,-8.660037024,40.63057907
+Surabaya,Asia,Indonesia,345,Airlangga University,ID,L,FC,HI,A,34,72.5,52.4,1.4,44.6,6.3,1.4,14.4,30.5,31.5,2024,28.5,8.3,18.9,33.6,14.4,25.8,no,112.7520379,-7.26902918
+Saskatoon,North America,Canada,345,University of Saskatchewan,CA,L,FC,VH,A,12,6.8,17.3,54.3,70,51.8,47.2,20.9,94.9,31.5,2024,69.7,26,48.9,67.3,63.8,84.7,yes,-106.6339316,52.13339887
+Athens,Europe,Greece,347,National Technical University of Athens,GR,L,FO,VH,A,20.5,42.7,4.7,72.3,1.3,4.3,32,31.8,7.8,31.4,2024,55.9,16.4,37.2,49.5,54.9,43.3,yes,23.72922883,37.98783992
+Bogota,Latin America,Colombia,347,Pontificia Universidad Javeriana,CO,L,FC,HI,B,43.2,72.7,22.9,1.7,4,2.7,4.2,57.3,29.1,31.4,2024,31.7,10.2,21.5,30.9,22.5,26.3,yes,-74.06723943,4.628487495
+Madrid,Europe,Spain,349,Universidad Politecnica de Madrid (UPM),ES,XL,SP,,A,31.2,49.3,14.9,11.4,3.2,30.7,59.9,37.3,83.5,31.3,2024,52.7,31.7,42.7,49.2,52.9,86.4,yes,-3.839120574,40.42135299
+Pisa,Europe,Italy,349,University of Pisa,IT,L,FC,VH,A,40.4,12.7,7.5,41.1,5.9,4.1,67.6,13.4,73.6,31.3,2024,58.9,21.1,41,56.8,55,62.8,no,10.39628438,43.71672347
+Lappeenranta ,Europe,Finland,351,Lappeenranta-Lahti University of Technology LUT,FI,S,SP,,A,6.9,13.3,11.1,97.7,45.2,18.2,14.7,11.4,39,31.2,2024,65.5,20.8,44.3,61.6,63.8,97.3,no,28.09176368,61.06499647
+Coimbra,Europe,Portugal,351,University of Coimbra,PT,L,FC,VH,A,28.9,13.1,11.3,41.6,10.7,37.7,78.8,15.6,79.5,31.2,2024,45.7,19.3,33.2,42.4,36.2,52.1,yes,-8.428668124,40.20763937
+Toronto,North America,Canada,353,York University,CA,XL,CO,VH,A,23,21,4.6,29.2,50.6,81.2,28,53.2,80.8,31.1,2024,71.6,50,61.4,72.3,67.9,84.5,yes,-79.50444332,43.77345347
+Barcelona,Europe,Spain,354,Universitat Politecnica de Catalunya BarcelonaTech (UPC),ES,L,FO,VH,A,31.9,22,41.2,22.3,8,21.2,72.8,15.1,73.3,31,2024,53.7,32.6,43.7,47.6,52.9,75.2,yes,2.113165176,41.38926747
+Nur-Sultan,Asia,Kazakhstan,355,L.N. Gumilyov Eurasian National University (ENU),KZ,L,FO,VH,A,29.5,51.7,96.8,1.4,59.3,5.7,1.1,10.9,9.6,30.9,2024,33.5,13.6,24,31.9,29.7,36.8,no,71.46487448,51.15814467
+Chengdu,Asia,China,355,Sichuan University,CN,XL,FC,VH,A,20.1,7.6,11.4,94.7,6.6,5.4,26.2,14.8,18.8,30.9,2024,31.8,7.7,20.3,35.7,19.9,68.5,yes,104.0684471,30.66396397
+Tsukuba City,Asia,Japan,355,University of Tsukuba,JP,L,FC,VH,A,35.8,24,59,19,13.8,21.2,31.7,11.5,57.7,30.9,2024,50.7,15.1,33.8,55.4,30.9,99.5,no,140.1017546,36.11159827
+Florence,Europe,Italy,358,University of Florence,IT,XL,FC,VH,A,33.6,5.7,4.1,49.6,8.1,10.7,73,17.4,81.1,30.8,2024,65.4,29.6,48.4,63.3,62.3,53.7,yes,11.25682118,43.77779967
+Tartu,Europe,Estonia,358,University of Tartu,EE,M,FC,VH,A,24.4,9,91.5,11.5,46.5,22.2,73.7,42.1,27.6,30.8,2024,54.5,14.4,35.5,48.7,46.2,63,yes,26.68716444,58.37587425
+Jinan,Asia,China,360,Shandong University,CN,XL,FC,VH,A,15.6,31.8,17.6,78.7,8.8,3.4,16.3,17.4,28.4,30.7,2024,34.1,13.4,24.3,37.6,21,60.5,no,117.0128396,36.65088475
+Tehran,Asia,Iran,360,University of Tehran,IR,XL,CO,VH,A,18.7,38.8,3.4,67.5,2.1,1.8,68.6,17.5,18.4,30.7,2024,29.7,12.4,21.5,23.1,18.2,18.2,yes,51.39271798,35.70328487
+Lincoln,Oceania,New Zealand,362,Lincoln University ,NZ,S,CO,VH,A,7.9,5.3,39.9,51.5,100,91,1.2,31.7,37.8,30.6,2024,68.2,28.8,49.5,71.7,58.8,93,no,172.4616503,-43.64536247
+Innsbruck,Europe,Austria,362,Universitat Innsbruck,AT,L,FC,HI,A,20.2,7,69.2,11.2,100,100,32.9,35.7,16.5,30.6,2024,66.8,23.7,46.4,64.8,59,84.4,no,11.38122568,47.26335417
+Sharjah,Asia,United Arab Emirates,364,American University of Sharjah,AE,S,CO,VH,B,20,39.1,20.7,20,100,100,6.4,36.9,3,30.3,2024,46.5,23.8,35.8,35.6,32.3,71.5,yes,55.49007538,25.31156018
+Guwahati,Asia,India,364,Indian Institute of Technology Guwahati (IITG),IN,M,CO,VH,A,17,25.2,7.7,98.1,3,1.3,5.8,5.5,4.4,30.3,2024,22.2,6.2,14.6,23.5,15.6,60.7,no,91.54647655,26.13639182
+Turin,Europe,Italy,364,University of Turin,IT,XL,FC,VH,A,39.8,5.7,2.9,36.8,4.6,5.4,69.4,32.5,84.3,30.3,2024,59.6,18.2,39.9,58.4,55.2,66.2,yes,7.686476776,45.06965277
+Islamabad,Asia,Pakistan,367,National University of Sciences And Technology (NUST) Islamabad,PK,M,CO,VH,A,18.9,72.7,77.4,11.7,2.6,3.9,23.5,9,30.7,30.2,2024,20.3,4.7,12.9,18.1,14.1,24.7,yes,72.99042608,33.64248877
+Nicosia,Europe,Cyprus,368,University of Cyprus (UCY),CY,M,CO,VH,A,8.9,3.1,4.9,77.8,92.9,25.4,55.9,18.6,24.4,30.1,2024,53.6,18.9,37.2,47.2,49.3,65.1,yes,33.37254941,35.15346566
+Roorkee,Asia,India,369,Indian Institute of Technology Roorkee (IITR),IN,M,FO,VH,A,17.8,22.5,7.8,91.2,1.3,2.2,3.6,10.5,27.6,30,2024,22.2,6.2,14.6,23.5,15.6,60.7,no,77.88534131,29.8669141
+New York City,North America,United States,369,Yeshiva University,US,M,FC,VH,B,2.8,3.3,75,99.7,,8.9,3.6,10.4,1.3,30,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-73.93229542,40.85060407
+Giza,Africa,Egypt,371,Cairo University,EG,XL,FC,VH,A,43.7,33.2,8,2.8,2.7,6.2,48.7,72.5,78.6,29.9,2024,29.1,5.5,17.9,27.8,21.7,15.2,no,31.19399444,30.02487344
+Tilburg,Europe,Netherlands,371,Tilburg University,NL,L,FO,VH,A,15.2,33.4,10.4,44.2,96.6,58.4,9.4,14.1,31,29.9,2024,64.3,34.5,50.2,57.4,61,103.3,no,5.039828177,51.56319057
+Rio de Janeiro,Latin America,Brazil,371,Universidade Federal do Rio de Janeiro,BR,XL,FC,VH,A,60.1,17,15.4,8.3,7.9,1.6,51.7,36.8,23,29.9,2024,38.7,12.3,26.2,33.1,29.3,20.7,yes,-43.24545842,-22.8987478
+London,Europe,United Kingdom,374,"Birkbeck, University of London",UK,M,FO,VH,A,10.8,3.5,14.1,65.1,97.5,98,9.1,12.3,12,29.7,2024,80.1,71.6,76.1,64.2,79.7,83,yes,-0.132889523,51.521856
+Milperra,Oceania,Australia,375, Western Sydney University,AU,XL,FC,HI,A,18.4,15,4.5,29.5,100,39.2,68.3,10.3,90.4,29.5,2024,72.8,36.6,55.6,73.9,66.9,93.6,no,80.07043322,-7.71443969
+Tehran,Asia,Iran,375,Amirkabir University of Technology,IR,M,FO,VH,A,4.1,33.4,5.1,99.8,15.9,2.8,9.5,10.3,16.5,29.5,2024,29.7,12.4,21.5,23.1,18.2,18.2,yes,51.40689308,35.70411197
+Boston,North America,United States,375,Northeastern University,US,L,CO,VH,B,19.4,9.5,19.1,24.2,60.2,94.3,33.2,35.4,87.3,29.5,2024,89.2,72.7,81.4,94.5,85.7,113.6,yes,-71.09246412,42.33990397
+Bochum,Europe,Germany,375,Ruhr-Universitat Bochum,DE,XL,FC,VH,A,21.2,11,2.3,59.7,61.1,29.6,62.3,14.7,18,29.5,2024,62.7,26.3,45.4,57.6,52.5,101,no,7.259129977,51.44688627
+Medford,North America,United States,379,Tufts University,US,L,FC,VH,B,18.1,5.3,56.2,42.9,25.2,36.2,18.9,47.7,50.9,29.4,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-71.13188151,42.38496012
+Adelaide,Oceania,Australia,380,Flinders University,AU,L,FC,VH,A,13.3,6.7,6.5,42.6,97,89.5,38.9,10.5,64.8,29.2,2024,81.7,35,59.6,80.5,87.8,72.2,yes,138.5673813,-35.0253002
+Luxembourg,Europe,Luxembourg,381,University of Luxembourg,LU,M,CO,VH,,9.1,4.9,77.2,28.6,100,100,18.4,25.6,,29.1,2024,65.2,44.3,55.3,64.6,72.5,135.2,yes,5.946767577,49.50418397
+Nakhon Pathom,Asia,Thailand,382,Mahidol University,TH,L,FC,VH,A,42.4,30.3,77.7,4.7,6,5.1,10.3,11,27.6,29,2024,36,12.4,24.8,41,18.4,32.9,no,100.3230525,13.79438139
+Montpellier,Europe,France,382,Universite de Montpellier,FR,XL,FO,VH,A,19.4,3.4,8.9,57.6,23.9,32.3,99.8,10.7,38.7,29,2024,65.3,22.6,45,70.8,52.9,85.2,yes,3.837037182,43.6256409
+Tianjin,Asia,China,384,Nankai University,CN,XL,FC,VH,A,21.1,8.6,29.5,73.9,11.2,3.5,8.1,18.9,22.5,28.6,2024,34.1,13.4,24.3,37.6,21,60.5,no,108.3135103,31.101816
+Munster,Europe,Germany,384,University of Munster,DE,L,FC,VH,A,31.5,24.6,55.3,12.5,30.3,4.9,59.1,26.1,27.6,28.6,2024,62.7,26.3,45.4,57.6,52.5,101,no,7.610679877,51.96358097
+Honolulu,North America,United States,386,University of Hawaii at Manoa,US,L,FC,VH,A,16.1,8.5,36.8,48.6,53,12.9,53.7,10.7,47.5,28.4,2024,92.4,57.4,75.8,103.8,76,81.3,yes,-157.8186604,21.30035718
+Marseille,Europe,France,387,Aix-Marseille University,FR,XL,FC,VH,A,36.1,4.5,8.3,26.5,18.5,19.9,99.4,11.3,64.5,28.3,2024,66,22.3,45.3,68.6,57.9,83.4,no,5.317116385,43.28437778
+Minsk,Europe,Belarus,387,Belarusian State University,BY,L,FO,VH,A,26.6,42.5,95.3,1.3,4.1,49.9,3.4,24.5,1.4,28.3,2024,28.2,9.4,19.3,25.5,26.5,45.2,yes,27.54304808,53.89300487
+Montreal,North America,Canada,387,Concordia University,CA,XL,CO,VH,A,15,15.2,3,23.7,80.3,89.3,40.4,30.2,88.8,28.3,2024,65.5,31.3,49.3,68.7,68.6,84.5,yes,-73.64766911,45.47726459
+Taipei City,Asia,Taiwan,387,National Taiwan University of Science and Technology (Taiwan Tech),TW,M,FO,VH,A,27.1,37.8,43.6,27,17.5,31.1,1.9,18.5,26.6,28.3,2024,49,13.7,32.2,61.8,24.8,80,no,121.537986,25.01325827
+Bandar Seri Begawan,Asia,Brunei,387,Universiti Brunei Darussalam (UBD),BN,S,CO,VH,A,21,5.5,96.3,8.2,100,65.1,2.3,27.4,4,28.3,2024,50.5,17.4,34.8,65.6,25.6,87,no,114.8913951,4.972664995
+Lyon,Europe,France,392,Institut National des Sciences Appliquees de Lyon (INSA),FR,M,FO,VH,A,7.8,29.4,37.1,50.8,29.4,69.3,18.8,12.8,20.5,28.2,2024,68.9,23.4,47.3,73,57.1,92.4,yes,4.875623676,45.78337837
+Guangzhou,Asia,China,392,South China University of Technology,CN,XL,CO,VH,A,12.5,4.2,19,95.4,10.4,4.5,9.7,21.9,10.2,28.2,2024,35.1,13.3,24.8,40.2,22.4,70,yes,113.3421081,23.15132597
+Haifa,Asia,Israel,392,Technion - Israel Institute of Technology,IL,L,FC,VH,A,25.4,27.8,43.9,25.4,64.8,4.6,12.8,30.7,26.1,28.2,2024,66,20,44.2,58.8,68.7,91.8,yes,35.02055218,32.77677827
+Xiamen,Asia,China,392,Xiamen University,CN,XL,FC,VH,A,25.9,11.6,20,65.3,5.4,3.4,25.4,21.5,17.1,28.2,2024,34.1,13.4,24.3,37.6,21,60.5,no,118.0952801,24.43734837
+Giessen,Europe,Germany,396,Justus-Liebig-University Giessen,DE,L,FC,VH,A,13.6,6.1,1.7,85.7,12.1,18.9,63.8,9.5,11.1,28.1,2024,62.7,26.3,45.4,57.6,52.5,101,no,8.660695423,50.57765825
+Kazan,Europe,Russia,396,Kazan (Volga region) Federal University,RU,L,FC,VH,A,22.7,7.6,93.7,2.8,10.5,96.1,61.7,11.2,24.4,28.1,2024,29.3,9.1,19.7,25.4,22.5,39.5,yes,49.11906948,55.79069847
+Stony Brook,North America,United States,396,"Stony Brook University, State University of New York",US,L,FC,VH,A,18.9,7.6,30.4,31.8,45.2,51,34.4,18.5,88.8,28.1,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-73.12629292,40.90415867
+Moscow,Europe,Russia,399,HSE University,RU,XL,FO,VH,A,27.3,31.9,90.7,1.9,6.3,16.1,71.1,13.4,5.1,28,2024,35.7,21.1,28.8,30.2,32.6,60.6,yes,37.63057718,55.75751872
+Ames,North America,United States,400,Iowa State University,US,L,CO,VH,A,20,13.5,8.4,58.7,4.6,11.1,50.9,27.2,51.8,27.9,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-93.64902652,42.02665727
+Brno,Europe,Czech Republic,400,Masaryk University,CZ,XL,CO,VH,A,23.2,32.2,10.4,15.2,31,68.7,56.2,14.6,69.9,27.9,2024,44.8,18.7,32.4,42.5,30.5,76.5,yes,16.60187108,49.19986682
+Lisbon,Europe,Portugal,400,Universidade Nova de Lisboa,PT,L,FC,VH,A,28,20.2,19.6,24.2,24,47,63.5,18.8,40.2,27.9,2024,51.1,35.1,43.5,44.9,47.5,42.3,yes,-9.166284437,38.7364382
+Granada,Europe,Spain,403,University of Granada,ES,XL,FC,VH,A,44,9.8,5.6,23.3,3.4,16.1,96.8,5.1,36.1,27.8,2024,48.4,23.6,36.6,45.1,44,78.2,no,-3.673672782,37.18091772
+Maslak-Istanbul,Asia,Turkey,404,Istanbul Technical University,TR,L,FO,VH,A,24.2,60.4,12.1,13.3,7.3,18.3,37.2,23,63.1,27.6,2024,33.8,13.2,24,30.3,25.8,39.3,no,29.02276518,41.10559407
+Riverside,North America,United States,404,"University of California, Riverside",US,L,FC,VH,A,17.5,7,6.7,59.9,63,9.1,45.1,10,46.6,27.6,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-117.3306393,33.9737054
+Quezon City,Asia,Philippines,404,University of the Philippines,PH,XL,FC,HI,A,34.4,58.9,38,1.9,1.6,1.1,9.3,35.3,38.7,27.6,2024,33.6,8.3,21.6,35.2,17.9,25.9,no,117.7219736,12.43423608
+Auckland,Oceania,New Zealand,407,Auckland University of Technology (AUT),NZ,L,CO,VH,A,19.3,11.7,10.3,18.5,100,99.3,12,19.3,71.5,27.4,2024,73.2,39.1,57,75.9,63.2,95.4,yes,174.7639056,-36.85360977
+New Delhi,Asia,India,407,University of Delhi,IN,L,FC,VH,A,36.1,28.2,3.9,22.5,1.4,1.7,24.7,91.4,31,27.4,2024,22.2,6.2,14.6,23.5,15.6,60.7,no,77.16127698,28.58428238
+Fort Collins,North America,United States,409,Colorado State University,US,L,CO,VH,A,18.8,18.2,56.8,20.3,12.3,4.2,54.9,15,97.7,27.3,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-105.087414,40.5729431
+Santiago,Latin America,Chile,410,Universidad de Santiago de Chile (USACH),CL,L,FC,HI,A,43.3,72.9,8.7,4,6.6,2.2,7.3,4,12.9,27.2,2024,43.1,13.4,29,43.3,40.6,35.7,yes,-70.69032035,-33.4522328
+Lawrence,North America,United States,410,University of Kansas,US,L,FC,VH,A,15.1,13.3,83.6,9,72.6,7.8,35.7,23.5,71.8,27.2,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-95.25837102,38.95434387
+Toowoomba,Oceania,Australia,410,University of Southern Queensland ,AU,M,CO,VH,A,8.5,6.8,4.5,59.6,76.1,26.3,60.6,12,51.2,27.2,2024,72.8,36.6,55.6,73.9,66.9,93.6,no,151.8202463,-27.572553
+Oxford,Europe,United Kingdom,413,Oxford Brookes University,UK,L,CO,HI,A,28.9,29.7,13.8,8.4,68.8,70.3,27.1,18.4,34.3,27.1,2024,72.6,45.6,59.8,69.1,64.2,82,yes,-1.232060102,51.755172
+Egham,Europe,United Kingdom,413,Royal Holloway University of London,UK,M,CO,VH,A,16,5.7,13.7,36.3,94.4,88.7,23.7,11.1,38.1,27.1,2024,63.7,33.5,49.4,55.5,63.9,90.1,no,-0.569324323,51.4247096
+Townsville,Oceania,Australia,415,James Cook University,AU,M,FC,VH,A,15.4,8.7,14.1,51.1,42,13.5,42.5,9,83.3,27,2024,72.8,36.6,55.6,73.9,66.9,93.6,no,79.78687122,-8.72078595
+Dolgoprudny,Europe,Russia,415,Moscow Institute of Physics and Technology (MIPT / Moscow Phystech),RU,M,FO,VH,A,19.8,19.9,96,16,31.4,53.1,5.4,15.7,1.2,27,2024,29.5,9.9,20.2,25.9,26.2,41.5,no,37.51736848,55.92972427
+Cairo,Africa,Egypt,415,The American University in Cairo,EG,M,CO,HI,B,30.3,23.8,42.8,4.6,97.9,3.9,1.4,63.3,16.3,27,2024,29.6,5.5,18.2,27.8,23.3,15.3,yes,31.20491004,30.05620659
+Tomsk,Europe,Russia,418,Tomsk State University,RU,M,CO,VH,A,23.1,10.9,99.4,5.1,23.7,91.5,23.4,7.3,3,26.9,2024,29.5,9.9,20.2,25.9,26.2,41.5,no,84.94493808,56.46949997
+Sao Paulo,Latin America,Brazil,419,UNESP,BR,XL,FC,VH,A,39.3,34.6,15,16.2,6.2,2.8,34.5,5.7,53.7,26.8,2024,40,14.3,27.8,36.5,35.2,25.6,yes,-57.78503099,-14.2754
+Pullman,North America,United States,419,Washington State University,US,L,FC,VH,A,24.4,17.9,16.2,35.4,50,5.5,46.5,11.1,49.7,26.8,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-117.1857658,46.7311772
+Graz,Europe,Austria,421,Graz University of Technology,AT,M,FO,VH,A,14.5,11,99.5,13.6,75,58.8,10.4,13.6,4.2,26.7,2024,65.2,21.7,44.6,61.9,56.1,89.3,yes,15.44527962,47.06383438
+Novosibirsk ,Europe,Russia,421,Novosibirsk State University,RU,M,CO,VH,A,27.5,14.4,93.5,12.6,6.7,56.3,5.3,12.9,6.8,26.7,2024,29.5,9.9,20.2,25.9,26.2,41.5,no,83.09181348,54.84774617
+Liege,Europe,Belgium,421,Universite de Liege,BE,L,FC,VH,A,18.1,16.3,12.9,27.2,50.7,48.5,79.3,16.2,47.8,26.7,2024,63,21.4,43.3,56.1,67.8,90.7,no,5.573483577,50.64082737
+Strasbourg,Europe,France,421,Universite de Strasbourg,FR,XL,FC,VH,A,39.6,7.9,5.3,23.1,35.6,38.6,70.2,10.9,14.9,26.7,2024,66,22.3,45.3,68.6,57.9,83.4,no,7.73225505,48.58228091
+Bruce,Oceania,Australia,421,University of Canberra ,AU,M,CO,VH,A,13.7,7.3,2.3,51.7,87,58.9,8.9,9.8,55.2,26.7,2024,72.8,36.6,55.6,73.9,66.9,93.6,no,149.0813387,-35.23861202
+Limerick,Europe,Ireland,426,University of Limerick,IE,L,FC,HI,A,17.5,29.1,14,21.9,88.4,28.6,34.6,13.9,58.9,26.6,2024,66.5,47.3,57.4,58.9,65.9,82,no,-8.575012123,52.67358807
+Chennai,Asia,India,427,Anna University,IN,L,FO,VH,A,8.5,8.5,5.3,99.8,,1.5,33.8,9.8,,26.5,2024,22.7,5.8,14.7,26.1,12.6,82.6,yes,80.11379744,12.98259493
+Segovia,Europe,Spain,428,IE University,ES,M,FO,HI,C,7,40.9,56.2,2.6,94.6,100,1,39.4,6,26.4,2024,48.4,23.6,36.6,45.1,44,78.2,no,-4.233034806,40.7144969
+Singapore,Asia,Singapore,429,Singapore University of Technology and Design,SG,S,SP,,,7,5.8,99.2,64.6,,,3.1,7.5,,26.3,2024,81.9,71.9,77.1,75,55.3,103,yes,103.9611836,1.341257999
+Trento,Europe,Italy,429,University of Trento,IT,L,CO,VH,A,24.6,8.9,19.3,44,26.9,6.2,61,9.3,34.9,26.3,2024,58.9,21.1,41,56.8,55,62.8,no,11.12053418,46.06686717
+Istanbul,Asia,Turkey,431,Koc University,TR,M,FC,HI,B,22.4,47.3,24,28.6,27.3,11.2,6.4,11,29.9,26.2,2024,36.9,17.7,27.8,32.5,33.4,39.6,yes,28.83012138,41.11443872
+Murdoch,Oceania,Australia,431,Murdoch University,AU,M,CO,VH,A,7.3,5.3,5.4,53.1,86.3,76.6,40.1,14.2,23.7,26.2,2024,72.8,36.6,55.6,73.9,66.9,93.6,no,93.07985501,-4.5323855
+Taipei City,Asia,Taiwan,431,National Taipei University of Technology,TW,M,FO,VH,A,15,57.7,27,34.3,21.1,18.2,1.3,17.3,12.6,26.2,2024,49,13.7,32.2,61.8,24.8,80,no,121.5318241,25.04388838
+Taipei City,Asia,Taiwan,431,National Taiwan Normal University,TW,M,CO,VH,A,34.5,20.8,65.4,5.9,14.5,26.7,1.5,14.7,43.2,26.2,2024,49,13.7,32.2,61.8,24.8,80,no,121.5220362,25.01692859
+Stirling,Europe,United Kingdom,431,University of Stirling,UK,M,CO,VH,A,11.5,10.2,10.5,34.7,71.9,83.5,14.4,14.8,79.8,26.2,2024,63.7,33.5,49.4,55.5,63.9,90.1,no,-3.920332823,56.1460919
+Dublin,Europe,Ireland,436,Dublin City University,IE,L,FC,HI,A,19.7,27,25.6,12.4,76,19.3,19.3,24.8,81.7,26,2024,73.4,56.9,65.6,63.3,76.7,79.9,yes,-6.261415223,53.3853316
+Seoul,Asia,South Korea,436,Sejong University ,KR,L,CO,VH,B,13.8,17.3,14.7,65.5,24.6,26.7,29.2,5.7,8.7,26,2024,70.3,29.1,50.8,92.1,37.4,91.3,yes,127.0710596,37.55180177
+Tampere,Europe,Finland,436,Tampere University,FI,L,FC,VH,A,22.5,19.5,23.9,31.8,32,6.4,56.4,20.6,37.2,26,2024,61.7,19.9,41.9,59.2,62,101.2,yes,23.73671743,61.47677549
+Beijing,Asia,China,436,University of Science and Technology Beijing,CN,L,CO,VH,A,12.6,3,10.7,97.3,3.3,3,9.2,6.2,3.3,26,2024,37.1,26.4,32,37.8,23.9,82.2,yes,116.3574511,39.98946097
+St. Gallen,Europe,Switzerland,436,University of St.Gallen (HSG),CH,M,SP,,A,9,27.6,6.2,22.8,100,83.1,1,94.8,1.6,26,2024,112.2,52.8,84,116.7,104.1,118.9,no,9.371567276,47.43086467
+Wurzburg,Europe,Germany,440,Julius-Maximilians-Universitat Wurzburg,DE,L,FC,VH,A,17.4,6,4.9,68,35.5,16.4,41.9,9.5,11.7,25.9,2024,62.7,26.3,45.4,57.6,52.5,101,no,9.932685077,49.78818137
+Dundee,Europe,United Kingdom,441, University of Dundee,UK,L,FC,HI,A,18.3,13.6,37.5,14.2,96,79.9,27.4,10.5,21.8,25.9,2024,63.7,33.5,49.4,55.5,63.9,90.1,no,-2.984717723,56.45824467
+Quebec,North America,Canada,441,Universite Laval,CA,L,FC,VH,A,19.9,11,25.6,25.1,67.4,36.3,55.4,24.4,31,25.9,2024,68.4,36,53.1,70.7,64,83.3,no,-71.27731732,46.78174627
+Salt Lake City,North America,United States,441,University of Utah,US,L,FC,VH,A,15.9,6,53,36.5,25.3,10.1,54.4,14.9,49,25.9,2024,70.3,41.7,56.8,66.9,64.7,131.7,yes,-116.8333464,39.37987407
+Athens,Europe,Greece,444,National and Kapodistrian University of Athens,GR,XL,FC,VH,A,26.3,31.6,2,29.1,9.9,16.2,72.8,28.9,16.1,25.8,2024,55.9,16.4,37.2,49.5,54.9,43.3,yes,23.73120228,37.98074577
+Storrs,North America,United States,444,University of Connecticut,US,L,FC,VH,A,15.1,6.9,14.5,41.6,47,19,61.4,21.7,61.9,25.8,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-72.24784642,41.81354147
+Birmingham,Europe,United Kingdom,446,Aston University,UK,L,CO,VH,A,12.9,22.8,10,34.1,93,38.3,50.5,18.1,12.3,25.7,2024,61.6,30.8,47,51.9,60.8,97.5,yes,-1.890822723,52.48671377
+Linz,Europe,Austria,446,Johannes Kepler University Linz,AT,M,CO,VH,A,12.5,13.5,82.9,16.1,86.3,27.2,26.5,11.1,18.4,25.7,2024,67.1,20.9,45.2,67,57.8,87.1,yes,14.31386828,48.33728667
+Knoxville,North America,United States,446,"The University of Tennessee, Knoxville",US,L,FC,VH,A,10.3,15.4,10.8,72.5,4.2,2.5,45.2,11.9,30.7,25.7,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-83.93203132,35.95440127
+Nagoya,Asia,Japan,446,Toyota Technological Institute in Japan,JP,S,FO,VH,C,5.2,1.6,37.5,96.4,7.7,1.6,1,8.4,,25.7,2024,50.7,15.1,33.8,55.4,30.9,99.5,no,136.9804218,35.10661167
+Jyvaskyla,Europe,Finland,446,University of Jyvaskyla,FI,M,FO,VH,A,17.2,12.5,86.2,15.3,40.9,2.8,54.7,11.4,30.2,25.7,2024,65.5,20.8,44.3,61.6,63.8,97.3,no,25.72905868,62.23653168
+Tehran,Asia,Iran,451,Iran University of Science and Technology,IR,L,FO,VH,A,6.6,23.2,2.5,94.8,,1.5,11.1,5.5,1.5,25.6,2024,29.7,12.4,21.5,23.1,18.2,18.2,yes,51.50423248,35.74177537
+Changsha,Asia,China,452,Central South University,CN,XL,FC,VH,A,8.8,3.4,5.6,98.4,6.6,3.6,13.5,9.9,8.9,25.5,2024,34.1,13.4,24.3,37.6,21,60.5,no,112.9299351,28.16436997
+Villeurbanne,Europe,France,452,Universite Claude Bernard Lyon 1,FR,XL,FC,VH,A,18.9,4.1,8.2,55.3,7.9,13.2,90.8,8.8,26.6,25.5,2024,66,22.3,45.3,68.6,57.9,83.4,no,4.852526189,45.7604677
+Prague,Europe,Czech Republic,454,Czech Technical University in Prague,CZ,L,SP,,A,21.5,37.6,75.8,4.1,25.6,39.2,15.3,13.8,1.6,25.2,2024,51.5,26.8,39.8,45.5,38.9,65,yes,14.39217628,50.10317487
+Indore,Asia,India,454,Indian Institute of Technology Indore (IIT Indore),IN,S,FO,VH,A,5.6,4.3,33.3,94.4,2.3,1.1,1.2,8.4,2,25.2,2024,22.2,6.2,14.6,23.5,15.6,60.7,no,75.76868833,22.574782
+Nanjing,Asia,China,454,Southeast University,CN,XL,FC,VH,A,12.8,7.4,23.9,73.1,15.1,3.5,21.1,8.8,16.9,25.2,2024,31.6,12.6,22.6,37,17.8,63.9,yes,118.7916351,32.05598097
+Muscat,Asia,Oman,454,Sultan Qaboos University,OM,M,FC,VH,A,16.7,13.7,56.7,18.4,100,3.4,48.3,17.4,8,25.2,2024,45.6,16.2,31.7,38.9,37.5,82.7,yes,58.16955168,23.59122138
+Mannheim,Asia,Germany,454,Universitat Mannheim,DE,M,FO,VH,A,16.1,48.6,2.1,45.1,29.1,20.9,2,23.8,2.5,25.2,2024,65.5,22.2,44.9,59.3,47.9,104.4,yes,8.460876277,49.48311017
+Colchester,Europe,United Kingdom,459,"Essex, University of",UK,L,CO,VH,A,16.4,5.1,13,25.6,99.8,99,40.1,13.4,9.6,25.1,2024,63.7,33.5,49.4,55.5,63.9,90.1,no,-0.680559658,51.7893306
+Potsdam,Europe,Germany,460,Universitat Potsdam,DE,L,FO,VH,A,16,3.1,16.4,38.6,51,21.8,86.3,7.2,42.6,25,2024,62.7,26.3,45.4,57.6,52.5,101,no,12.97338846,52.40457691
+Tallahassee,North America,United States,461,Florida State University,US,XL,FC,VH,A,25.1,25.7,6.8,30.7,15.6,3.9,40.1,20.5,54.3,24.9,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-84.30053282,30.44208697
+Moscow,Europe,Russia,461,National Research Nuclear University MEPhI (Moscow Engineering Physics Institute),RU,S,FO,VH,A,10.2,10.1,99,10.9,54.1,90.7,2,18,1.2,24.9,2024,35.7,21.1,28.8,30.2,32.6,60.6,yes,37.66173488,55.65020507
+Jena,Europe,Germany,461,Universitat Jena,DE,L,FC,VH,A,18.5,6,99.9,10,,22.4,84,8.1,16.1,24.9,2024,62.7,26.3,45.4,57.6,52.5,101,no,11.42116775,50.92239701
+Mainz,Europe,Germany,464,Johannes Gutenberg Universitat Mainz,DE,XL,FC,VH,A,22.6,12.7,54.5,14.8,38.5,16.2,70.2,10.4,19,24.8,2024,62.7,26.3,45.4,57.6,52.5,101,no,8.238980277,49.99264027
+Golden,North America,United States,465,Colorado School of Mines,US,M,FO,VH,A,7.2,9.6,19.7,70.8,29.6,9,2.3,17.4,42,24.7,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-105.2251457,39.75104747
+Umea,Europe,Sweden,465,Umea University,SE,L,FC,VH,A,19.7,13.9,68.3,14.9,23.8,9.6,44.8,12.7,47.8,24.7,2024,62.2,23.1,43.6,61.8,56.1,94.6,no,20.30287118,63.82022238
+Talence,Europe,France,465,University of Bordeaux,FR,XL,FO,VH,A,30.2,5.3,14.4,21.4,25.6,19.5,91.2,11.9,35.8,24.7,2024,66,22.3,45.3,68.6,57.9,83.4,no,-0.634404674,44.81503204
+Sharjah,Asia,United Arab Emirates,465,University of Sharjah,AE,L,CO,VH,B,16.7,18.8,5.5,13.5,100,99.7,35.9,14.1,24.6,24.7,2024,46.5,23.8,35.8,35.6,32.3,71.5,yes,55.47572958,25.28676528
+Be'er Sheva,Asia,Israel,469,Ben-Gurion University of The Negev,IL,L,FC,VH,A,14.6,14.2,11.7,52.7,65.3,15.7,20.1,10.5,18.2,24.6,2024,67.2,31.2,50.1,60.2,71.9,79.5,no,34.79697968,31.26142597
+Chicago,North America,United States,469,Illinois Institute of Technology,US,M,CO,VH,B,14.2,15.6,13,48.5,30.1,94.1,1.5,13.6,2.5,24.6,2024,80,58.8,69.9,87,74.1,119.9,yes,-87.65517432,41.85701771
+Pavia,Europe,Italy,469,Universita degli Studi di Pavia,IT,L,FC,VH,A,21.2,5.8,7.5,51,6.1,13.2,53.1,13.2,44.4,24.6,2024,58.9,21.1,41,56.8,55,62.8,no,9.130757237,45.19133045
+Higashihiroshima City,Asia,Japan,472,Hiroshima University,JP,L,FC,VH,A,23.6,14,81,9.6,17.3,12.9,30,9.8,37.5,24.5,2024,50.7,15.1,33.8,55.4,30.9,99.5,no,132.4343491,34.38507443
+Beijing,Asia,China,473,Beihang University (former BUAA),CN,L,CO,VH,A,13.1,5.5,36.1,68.7,7.5,4.9,7,13.1,15.2,24.4,2024,37.1,26.4,32,37.8,23.9,82.2,yes,116.3351213,39.97985154
+Ekaterinburg,Europe,Russia,473,Ural Federal University - UrFU,RU,XL,CO,VH,A,21.3,13.3,93.2,2.1,5.7,25.8,63.3,7.4,24.8,24.4,2024,29.5,9.9,20.2,25.9,26.2,41.5,no,60.61345028,56.84032457
+Vilnius,Europe,Lithuania,473,Vilnius University ,LT,L,FC,HI,A,19.8,27.8,83,3,13,14.9,43.5,25.5,11.7,24.4,2024,50.2,19.9,35.8,44.4,51.1,64.1,yes,25.28507198,54.68257567
+Kobe City,Asia,Japan,476,Kobe University,JP,L,FC,VH,A,28.5,38.8,53.2,11.6,7.4,7.7,8.7,11.9,10.9,24.3,2024,50.7,15.1,33.8,55.4,30.9,99.5,no,134.9955326,34.69877906
+Valencia,Europe,Spain,476,Universitat Politecnica de Valencia,ES,L,CO,VH,A,26.2,12,47,19.6,4.3,23.9,56.8,8.1,28.1,24.3,2024,45.1,23.6,34.9,44,40.9,94.5,yes,-0.343674124,39.4808895
+Konstanz,Europe,Germany,478,Universitat Konstanz,DE,M,CO,VH,A,20.4,6.9,33.7,21.2,79.8,14.2,24.1,15.6,55.8,24.2,2024,62.7,26.3,45.4,57.6,52.5,101,no,9.185369276,47.68988027
+Leipzig,Europe,Germany,479,Universitat Leipzig,DE,L,FC,VH,A,25.4,10.2,71,9.6,,15.8,59.3,10,34.6,24.1,2024,61.9,20.4,42.2,59.6,48.9,88.7,yes,12.06400172,51.34131996
+Rolla,North America,United States,480,Missouri University of Science and Technology,US,M,CO,VH,A,4.6,4.8,6.5,85.1,61.1,12.3,2.1,9.6,1.6,24,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-91.77820202,37.95370777
+Bangor,Europe,United Kingdom,481,Bangor University,UK,M,FC,VH,A,8.8,5.3,14.9,39.7,42.2,55.4,24.6,13,87.4,23.9,2024,63.7,33.5,49.4,55.5,63.9,90.1,no,-4.132562123,53.22952047
+Kunitachi City,Asia,Japan,481,Hitotsubashi University,JP,M,SP,,A,14.4,80.6,28.6,2.2,21.6,22.4,1,38.4,1.1,23.9,2024,50.7,15.1,33.8,55.4,30.9,99.5,no,139.4428828,35.69440347
+Hanover,Europe,Germany,481,Leibniz University Hannover,DE,L,CO,VH,A,21.3,33.2,16.8,14.8,40.5,30.6,44.3,13.1,29.9,23.9,2024,64.7,21,44,57.5,59.6,95.6,yes,9.715205577,52.38222157
+Almaty,Asia,Kazakhstan,481,Satbayev University,KZ,M,FO,VH,A,23.3,36,84.3,1.2,40.5,4.2,1,10.5,1.3,23.9,2024,35.9,19.4,28.1,33.3,33.7,37.7,yes,76.92799018,43.23668992
+Milan,Europe,Italy,481,University of Milano-Bicocca ,IT,L,FO,VH,A,20.6,9.6,2.9,57.1,3.3,4.6,45.2,13.2,29.4,24,2024,69.7,40.6,55.9,65,70.1,49.8,yes,9.209933676,45.51709077
+Valencia,Europe,Spain,485,Universitat de Valencia,ES,XL,FC,VH,A,33.9,7.3,10.9,22.4,2.3,16.6,83.4,6.6,31.6,23.8,2024,45.1,23.6,34.9,44,40.9,94.5,yes,-0.361435124,39.4788593
+Chengdu,Asia,China,486,University of Electronic Science and Technology of China,CN,XL,CO,VH,A,4.3,3,8.6,96.4,3.4,2.6,21.7,7.6,3.5,23.7,2024,31.8,7.7,20.3,35.7,19.9,68.5,yes,104.0953601,30.66812055
+Guelph,North America,Canada,486,University of Guelph,CA,L,CO,VH,A,13.5,20.9,5.8,47.5,43.5,15.1,22.3,13.1,36.3,23.7,2024,68.4,36,53.1,70.7,64,83.3,no,-80.22875532,43.53272167
+Bogor,Asia,Indonesia,489,IPB University (a.k.a. Bogor Agricultural University),ID,L,CO,VH,A,21.6,39,66.1,1.7,54.6,3.8,1.2,24.1,3.4,23.6,2024,28.5,8.3,18.9,33.6,14.4,25.8,no,106.7207479,-6.55394839
+Rome,Europe,Italy,489,"University of Rome ""Tor Vergata""",IT,L,CO,VH,A,31.5,12.6,7.6,38.1,7.1,16.2,32.8,7.8,15.2,23.6,2024,57.9,28.6,44,53.6,55.8,61.4,yes,12.62667238,41.85146207
+Dalian,Asia,China,491,Dalian University of Technology,CN,XL,CO,VH,A,9.1,3.2,16.8,79.8,12.2,3.2,16.3,13.7,8.7,23.5,2024,34.1,13.4,24.3,37.6,21,60.5,no,121.5094182,38.98754108
+Buffalo,North America,United States,491,University at Buffalo SUNY,US,L,FC,VH,A,18,8.3,7.8,37.2,42.8,33.3,23.3,24.6,50.6,23.5,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-78.91334128,42.9543922
+Iowa City,North America,United States,491,University of Iowa,US,L,FC,VH,A,19.9,11.2,48.2,20.9,22.3,4.6,51.3,22.1,38.4,23.5,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-91.55755202,41.66270777
+Seoul,Asia,South Korea,494,Chung-Ang University (CAU),KR,L,FC,VH,B,19.8,36.2,69.5,8.9,13.8,36.3,1.7,12.8,2.5,23.4,2024,70.3,29.1,50.8,92.1,37.4,91.3,yes,126.7624492,37.25622136
+Changsha,Asia,China,494,Hunan University ,CN,XL,CO,VH,A,8.6,8.4,13.8,82,4.9,1.9,3.8,18.7,7,23.4,2024,34.1,13.4,24.3,37.6,21,60.5,no,112.9413751,28.17891497
+Troy,North America,United States,494,Rensselaer Polytechnic Institute,US,M,CO,VH,B,8.3,7,19.5,70.7,4,44.3,1.6,24.1,2.7,23.4,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-73.68146332,42.72976277
+Seville,Europe,Spain,494,Universidad de Sevilla,ES,XL,FC,VH,A,38.8,10.4,16.7,8.5,3.6,16,82,8,29.1,23.4,2024,48.4,23.6,36.6,45.1,44,78.2,no,-5.993805624,37.38075787
+Seoul,Asia,South Korea,498,Ewha Womans University,KR,L,FC,HI,B,26.7,23,77.4,7.7,7.8,19.8,1.6,15.3,6.9,23.2,2024,70.3,29.1,50.8,92.1,37.4,91.3,yes,126.944259,37.56185877
+Coleraine,Europe,United Kingdom,498,Ulster University,UK,L,CO,VH,A,8.4,13,11.9,12.1,100,90.5,38.5,11.6,63.7,23.2,2024,63.7,33.5,49.4,55.5,63.9,90.1,no,-7.922496104,54.87004979
+Newark,North America,United States,498,University of Delaware,US,L,CO,VH,A,10.3,7.9,6.9,59.1,36.3,13.7,28.2,19.8,31.8,23.2,2024,72.9,44.7,59.5,74.2,68.4,120.9,no,-75.75318632,39.67795037
+Amman,Asia,Jordan,498,University of Jordan,JO,XL,FC,HI,A,29.1,38.8,17.4,3.3,20.6,34.1,13.8,29.8,28.9,23.2,2024,44.5,8.8,27.5,38,36.7,36,yes,35.86697068,32.01610477

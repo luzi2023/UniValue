@@ -1,0 +1,2293 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<!-- Load d3.js forme there sever, version 6-->
+<script src="https://d3js.org/d3.v6.js"></script>
+<script src="https://unpkg.com/d3-v6-tip@1.0.6/build/d3-v6-tip.js"></script>
+<script src="https://kit.fontawesome.com/4bfa319983.js" crossorigin="anonymous"></script>
+
+
+
+<div class="nav-bar">
+    <a href=""><i class="fa-solid fa-graduation-cap"></i> <strong>UniValue</strong></a>
+</div>
+
+<a href="./project.html" class="btn" id="btn-container">
+    <span>Switch</span>
+    <svg width="13px" height="10px" viewBox="0 0 13 10">
+        <path d="M1,5 L11,5"></path>
+        <polyline points="8 1 12 5 8 9"></polyline>
+    </svg>
+</a>
+
+<div class="title">QS World ranked Universities & Cost of Living Index</div>
+<select id="selectButton"></select>
+
+<!-- Create a dropdown menu -->
+<select id="sortbutton">
+    <option value="Overall_Score">Sort Index</option>
+</select>
+<select id="selectButton1">
+    <option value="overall_score">QS Index</option>
+</select>
+
+<select id="selectButton2">
+    <option value="cost_of_living_index">Cost of Living Index</option>
+</select>
+
+
+<!-- bar chart -->
+<div id="upbarchart">
+    <div id="my_dataviz"></div>
+    <div id="brush-checkbox">
+        <!-- <label>Brush</label> -->
+    </div>
+    <div id="my_dataviz4"></div>
+</div>
+
+
+<div id="radar">
+    <!-- radar1 chart -->
+    <div id="my_dataviz2"></div>
+    <!-- radar2 chart -->
+    <div id="my_dataviz3"></div>
+    <div id="info">
+        <div id="info-folder">
+            <strong>Instructions:</strong><br><br>
+            <strong>The chart in the top left corner: </strong><br>
+            By formatting regions, clicking on a specific region will display its average value. When selecting a
+            university, click on the bar to generate a radar chart.<br><br>
+            <strong>The chart in the top right corner:</strong> <br>
+            Use the brush to select the desired portion. To cancel the brush selection, click on the bar to generate
+            the
+            radar chart below.<br><br><br>
+        </div>
+    </div>
+    <div id="info2"></div>
+</div>
+
+
+<!-- bar chart -->
+
+
+
+<style>
+    #selectButton,
+    #sortbutton {
+        background-color: #686D76;
+        border: none;
+        padding: 2px;
+        border-radius: 3px;
+        color: white;
+    }
+
+    #selectButton1 {
+        background-color: rgb(77, 134, 156);
+        border: none;
+        padding: 2px;
+        border-radius: 3px;
+        color: white;
+    }
+
+    #selectButton2 {
+        background-color: rgb(122, 178, 178);
+        border: none;
+        padding: 2px;
+        border-radius: 3px;
+        color: white;
+    }
+
+    body {
+        background-color: #2A2C39;
+        color: white;
+        font-family: 'Yanone Kaffeesatz', sans-serif;
+    }
+
+    tspan {
+        color: white;
+    }
+
+    .title {
+        font-size: 25px;
+        padding: 5px;
+        padding-bottom: 10px;
+    }
+
+    #my_dataviz svg {
+        height: 490px;
+        width: 620px;
+    }
+
+    #my_dataviz4 svg {
+        height: 490px;
+        width: 650px;
+    }
+
+    #my_dataviz2 svg {
+        height: 500px;
+    }
+
+    #my_dataviz3 svg {
+        width: 600px;
+        height: 300px;
+    }
+
+    #info {
+        height: 250px;
+        border-radius: 10px;
+    }
+
+    #info2 {
+        height: 250px;
+        width: 600px;
+        border-radius: 10px;
+    }
+
+    #info {
+        background-color: #686D76;
+        margin: 0 auto;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        display: flex;
+    }
+
+    #info strong {
+        color: #F8F4EC;
+    }
+
+    #info-folder {
+        justify-content: center;
+        align-items: center;
+        text-align: left;
+    }
+
+    #upbarchart {
+        display: flex;
+    }
+
+    #radar {
+        display: flex;
+    }
+
+    #my_dataviz3 {
+        margin-left: -300px;
+    }
+
+    #brush-checkbox {
+        width: 65px;
+    }
+
+    svg {
+        z-index: -1;
+    }
+
+    .nav-bar {
+        width: 100%;
+        background-color: #2A2C39; 
+        overflow: hidden;
+    }
+
+    .nav-bar i {
+        display: inline-block;
+        padding: 14px 13px;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    .nav-bar a {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 25px;
+    }
+
+    #btn-container {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+    }
+
+    .btn {
+        position: relative;
+        color: #111111;
+        font-size: 1rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        padding: 12px 20px;
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .btn:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        border-radius: 28px;
+        background: white;
+        width: 50px;
+        height: 50px;
+        transition: all 0.3s ease;
+    }
+
+    .btn span {
+        position: relative;
+        z-index: 1;
+    }
+
+    .btn svg {
+        position: relative;
+        top: 0;
+        margin-left: 10px;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke: #111111;
+        stroke-width: 2;
+        transform: translateX(-5px);
+        transition: all 0.3s ease;
+    }
+
+    .btn:hover:before {
+        width: 100%;
+        background: white;
+    }
+
+    .btn:hover svg {
+        transform: translateX(0);
+    }
+
+    .btn:hover,
+    .btn:focus {
+        color: #111111;
+    }
+
+    .btn:active {
+        color: #111111;
+        transform: scale(0.96);
+    }
+</style>
+
+<script>
+    var years = ["2024", "2023"];
+    var csv_file = "2024_data.csv";
+    load(csv_file);
+    d3.select("#selectButton")
+        .selectAll('myOptions1')
+        .data(years)
+        .enter()
+        .append('option')
+        .text(function (d) {
+            return d.replace(/_/g, ' ');
+        });
+
+    d3.select("#selectButton").on("change", function (event, d) {
+        var selected = d3.select(this).property("value").replace(/\s/g, '_');
+        console.log(selected);
+        if (selected == 2024) {
+            csv_file = "2024_data.csv";
+
+        } else if (selected == 2023) {
+            csv_file = "2023_data.csv";
+        }
+        console.log(csv_file);
+        d3.select("#my_dataviz").html('');
+        d3.select("#my_dataviz1").html('');
+        d3.select("#my_dataviz2").html('');
+        d3.select("#my_dataviz3").html('');
+        d3.select("#my_dataviz4").html('');
+        d3.select("#brush-checkbox").html('');
+        d3.select("#sortbutton").html('<option value="Overall_Score">Sort Index</option>');
+        d3.select("#selectButton1").html('<option value="overall_score">QS Index</option>');
+        d3.select("#selectButton2").html('<option value="cost_of_living_index">Cost of Living Index</option>');
+        d3.select("#info2").html('');
+
+        load(csv_file);
+    })
+
+
+    // Parse the Data
+    function load(csv_file) {
+        d3.csv(csv_file).then(function (data) {
+            // ///////////////////////////////////////////////////////////////////////////////////////////////////
+            //
+            const DATA = data;
+            let firstRow = data[0];
+            let columnNames = Object.keys(firstRow);
+            console.log(columnNames);
+            /*
+            city	region	country
+            rank display
+            institution	location code
+            size	focus	research	status
+            ar_score	er_score	fsr_score	cpf_score	ifr_score	isr_score	irn_score	ger_score	sus_score	overall_score
+            year
+            cost_of_living_index	rent_index	cost_of_living_plus_rent_index	groceries_index	restaurant_price_index	local_purchasing_power_index
+            check_city	longitude	latitude
+
+            */
+
+            let fileds1 = [
+                'overall_score', 'ar_score', 'er_score', 'fsr_score', 'cpf_score',
+                'ifr_score', 'isr_score', 'irn_score', 'ger_score', 'sus_score',
+            ];
+            let fileds2 = [
+                'cost_of_living_index', 'rent_index', 'cost_of_living_plus_rent_index',
+                'groceries_index', 'restaurant_price_index', 'local_purchasing_power_index'
+            ];
+
+            let fileds3 = [
+                'institution', 'country', 'city', 'size', 'rank_display'
+            ]
+
+            if (csv_file == "2023_data.csv") {
+                fileds1 = [
+                    'overall_score', 'ar_score', 'er_score', 'fsr_score', 'cpf_score',
+                    'ifr_score', 'isr_score', 'irn_score', 'ger_score',
+                ];
+            }
+
+            DATA.forEach(function (d) {
+                d.cost_of_living_index = +d.cost_of_living_index;
+                d.rent_index = +d.rent_index;
+                d.cost_of_living_plus_rent_index = +d.cost_of_living_plus_rent_index;
+                d.groceries_index = +d.groceries_index;
+                d.restaurant_price_index = +d.restaurant_price_index;
+                d.local_purchasing_power_index = +d.local_purchasing_power_index;
+                d.overall_score = +d.overall_score;
+                d.ar_score = +d.ar_score;
+                d.er_score = +d.er_score;
+                d.fsr_score = +d.fsr_score;
+                d.cpf_score = +d.cpf_score;
+                d.ifr_score = +d.ifr_score;
+                d.isr_score = +d.isr_score;
+                d.irn_score = +d.irn_score;
+                d.ger_score = +d.ger_score;
+                d.sus_score = +d.sus_score;
+            });
+
+            var max = {};
+            fileds2.forEach(function (field) {
+                max[field] = d3.max(DATA, function (d) { return d[field]; });
+            });
+
+            var maxY2 = max.cost_of_living_index;
+
+            var all_index1 = "overall_score";
+            var all_index2 = "cost_of_living_index";
+
+            // #region
+            // create button
+            var sortOption = ["QS", "Cost Of Living Index"];
+            d3.select("#sortbutton")
+                .selectAll('myoptions1')
+                .data(sortOption)
+                .enter()
+                .append('option')
+                .text(function (d) {
+                    return d.replace(/_/g, ' ');
+                });
+
+            d3.select("#selectButton1")
+                .selectAll('myOptions1')
+                .data(fileds1)
+                .enter()
+                .append('option')
+                .text(function (d) {
+                    return d.replace(/_/g, ' ');
+                });
+
+            d3.select("#selectButton2")
+                .selectAll('myOptions1')
+                .data(fileds2)
+                .enter()
+                .append('option')
+                .text(function (d) {
+                    return d.replace(/_/g, ' ');
+                });
+            // 一開始設定選項為 overall_score 和 cost of living index
+            var index1 = "overall_score"
+            var index2 = "cost_of_living_index"
+
+            var SORTINDEX = index1;
+            // #endregion
+
+            // create hierarchy
+            function createHierarchy(data) {
+                let tree = [];
+                let regions = {};
+
+                data.forEach(d => {
+                    // create region node
+                    let region = regions[d.region];
+                    if (!region) {
+                        region = {
+                            name: d.region,
+                            children: [],
+                            count: 0,
+                        };
+                        fileds1.forEach(filed1 => region[filed1] = 0);
+                        fileds2.forEach(filed2 => region[filed2] = 0);
+                        tree.push(region);
+                        regions[d.region] = region;
+                    }
+
+                    // create country node
+                    let country = region.children.find(c => c.name === d.country);
+                    if (!country) {
+                        country = {
+                            name: d.country,
+                            children: [],
+                            count: 0,
+                        };
+                        fileds1.forEach(filed1 => country[filed1] = 0);
+                        fileds2.forEach(filed2 => country[filed2] = 0);
+
+                        region.children.push(country);
+                    }
+
+                    // create city node
+                    let city = country.children.find(c => c.name === d.city);
+                    if (!city) {
+                        city = {
+                            name: d.city,
+                            children: [],
+                            count: 0,
+                        };
+                        fileds1.forEach(filed1 => city[filed1] = 0);
+                        fileds2.forEach(filed2 => city[filed2] = 0);
+                        country.children.push(city);
+                    }
+
+                    // create institution node
+                    let institution = {
+                        name: d.institution,
+                    };
+                    fileds1.forEach(filed1 => {
+                        let value = parseFloat(d[filed1]);
+                        if (isNaN(value)) {
+                            console.log(`Skipped ${filed1}: value is NaN`);
+                        } else {
+                            institution[filed1] = value;
+                        }
+                        institution[filed1] = parseFloat(d[filed1]);
+                    });
+                    fileds2.forEach(filed2 => institution[filed2] = parseFloat(d[filed2]));
+                    city.children.push(institution);
+
+                    // Update city-level totals and counts
+                    fileds1.forEach(filed1 => city[filed1] += institution[filed1]);
+                    fileds2.forEach(filed2 => city[filed2] += institution[filed2]);
+                    city.count += 1;
+
+                    // Update country-level totals and counts
+                    fileds1.forEach(filed1 => country[filed1] += institution[filed1]);
+                    fileds2.forEach(filed2 => country[filed2] += institution[filed2]);
+                    country.count += 1;
+
+                    // Update region-level totals and counts
+                    fileds1.forEach(filed1 => region[filed1] += institution[filed1]);
+                    fileds2.forEach(filed2 => region[filed2] += institution[filed2]);
+                    region.count += 1;
+                });
+
+                // calculate the avg
+                tree.forEach(region => {
+                    fileds1.forEach(field => {
+                        region[field] /= region.count;
+                    });
+
+                    fileds2.forEach(field => region[field] /= region.count);
+                    region.children.forEach(country => {
+                        fileds1.forEach(field => {
+                            country[field] /= country.count;
+                        });
+                        fileds2.forEach(field => country[field] /= country.count);
+                        country.children.forEach(city => {
+                            fileds1.forEach(field => city[field] /= city.count);
+                            fileds2.forEach(field => city[field] /= city.count);
+                        });
+                    });
+                });
+
+                return { name: "root", children: tree };
+            }
+
+            const hierarchy = createHierarchy(data);
+
+            // regionData
+            var currentView = "region";
+            var current = "";
+            var regionData = hierarchy.children.map(region => {
+                return {
+                    name: region.name,
+                    Qs: region[index1],
+                    Cost: region[index2]
+                };
+            });
+
+            // sort
+            function sortByIndex(data, index) {
+                console.log("line268", index);
+                return data.slice().sort(function (a, b) {
+                    return b[index] - a[index];
+                });
+            }
+
+            console.log("return", sortByIndex(regionData, "Cost"));
+
+
+            // set the dimensions and margins of the graph
+            const margin = { top: 15, right: 15, bottom: 10, left: 30 }, // bottom
+                width = 600 - margin.left - margin.right, // 460
+                height = 300 - margin.top - margin.bottom; // 400
+
+            // // append the svg object to the body of the page
+            const svg = d3.select("#my_dataviz") // return selection
+                .append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.left + margin.right);
+
+            var background = svg.append("rect")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.left + margin.right)
+                .attr("fill", "none")
+                .attr("pointer-events", "all")
+                .attr("cursor", "pointer")
+                .on("dblclick", function (d) {
+                    console.log("background dbclik");
+                    makeChangeData(current, "up");
+
+                });
+
+
+            // sortData
+            regionData = sortByIndex(regionData, "Qs");
+
+            // y 比例尺
+            var y = d3.scaleLinear()
+                .domain([0, 100])
+                .range([height, 0]);
+
+
+            var y2 = d3.scaleLinear()
+                .domain([0, maxY2])
+                .range([height, 0])
+
+            // x 比例尺
+            var x = d3.scaleBand()
+                .domain(regionData.map(function (d) { return d.name; }))
+                .range([0, width])
+                .padding(0.1);
+
+            // g
+            var g = svg.append("g")
+                .attr("class", "background")
+                .attr("fill", "none")
+                .attr("pointer-events", "all")
+                .attr("width", width)
+                .attr("height", height)
+                .attr("cursor", "pointer")
+                .attr("transform", "translate(" + margin.left + "," + (margin.top) + ")");
+            // xAxis - add x
+            var xAxis = g.append("g")
+                .attr("class", "axis axis--x")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x));
+            xAxis.selectAll("text")
+                .attr("transform", "translate(-10,0)rotate(-45)")
+                .style("text-anchor", "end");
+
+            // yAxis - add y
+            var yAxis = g.append('g')
+                .attr("text-anchor", "end")
+                .call(d3.axisLeft(y))
+
+            var yAxis2 = g.append('g')
+                //   .attr("text-anchor", "end")
+                .attr("transform", "translate(" + width + ",0)")
+                .call(d3.axisRight(y2))
+
+            // bar
+            var bars = g.selectAll(".bar")
+                .data(regionData)
+                .join("rect")
+                .attr("class", "bar")
+                .attr("x", function (d) { return x(d.name); })
+                // .attr("y", function(d) { return y(d.Overall_Score); })
+                .attr("width", x.bandwidth() / 2)
+                // .attr("height", function(d) { return height - y(d.Overall_Score); })
+                .attr("height", function (d) { return height - y(0); }) // always equal to 0
+                .attr("y", function (d) { return y(0); })
+                .style("fill", "#4D869C")
+                .on("dblclick", function (d) { // double click
+                    // swithc to country view
+                    d3.selectAll(".bar-label").remove();
+                    var data = d3.select(this).datum();
+                    var direction = "down";
+                    makeChangeData(data.name, direction);
+                    // switchToCountryView(data.name);
+                })
+
+
+            var bars2 = g.selectAll(".bar2")
+                .data(regionData)
+                .join("rect")
+                .attr("class", "bar2")
+                .attr("x", function (d) { return x(d.name) + x.bandwidth() / 2; })
+                .attr("y", function (d) { return y(0); })
+                .attr("height", function (d) { return height - y2(0); })
+                .attr("width", x.bandwidth() / 2)
+                .style("fill", "#7AB2B2")
+                .on("dblclick", function (d) { // double click
+                    // swithc to country view
+                    d3.selectAll(".bar-label").remove();
+                    var data = d3.select(this).datum();
+                    var direction = "down";
+                    console.log("default change data", data.name);
+                    makeChangeData(data.name, direction);
+                    // switchToCountryView(data.name);
+                })
+
+            // animation
+            bars
+                .data(regionData)
+                .transition()
+                .duration(800)
+                .attr("width", x.bandwidth() / 2)
+                .attr("y", function (d) { return y(d.Qs); })
+                .attr("height", d => height - y(d.Qs))
+                .delay((d, i) => {
+                    // console.log(i);
+                    return i * 100
+                })
+            bars
+                .on("mouseover", function (event, d) {
+                    // console.log("mouseover11");
+                    svg.append("text")
+                        .attr("class", "bar-label") 
+                        .attr("x", x(d.name) + x.bandwidth() / 2 + + x.bandwidth() / 4)
+                        .attr("y", y(d.Qs)) 
+                        .attr("text-anchor", "middle")
+                        .style("fill", "white")
+                        .text(d.Qs.toFixed(2)); 
+                })
+                .on("mouseleave", function (d) {
+                    // d3.select(this).selectAll(".bar-label").remove();
+                    d3.selectAll(".bar-label").remove();
+                });
+
+            bars2
+                .data(regionData)
+                .transition()
+                .duration(800)
+                .attr("width", x.bandwidth() / 2)
+                .attr("y", function (d) { return y2(d.Cost); })
+                .attr("height", d => height - y2(d.Cost))
+                .delay((d, i) => {
+                    return i * 100
+                })
+            bars2
+                .on("mouseover", function (event, d) {
+                    svg.append("text")
+                        .attr("class", "bar-label")
+                        .attr("x", x(d.name) + x.bandwidth() + x.bandwidth() / 4) 
+                        .attr("y", y2(d.Cost))
+                        .attr("text-anchor", "middle")
+                        .style("fill", "white")
+                        .text(d.Cost.toFixed(2)); 
+                })
+                .on("mouseleave", function (d) {
+                    d3.selectAll(".bar-label").remove();
+                });
+
+            var radarChartInstitution = [];
+            var radarCurrentIndex = 0;
+
+            // function makeChangeData(vidw)
+            function makeChangeData(view, direction) {
+                console.log(view, direction, currentView);
+                if (direction == "down") {
+                    if (currentView == "region") {
+                        var selectedRegion = hierarchy.children.find(region => region.name === view);
+                        console.log("selected regiooon", selectedRegion);
+                        console.log("selected chlidern", selectedRegion.children);
+                        var changeData = selectedRegion.children.map(country => ({
+                            name: country.name,
+                            Qs: country[index1],
+                            Cost: country[index2]
+                        }));
+                        currentView = "country";
+                        console.log("changedata", changeData);
+                        current = selectedRegion.name; // 上一層region.name
+                    } else if (currentView == "country") {
+                        var selectedCountry = hierarchy.children.flatMap(region => region.children).find(country => country.name === view);
+                        console.log("selectedCountry", selectedCountry);
+                        var changeData = selectedCountry.children.map(city => ({
+                            name: city.name,
+                            Qs: city[index1],
+                            Cost: city[index2]
+                        }));
+                        currentView = "city"
+                        current = selectedCountry.name; // 上一層的country.name
+                    } else if (currentView == "city") {
+                        var selectedCity = hierarchy.children.flatMap(region => region.children).flatMap(country => country.children).find(city => city.name === view);
+                        var changeData = selectedCity.children.map(institution => ({
+                            name: institution.name,
+                            Qs: institution[index1],
+                            Cost: institution[index2]
+                        }));
+                        currentView = "insitution";
+                        current = selectedCity.name; // 上一層的city.name
+                    } else if (currentView == "insitution") {
+                        return;
+                    }
+
+                } else if (direction == "up") {
+                    if (currentView == "region") {
+                        return;
+                    } else if (currentView == "country") {
+                        var changeData = regionData;
+                        currentView = "region"
+                    } else if (currentView == "city") {
+                        // console.log('viewwwww', view);
+                        var selectedRegion = hierarchy.children.find(region => region.children.some(country => country.children.some(city => city.name === view)));
+                        if (!selectedRegion) { // 可能是 country 層級因為 它沒有更新到current 就是剛好點到city level 就要回去!!
+                            console.log("heree");
+                            selectedRegion = hierarchy.children.find(region => region.children.some(country => country.name === view));
+                        }
+                        var changeData = selectedRegion.children.map(country => ({
+                            name: country.name,
+                            Qs: country[index1],
+                            Cost: country[index2]
+                        }));
+                        currentView = "country";
+                    } else if (currentView == "insitution") {
+                        var selectedCountry = hierarchy.children.flatMap(region => region.children).find(country => country.children.some(city => city.name === view));
+                        var changeData = selectedCountry.children.map(city => ({
+                            name: city.name,
+                            Qs: city[index1],
+                            Cost: city[index2]
+                        }));
+                        currentView = "city";
+                    }
+                } else if (direction == "no") {
+                    // var changeData =
+                }
+                updateDown(changeData);
+
+            }
+            // function updateDown
+            function updateDown(changeData) {
+                console.log("sorrt", SORTINDEX)
+                if (fileds1.includes(SORTINDEX)) {
+                    changeData = sortByIndex(changeData, "Qs");
+                    console.log("1");
+                } else {
+                    changeData = sortByIndex(changeData, "Cost");
+                    // console.log('2');
+                }
+
+                x = d3.scaleBand()
+                    .domain(changeData.map(function (d) { return d.name; }))
+                    .range([0, width])
+                    .padding(0.1);
+
+                xAxis
+                    .transition()
+                    .duration(1000)
+                    .call(d3.axisBottom(x))
+                xAxis.selectAll("text")
+                    .attr("transform", "translate(-10,0)rotate(-45)")
+                    .style("text-anchor", "end");
+
+
+                y = d3.scaleLinear()
+                    .domain([0, 100])
+                    .range([height, 0]);
+
+                y2 = d3.scaleLinear()
+                    .domain([0, maxY2])
+                    .range([height, 0]);
+
+                yAxis.transition()
+                    .duration(1000)
+                    .call(d3.axisLeft(y));
+
+                yAxis2.transition()
+                    .duration(1000)
+                    .call((d3.axisRight(y2)))
+
+
+                // remove
+                g.selectAll(".bar")
+                    .remove();
+
+                // draw new chart
+
+                bars = g.selectAll(".bar")
+                    .data(changeData)
+                    .join("rect")
+                    .attr("class", "bar")
+                    .attr("x", function (d) {
+                        return x(d.name);
+                    })
+                    // .attr("y", function(d) { return y(d.Overall_Score); })
+                    .attr("width", x.bandwidth() / 2)
+                    // .attr("height", function(d) { return height - y(d.Overall_Score); })
+                    .attr("height", function (d) { return height - y(0); }) // always equal to 0
+                    .attr("y", function (d) { return y(0); })
+                    .style("fill", "#4D869C")
+                    .on("dblclick", function (event, d) { // double click
+                        d3.selectAll(".bar-label").remove();
+                        // switch to city view or insitution
+                        // console.log("dbclick3");
+                        if (currentView == "region" || currentView == "country" || currentView == "city") {
+                            var data = d3.select(this).datum();
+                            var direction = "down";
+                            makeChangeData(d.name, direction);
+                        } else if (currentView == "insitution") {
+                            checkRadarChartInstitution(d.name);
+                            var radarData = createRadarData(DATA, radarChartInstitution, fileds1);
+                            RadarChart("#my_dataviz2", radarData, radarChartOptions, radarChartInstitution);
+                            var radarData2 = createRadarData(DATA, radarChartInstitution, fileds2);
+                            RadarChart2("#my_dataviz3", radarData2, radarChartOptions, radarChartInstitution);
+
+                            showInfo(d, "bar");
+                            radarCurrentIndex += 1;
+                        }
+                    });
+                bars
+                    .data(changeData)
+                    .transition()
+                    .duration(800)
+                    .attr("width", x.bandwidth() / 2)
+                    .attr("y", function (d) { return y(d.Qs); })
+                    .attr("height", d => height - y(d.Qs))
+                    .delay((d, i) => {//console.log(i);
+                        return i * 100
+                    })
+
+                bars
+                    .on("mouseover", function (event, d) {
+                        console.log("mouseover333")
+                        console.log("d.cost", d.Qs);
+                        svg.append("text")
+                            .attr("class", "bar-label")
+                            .attr("x", x(d.name) + x.bandwidth() / 2)
+                            .attr("y", y(d.Qs))
+                            .attr("text-anchor", "middle")
+                            .style("fill", "white")
+                            .text(d.Qs.toFixed(2));
+                    })
+                    .on("mouseleave", function (d) {
+                        d3.selectAll(".bar-label").remove();
+                    });
+
+                bars2 = g.selectAll(".bar2")
+                    .data(changeData)
+                    .join("rect")
+                    .attr("class", "bar2")
+                    .attr("x", function (d) {
+                        // console.log(d.name);
+                        return x(d.name) + x.bandwidth() / 2;
+                    })
+                    .attr("y", function (d) { return y(0); })
+                    .attr("height", function (d) { return height - y2(0); })
+                    .attr("width", x.bandwidth() / 2)
+                    .style("fill", "#7AB2B2")
+                    .on("dblclick", function (event, d) { // double click
+                        // switch to city view or insitution
+                        d3.selectAll(".bar-label").remove();
+                        // console.log("this", this);
+                        if (currentView == "region" || currentView == "country" || currentView == "city") {
+                            var data = d3.select(this).datum();
+                            var direction = "down";
+                            makeChangeData(data.name, direction);
+                        } else if (currentView == "insitution") {
+                            checkRadarChartInstitution(d.name);
+                            var radarData = createRadarData(DATA, radarChartInstitution, fileds1);
+                            RadarChart("#my_dataviz2", radarData, radarChartOptions, radarChartInstitution);
+                            var radarData2 = createRadarData(DATA, radarChartInstitution, fileds2);
+                            RadarChart2("#my_dataviz3", radarData2, radarChartOptions, radarChartInstitution);
+                            showInfo(d, "bar");
+                            radarCurrentIndex += 1;
+                        }
+                    })
+
+                // animation
+
+
+                bars2
+                    .data(changeData)
+                    .transition()
+                    .duration(800)
+                    .attr("width", x.bandwidth() / 2)
+                    .attr("y", function (d) { return y2(d.Cost); })
+                    .attr("height", d => height - y2(d.Cost))
+                    .delay((d, i) => {
+                        // console.log(i);
+                        return i * 100
+                    })
+                bars2
+                    .on("mouseover", function (event, d) {
+                        svg.append("text")
+                            .attr("class", "bar-label")
+                            .attr("x", x(d.name) + x.bandwidth() / 2 + x.bandwidth() / 2 - 10) // 根据条形位置设置文本位置
+                            .attr("y", y2(d.Cost))
+                            .attr("text-anchor", "middle")
+                            .style("fill", "white")
+                            .text(d.Cost.toFixed(2));
+                    })
+                    .on("mouseleave", function (d) {
+                        d3.selectAll(".bar-label").remove();
+                    });
+            }
+
+            function whichsortindex() {
+                var selectedOption = d3.select("#sortbutton").property("value").replace(/\s/g, '_');
+                if (selectedOption == "QS" || selectedOption == "Sort Index") {
+                    var button1value = d3.select("#selectButton1").property("value").replace(/\s/g, '_');
+                    console.log(button1value);
+                    SORTINDEX = button1value;
+                    // updateChart(sortByIndex(DATA, SORTINDEX));
+                } else {
+                    var button2value = d3.select("#selectButton2").property("value").replace(/\s/g, '_');
+                    console.log(button2value);
+                    SORTINDEX = button2value;
+                    // updateChart(sortByIndex(DATA, SORTINDEX));
+                }
+            }
+
+            // get select button value
+            d3.select("#sortbutton").on("change", function (event, d) {
+                whichsortindex();
+                // var selectedOption1 = d3.select("#sortbutton1").property("value").replace(/\s/g, '_');
+                // index1 = selectedOption1;
+                // all_index1 = selectedOption1;
+                updateChart(sortByIndex(DATA, SORTINDEX));
+                regionData = hierarchy.children.map(region => {
+                    return {
+                        name: region.name,
+                        Qs: region[index1],
+                        Cost: region[index2]
+                    };
+                });
+                currentView = "region";
+                if (fileds1.includes(SORTINDEX)) {
+                    regionData = sortByIndex(regionData, "Qs");
+                    console.log("1");
+                } else {
+                    regionData = sortByIndex(regionData, "Cost");
+                    console.log('2');
+                }
+
+                updateDown(regionData);
+
+            })
+            d3.select("#selectButton1").on("change", function (event, d) {
+                var selectedOption1 = d3.select(this).property("value").replace(/\s/g, '_');
+                if (selectedOption1 == "") {
+                    selectedOption1 = "overall_score";
+                }
+                whichsortindex();
+                index1 = selectedOption1;
+                all_index1 = selectedOption1;
+                updateChart(sortByIndex(DATA, SORTINDEX));
+                regionData = hierarchy.children.map(region => {
+                    return {
+                        name: region.name,
+                        Qs: region[index1],
+                        Cost: region[index2]
+                    };
+                });
+                currentView = "region";
+                if (fileds1.includes(SORTINDEX)) {
+                    regionData = sortByIndex(regionData, "Qs");
+                    console.log("1");
+                } else {
+                    regionData = sortByIndex(regionData, "Cost");
+                    console.log('2');
+                }
+
+                updateDown(regionData);
+            })
+            d3.select("#selectButton2").on("change", function (event, d) {
+                var selectedOption2 = d3.select(this).property("value").replace(/\s/g, '_');
+                if (selectedOption2 == "") {
+                    selectedOption2 = "cost_of_living_index";
+                }
+                whichsortindex();
+                index2 = selectedOption2;
+                all_index2 = selectedOption2;
+                console.log("ssssssssss", SORTINDEX);
+                updateChart(sortByIndex(DATA, SORTINDEX));
+                maxY2 = max[index2];
+                console.log("maxY2update", maxY2);
+                regionData = hierarchy.children.map(region => {
+                    return {
+                        name: region.name,
+                        Qs: region[index1],
+                        Cost: region[index2]
+                    };
+                });
+                currentView = "region";
+                if (fileds1.includes(SORTINDEX)) {
+                    regionData = sortByIndex(regionData, "Qs");
+                } else {
+                    regionData = sortByIndex(regionData, "Cost");
+                }
+
+                updateDown(regionData);
+            })
+
+            function createDetialData(data, dname, fields) {
+                // Function to filter data based on an array of institution names
+                function filteredData(data, dname) {
+                    return data.filter(function (d) {
+                        var institutionName = d.institution.trim();
+                        return dname.includes(institutionName);
+                    });
+                }
+
+                // Function to transform data for radar chart
+                function transformToRadarData(filteredData, fields) {
+                    return filteredData.map(function (d) {
+                        var obj = {};
+                        fields.forEach(function (field) {
+                            obj[field] = d[field];
+                        });
+                        return obj;
+                    });
+                }
+
+                // Filter data based on institution name
+                var filteredInstitutions = filteredData(data, dname);
+
+                // Transform filtered data to include only specified fields
+                return transformToRadarData(filteredInstitutions, fields);
+            }
+            function showInfo(d, where) {
+                console.log("line768", d);
+                if (where == "bar") {
+                    d = createDetialData(DATA, d.name, fileds3)
+                } else {
+                    d = createDetialData(DATA, d.institution, fileds3)
+                }
+
+                d3.select("#info").remove();
+                console.log("line802", d[0]);
+
+                var uniqueId = "info-folder-" + new Date().getTime();
+
+                var infoElement = d3.select("#info2")
+                    .append("div")
+                    .attr("id", uniqueId)
+                    .style("margin", "auto") 
+                    .style("background-color", "#686D76")
+                    .style("border-radius", "10px")
+                    // .style("text-align", "center")
+                    .style("padding", "10px") 
+                    .style("padding-left", "23px")
+                    .style("margin-bottom", "10px");
+
+                var colorLabel = infoElement.append("div")
+                    .attr("class", "color-label");
+
+                var infoColor = colorLabel.append("svg")
+                    .attr("width", 15)
+                    .attr("height", 15);
+
+                var circle = infoColor.append("circle")
+                    .attr("cx", 7)
+                    .attr("cy", 7)
+                    .attr("r", 6)
+                    .style("fill", color(radarCurrentIndex));
+
+                infoElement.append("strong")
+                    .text("Name: ");
+                infoElement.append("span")
+                    .text(d[0].institution);
+                infoElement.append("br");
+
+                infoElement.append("strong")
+                    .text("Country: ");
+                infoElement.append("span")
+                    .text(d[0].country);
+                infoElement.append("br");
+
+                infoElement.append("strong")
+                    .text("City: ");
+                infoElement.append("span")
+                    .text(d[0].city);
+                infoElement.append("br");
+
+                infoElement.append("strong")
+                    .text("Size: ");
+                infoElement.append("span")
+                    .text(d[0].size);
+                infoElement.append("br");
+
+                infoElement.append("strong")
+                    .text("Rank: ");
+                infoElement.append("span")
+                    .text(d[0].rank_display);
+                infoElement.append("br");
+            }
+  
+            // radar chart
+            // set the dimensions and margins of the graph
+            const margin2 = { top: 30, right: 30, bottom: 200, left: 60 },
+                width2 = 900 - margin2.left - margin2.right, // 460
+                height2 = 600 - margin2.top - margin2.bottom; // 400
+
+            // // append the svg object to the body of the page
+            const svg2 = d3.select("#my_dataviz2") // return selection
+                .append("svg")
+                .attr("width", width2 + margin2.left + margin2.right)
+                .attr("height", height2 + margin2.left + margin2.right)
+                .append("g")
+                .attr("transform", `translate(${0},${0})`);
+
+
+            // radarChartInstitution = ["Massachusetts Institute of Technology (MIT)", "The American University in Cairo"]
+
+            // Function to checkRadarChartInstitution
+            function checkRadarChartInstitution(name) {
+                var trimmedName = name.trim();
+                if (!radarChartInstitution.includes(trimmedName)) {
+                    radarChartInstitution.push(trimmedName);
+                    console.log(`"${trimmedName}" has been added to the radarChartInstitution array.`);
+                } else {
+                    // console.log(`"${trimmedName}" is already in the radarChartInstitution array.`);
+                }
+            }
+
+            // Function to create radar data
+            function createRadarData(data, radarChartInstitution, fields) {
+                // Function to filter data based on an array of institution names
+                console.log(radarChartInstitution);
+                function filteredData(data, radarChartInstitution) {
+                    return data.filter(function (d) {
+                        var institutionName = d.institution.trim();
+                        return radarChartInstitution.includes(institutionName);
+                    });
+                }
+
+                // Function to transform data for radar chart
+                function transformToRadarData(filteredData, fields) {
+                    return filteredData.map(function (d) {
+                        return fields.map(function (field) {
+                            return { axis: field, value: +d[field] };  // Ensure the value is a number
+                        });
+                    });
+                }
+
+                // Filter and transform data
+                var filteredInstitutions = filteredData(data, radarChartInstitution);
+
+                // Sort filtered data to match the order of radarChartInstitution
+                filteredInstitutions.sort(function (a, b) {
+                    return radarChartInstitution.indexOf(a.institution.trim()) - radarChartInstitution.indexOf(b.institution.trim());
+                });
+                return transformToRadarData(filteredInstitutions, fields);
+            }
+
+
+
+            //////////////////////////////////////////////////////////////
+            //////////////////// Draw the Chart //////////////////////////
+            //////////////////////////////////////////////////////////////
+
+            var color = d3.scaleOrdinal().range(["#F38181", "#FCE38A", "#EAFFD0", "#95E1D3"]);
+
+
+            //Call function to draw the Radar chart
+            function RadarChart(id, data, options, radarChartInstitution) {
+                // console.log("data", data);
+
+
+                /////////////////////////////////////////////////////////
+                ///////////// Draw the radar chart blobs ////////////////
+                /////////////////////////////////////////////////////////
+                //The radial line function
+                var radarLine = d3.lineRadial()
+                    .curve(d3.curveLinearClosed)  // Use curveLinearClosed for linear-closed interpolation
+                    .radius(function (d) { return rScale(d.value); })
+                    .angle(function (d, i) { return i * angleSlice; });
+
+                if (cfg.roundStrokes) {
+                    radarLine.curve(d3.curveCardinalClosed);  // Use curveCardinalClosed for cardinal-closed interpolation
+                }
+
+
+                //// gpt
+                // var currentI = 0;
+                console.log("data2", data);
+                //Create a wrapper for the blobs
+                var blobWrapper = g_radar1.selectAll(".radarWrapper")
+                    .data(data)
+                    .enter().append("g")
+                    .attr("class", "radarWrapper");
+                console.log(blobWrapper);
+
+                //Append the backgrounds
+                blobWrapper
+                    .append("path")
+                    .attr("class", "radarArea")
+                    .attr("d", function (d, i) {
+                        // Initial state: all points at the center
+                        var initialData = d.map(point => ({ ...point, value: 0 }));
+                        return radarLine(initialData);
+                    })
+                    .style("fill", function (d, i) {
+                        // currentI = i;
+                        console.log("currentI", radarCurrentIndex);
+                        // console.log("color", cfg.color(i));
+                        return cfg.color(radarCurrentIndex);
+                    })
+                    .style("fill-opacity", cfg.opacityArea)
+                    .on('mouseover', function (d, i) {
+                        //Dim all blobs
+                        d3.selectAll(".radarArea")
+                            .transition().duration(200)
+                            .style("fill-opacity", 0.1);
+                        //Bring back the hovered over blob
+                        d3.select(this)
+                            .transition().duration(200)
+                            .style("fill-opacity", 0.7);
+                    })
+                    .on('mouseout', function () {
+                        //Bring back all blobs
+                        d3.selectAll(".radarArea")
+                            .transition().duration(200)
+                            .style("fill-opacity", cfg.opacityArea);
+                    })
+                    .transition().duration(1800)  // ++ Add transition for initial drawing
+                    .attr("d", function (d, i) {
+                        // console.log("d", d);
+                        return radarLine(d);
+                    }); // ++  Animate the drawing of the radar area
+
+
+                //Create the outlines
+                blobWrapper.append("path")
+                    .attr("class", "radarStroke")
+                    .attr("d", function (d, i) {
+                        // Initial state: all points at the center
+                        var initialData = d.map(point => ({ ...point, value: 0 }));
+                        return radarLine(initialData);
+                        // return radarLine(d);
+                    })
+                    .style("stroke-width", cfg.strokeWidth + "px")
+                    .style("stroke", function (d, i) { return cfg.color(i); })
+                    .style("fill", "none")
+                    .style("filter", "url(#glow)")
+                    .transition().duration(1800)  // ++ Add transition for initial drawing
+                    .attr("d", function (d, i) { return radarLine(d); }); //++ Animate the drawing of the radar stroke
+
+                //Append the circles
+                blobWrapper.selectAll(".radarCircle")
+                    .data(function (d, i) { return d.map((point) => ({ ...point, parentIndex: i })); })
+                    .enter().append("circle")
+                    .attr("class", "radarCircle")
+                    .attr("r", 0)
+                    // .attr("r", cfg.dotRadius)
+                    .attr("cx", function (d, i) { return rScale(d.value) * Math.cos(angleSlice * i - Math.PI / 2); })
+                    .attr("cy", function (d, i) { return rScale(d.value) * Math.sin(angleSlice * i - Math.PI / 2); })
+                    .style("fill",
+                        function (d) {
+                            // console.log("currentI", currentI);
+                            console.log("parentindex", d.parentIndex);
+                            return cfg.color(radarCurrentIndex);
+                        })
+                    .style("fill-opacity", 0.8)
+                    .transition().duration(2300)  //  ++ Add transition for initial drawing
+                    .attr("r", cfg.dotRadius);  // ++ Animate the radius of the circles
+
+                /////////////////////////////////////////////////////////
+                //////// Append invisible circles for tooltip ///////////
+                /////////////////////////////////////////////////////////
+
+                //Wrapper for the invisible circles on top
+                var blobCircleWrapper = g_radar1.selectAll(".radarCircleWrapper")
+                    .data(data)
+                    .enter().append("g")
+                    .attr("class", "radarCircleWrapper");
+
+                //Append a set of invisible circles on top for the mouseover pop-up
+                blobCircleWrapper.selectAll(".radarInvisibleCircle")
+                    .data(function (d, i) { return d.map((point) => ({ ...point, parentIndex: i })); })
+                    .enter().append("circle")
+                    .attr("class", "radarInvisibleCircle")
+                    .attr("r", cfg.dotRadius * 1.5)
+                    .attr("cx", function (d, i) { return rScale(0) * Math.cos(angleSlice * i - Math.PI / 2); }) // ++ Initial state: center
+                    .attr("cy", function (d, i) { return rScale(0) * Math.sin(angleSlice * i - Math.PI / 2); }) // ++ Initial state: center
+                    // .attr("cx", function(d,i){ return rScale(d.value) * Math.cos(angleSlice*i - Math.PI/2); })
+                    // .attr("cy", function(d,i){ return rScale(d.value) * Math.sin(angleSlice*i - Math.PI/2); })
+                    .style("fill", "none")
+                    .style("pointer-events", "all")
+                    .on("mouseover", function (d, i) {
+                        newX = parseFloat(d3.select(this).attr('cx')) - 10;
+                        newY = parseFloat(d3.select(this).attr('cy')) - 10;
+                        tooltip
+                            .attr('x', newX)
+                            .attr('y', newY)
+                            .style("fill", "whites")
+                            .text(i.value)
+                            .transition().duration(200)
+                            .style('opacity', 1);
+                    })
+                    .on("mouseout", function () {
+                        tooltip.transition().duration(200)
+                            .style("opacity", 0);
+                    })
+                    .transition().duration(2000)  // ++  Add transition for initial drawing
+                    .attr("cx", function (d, i) { return rScale(d.value) * Math.cos(angleSlice * i - Math.PI / 2); }) // ++ Animate position
+                    .attr("cy", function (d, i) { return rScale(d.value) * Math.sin(angleSlice * i - Math.PI / 2); }); // ++ Animate position
+
+                //Set up the small tooltip for when you hover over a circle
+                var tooltip = g_radar1.append("text")
+                    .attr("class", "tooltip")
+                    .style("opacity", 0);
+
+
+
+
+                /////////////////////////////////////////////////////////
+                /////////////////// Helper Function /////////////////////
+                /////////////////////////////////////////////////////////
+
+                //Taken from http://bl.ocks.org/mbostock/7555321
+                //Wraps SVG text
+                function wrap(text, width) {
+                    text.each(function () {
+                        var text = d3.select(this),
+                            words = text.text().split(/\s+/).reverse(),
+                            word,
+                            line = [],
+                            lineNumber = 0,
+                            lineHeight = 1.4, // ems
+                            y = text.attr("y"),
+                            x = text.attr("x"),
+                            dy = parseFloat(text.attr("dy")),
+                            tspan = text.text(null).append("tspan").attr("x", x).attr("y", y).attr("dy", dy + "em").style("fill", "white");
+
+                        while (word = words.pop()) {
+                            line.push(word);
+                            tspan.text(line.join(" "));
+                            if (tspan.node().getComputedTextLength() > width) {
+                                line.pop();
+                                tspan.text(line.join(" "));
+                                line = [word];
+                                tspan = text.append("tspan").attr("x", x).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").style("fill", "white").text(word);
+                            }
+                        }
+                    });
+                }//wrap
+
+            }//RadarChart
+
+
+            //# region RadarChart function
+            //////////////////////////////////////////////////////////////////////////////////////////////////////
+            /////////////////////////// CREATE EMPTY RADAR CHART /////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            var radarChartOptions = {
+                w: width - 100,
+                h: height - 100,
+                margin: margin,
+                maxValue: 0.5,
+                levels: 4,
+                roundStrokes: true,
+                color: color
+            };
+            var cfg = {
+                w: 600,				//Width of the circle
+                h: 600,				//Height of the circle
+                margin: { top: 20, right: 20, bottom: 20, left: 20 }, //The margins of the SVG
+                levels: 5,				//How many levels or inner circles should there be drawn
+                maxValue: 0, 			//What is the value that the biggest circle will represent
+                labelFactor: 1.25, 	//How much farther than the radius of the outer circle should the labels be placed
+                wrapWidth: 60, 		//The number of pixels after which a label needs to be given a new line
+                opacityArea: 0.35, 	//The opacity of the area of the blob
+                dotRadius: 4, 			//The size of the colored circles of each blog
+                opacityCircles: 0.1, 	//The opacity of the circles of each blob
+                strokeWidth: 2, 		//The width of the stroke around each blob
+                roundStrokes: false,	//If true the area and stroke will follow a round path (cardinal-closed)
+                color: color	//Color function
+            };
+
+            //Put all of the options into a variable called cfg
+            if ('undefined' !== typeof radarChartOptions) {
+                for (var i in radarChartOptions) {
+                    if ('undefined' !== typeof radarChartOptions[i]) { cfg[i] = radarChartOptions[i]; }
+                }
+            }
+
+            var allAxis = fileds1,	//Names of each axis
+                total = allAxis.length,					//The number of different axes
+                radius = Math.min(cfg.w / 2, cfg.h / 2), 	//Radius of the outermost circle
+                angleSlice = Math.PI * 2 / total;
+
+            var rScale = d3.scaleLinear()
+                .range([0, radius])
+                .domain([0, 100]);
+
+
+            /////////////////////////////////////////////////////////
+            //////////// Create the container SVG and g /////////////
+            /////////////////////////////////////////////////////////
+
+            //Remove whatever chart with the same id/class was present before
+            d3.select("#my_dataviz2").select("svg").remove();
+
+            //Initiate the radar chart SVG
+            var svg_radar1 = d3.select(my_dataviz2).append("svg")
+                .attr("width", cfg.w + cfg.margin.left + cfg.margin.right)
+                .attr("height", cfg.h + cfg.margin.top + cfg.margin.bottom)
+                .attr("class", "radar" + "#my_dataviz2");
+
+            //Append a g element
+            var g_radar1 = svg_radar1.append("g")
+                .attr("transform", "translate(" + (cfg.w / 2 - 40) + "," + (cfg.h / 2 + cfg.margin.top + 50) + ")");
+
+            /////////////////////////////////////////////////////////
+            ////////// Glow filter for some extra pizzazz ///////////
+            /////////////////////////////////////////////////////////
+
+            //Filter for the outside glow
+            var filter = g_radar1.append('defs').append('filter').attr('id', 'glow'),
+                feGaussianBlur = filter.append('feGaussianBlur').attr('stdDeviation', '2.5').attr('result', 'coloredBlur'),
+                feMerge = filter.append('feMerge'),
+                feMergeNode_1 = feMerge.append('feMergeNode').attr('in', 'coloredBlur'),
+                feMergeNode_2 = feMerge.append('feMergeNode').attr('in', 'SourceGraphic');
+
+            var maxValue = 100;
+
+            /////////////////////////////////////////////////////////
+            /////////////// Draw the Circular grid //////////////////
+            /////////////////////////////////////////////////////////
+
+            //Wrapper for the grid & axes
+            var axisGrid = g_radar1.append("g").attr("class", "axisWrapper");
+
+            //Draw the background circles
+            axisGrid.selectAll(".levels")
+                .data(d3.range(1, (cfg.levels + 1)).reverse())
+                .enter()
+                .append("circle")
+                .attr("class", "gridCircle")
+                .attr("r", function (d, i) {
+                    return radius / cfg.levels * d;
+                })
+                .style("fill", "#CDCDCD")
+                .style("stroke", "#CDCDCD")
+                .style("fill-opacity", cfg.opacityCircles)
+                .style("filter", "url(#glow)");
+
+            //Text indicating at what % each level is
+            axisGrid.selectAll(".axisLabel")
+                .data(d3.range(1, (cfg.levels + 1)).reverse())
+                .enter().append("text")
+                .attr("class", "axisLabel")
+                .attr("x", 4)
+                .attr("y", function (d) { return -d * radius / cfg.levels; })
+                .attr("dy", "0.4em")
+                .style("font-size", "10px")
+                .attr("fill", "white")
+                .text(function (d, i) {
+                    return (100 * d / cfg.levels);  // maxValue * d/cfg.levels
+                });
+
+            /////////////////////////////////////////////////////////
+            //////////////////// Draw the axes //////////////////////
+            /////////////////////////////////////////////////////////
+
+            //Create the straight lines radiating outward from the center
+            var axis = axisGrid.selectAll(".axis")
+                .data(allAxis)
+                .enter()
+                .append("g")
+                .attr("class", "axis");
+            //Append the lines
+            axis.append("line")
+                .attr("x1", 0)
+                .attr("y1", 0)
+                .attr("x2", function (d, i) { return rScale(maxValue * 1.1) * Math.cos(angleSlice * i - Math.PI / 2); })
+                .attr("y2", function (d, i) { return rScale(maxValue * 1.1) * Math.sin(angleSlice * i - Math.PI / 2); })
+                .attr("class", "line")
+                .style("stroke", "#DDDDDD")
+                .style("stroke-width", "2px");
+
+            //Append the labels at each axis
+            axis.append("text")
+                .attr("class", "legend")
+                .style("font-size", "11px")
+                .attr("text-anchor", "middle")
+                .attr("dy", "0.35em")
+                .attr("x", function (d, i) { return rScale(maxValue * cfg.labelFactor) * Math.cos(angleSlice * i - Math.PI / 2); })
+                .attr("y", function (d, i) { return rScale(maxValue * cfg.labelFactor) * Math.sin(angleSlice * i - Math.PI / 2); })
+                .text(function (d) { return d })
+                .style("fill", "white")
+                .call(wrap, cfg.wrapWidth);
+
+
+
+            /////////////////////////////////////////////////////////
+            /////////////////// Helper Function /////////////////////
+            /////////////////////////////////////////////////////////
+
+            //Taken from http://bl.ocks.org/mbostock/7555321
+            //Wraps SVG text
+            function wrap(text, width) {
+                text.each(function () {
+                    var text = d3.select(this),
+                        words = text.text().split(/\s+/).reverse(),
+                        word,
+                        line = [],
+                        lineNumber = 0,
+                        lineHeight = 1.4, // ems
+                        y = text.attr("y"),
+                        x = text.attr("x"),
+                        dy = parseFloat(text.attr("dy")),
+                        tspan = text.text(null).append("tspan").attr("x", x).attr("y", y).attr("dy", dy + "em");
+
+                    while (word = words.pop()) {
+                        line.push(word);
+                        tspan.text(line.join(" "));
+                        if (tspan.node().getComputedTextLength() > width) {
+                            line.pop();
+                            tspan.text(line.join(" "));
+                            line = [word];
+                            tspan = text.append("tspan").attr("x", x).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+                        }
+                    }
+                });
+            }
+
+
+            /////////////// RadarChart2
+
+            function RadarChart2(id, data, options, radarChartInstitution) {
+                console.log("radarchar2", data);
+
+                /////////////////////////////////////////////////////////
+                ///////////// Draw the radar chart blobs ////////////////
+                /////////////////////////////////////////////////////////
+
+                //The radial line function
+                var radarLine2 = d3.lineRadial()
+                    .curve(d3.curveLinearClosed)  // Use curveLinearClosed for linear-closed interpolation
+                    .radius(function (d) { return rScale2(d.value); })
+                    .angle(function (d, i) { return i * angleSlice2; });
+
+                if (cfg2.roundStrokes) {
+                    radarLine2.curve(d3.curveCardinalClosed);  // Use curveCardinalClosed for cardinal-closed interpolation
+                }
+
+
+                //// gpt
+                //Create a wrapper for the blobs
+                var blobWrapper2 = g_radar2.selectAll(".radarWrapper")
+                    .data(data)
+                    .enter().append("g")
+                    .attr("class", "radarWrapper");
+                // console.log(blobWrapper);
+
+                //Append the backgrounds
+                blobWrapper2
+                    .append("path")
+                    .attr("class", "radarArea")
+                    .attr("d", function (d, i) {
+                        // Initial state: all points at the center
+                        var initialData = d.map(point => ({ ...point, value: 0 }));
+                        return radarLine2(initialData);
+                    })
+                    .style("fill", function (d, i) {
+                        // currentI = i;
+                        // console.log("currentI", currentI);
+                        // console.log("color", cfg.color(i));
+                        return cfg2.color(radarCurrentIndex);
+                    })
+                    .style("fill-opacity", cfg2.opacityArea)
+                    .on('mouseover', function (d, i) {
+                        //Dim all blobs
+                        d3.selectAll(".radarArea")
+                            .transition().duration(200)
+                            .style("fill-opacity", 0.1);
+                        //Bring back the hovered over blob
+                        d3.select(this)
+                            .transition().duration(200)
+                            .style("fill-opacity", 0.7);
+                    })
+                    .on('mouseout', function () {
+                        //Bring back all blobs
+                        d3.selectAll(".radarArea")
+                            .transition().duration(200)
+                            .style("fill-opacity", cfg2.opacityArea);
+                    })
+                    .transition().duration(1800)  // ++ Add transition for initial drawing
+                    .attr("d", function (d, i) {
+                        // console.log("d", d);
+                        return radarLine2(d);
+                    }); // ++  Animate the drawing of the radar area
+
+
+                //Create the outlines
+                blobWrapper2.append("path")
+                    .attr("class", "radarStroke")
+                    .attr("d", function (d, i) {
+                        // Initial state: all points at the center
+                        var initialData = d.map(point => ({ ...point, value: 0 }));
+                        return radarLine2(initialData);
+                        // return radarLine(d);
+                    })
+                    .style("stroke-width", cfg2.strokeWidth + "px")
+                    .style("stroke", function (d, i) { return cfg.color(i); })
+                    .style("fill", "none")
+                    .style("filter", "url(#glow)")
+                    .transition().duration(1800)  // ++ Add transition for initial drawing
+                    .attr("d", function (d, i) { return radarLine2(d); }); //++ Animate the drawing of the radar stroke
+
+                //Append the circles
+                blobWrapper2.selectAll(".radarCircle")
+                    .data(function (d, i) { return d.map((point) => ({ ...point, parentIndex: i })); })
+                    .enter().append("circle")
+                    .attr("class", "radarCircle")
+                    .attr("r", 0)
+                    // .attr("r", cfg.dotRadius)
+                    .attr("cx", function (d, i) { return rScale2(d.value) * Math.cos(angleSlice2 * i - Math.PI / 2); })
+                    .attr("cy", function (d, i) { return rScale2(d.value) * Math.sin(angleSlice2 * i - Math.PI / 2); })
+                    .style("fill",
+                        function (d) {
+                            // console.log("currentI", currentI);
+                            // console.log("parentindex 1498",radarCurrentIndex);
+                            return cfg2.color(radarCurrentIndex);
+                        })
+                    .style("fill-opacity", 0.8)
+                    .transition().duration(2300)  //  ++ Add transition for initial drawing
+                    .attr("r", cfg2.dotRadius);  // ++ Animate the radius of the circles
+
+                /////////////////////////////////////////////////////////
+                //////// Append invisible circles for tooltip ///////////
+                /////////////////////////////////////////////////////////
+
+                //Wrapper for the invisible circles on top
+                var blobCircleWrapper2 = g_radar2.selectAll(".radarCircleWrapper")
+                    .data(data)
+                    .enter().append("g")
+                    .attr("class", "radarCircleWrapper");
+
+                //Append a set of invisible circles on top for the mouseover pop-up
+                blobCircleWrapper2.selectAll(".radarInvisibleCircle")
+                    .data(function (d, i) { return d.map((point) => ({ ...point, parentIndex: i })); })
+                    .enter().append("circle")
+                    .attr("class", "radarInvisibleCircle")
+                    .attr("r", cfg2.dotRadius * 1.5)
+                    .attr("cx", function (d, i) { return rScale(0) * Math.cos(angleSlice2 * i - Math.PI / 2); }) // ++ Initial state: center
+                    .attr("cy", function (d, i) { return rScale(0) * Math.sin(angleSlice2 * i - Math.PI / 2); }) // ++ Initial state: center
+                    // .attr("cx", function(d,i){ return rScale(d.value) * Math.cos(angleSlice*i - Math.PI/2); })
+                    // .attr("cy", function(d,i){ return rScale(d.value) * Math.sin(angleSlice*i - Math.PI/2); })
+                    .style("fill", "none")
+                    .style("pointer-events", "all")
+                    .on("mouseover", function (d, i) {
+                        newX = parseFloat(d3.select(this).attr('cx')) - 10;
+                        newY = parseFloat(d3.select(this).attr('cy')) - 10;
+                        tooltip2
+                            .attr('x', newX)
+                            .attr('y', newY)
+                            .style("fill", "white")
+                            .text(i.value)
+                            .transition().duration(200)
+                            .style('opacity', 1);
+                    })
+                    .on("mouseout", function () {
+                        tooltip2.transition().duration(200)
+                            .style("opacity", 0);
+                    })
+                    .transition().duration(2000)  // ++  Add transition for initial drawing
+                    .attr("cx", function (d, i) { return rScale2(d.value) * Math.cos(angleSlice2 * i - Math.PI / 2); }) // ++ Animate position
+                    .attr("cy", function (d, i) { return rScale2(d.value) * Math.sin(angleSlice2 * i - Math.PI / 2); }); // ++ Animate position
+
+                //Set up the small tooltip for when you hover over a circle
+                var tooltip2 = g_radar2.append("text")
+                    .attr("class", "tooltip")
+                    .style("opacity", 0);
+
+
+            }//RadarChart2
+
+
+
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////
+            /////////////////////////// CREATE EMPTY RADAR2 CHART /////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////////////////////////////////////////////////
+            var radarChartOptions2 = {
+                w: width - 100,
+                h: height - 100,
+                margin: margin,
+                maxValue: 0.5,
+                levels: 4,
+                roundStrokes: true,
+                color: color
+            };
+
+            var cfg2 = {
+                w: 600,				//Width of the circle
+                h: 600,				//Height of the circle
+                margin: { top: 20, right: 20, bottom: 20, left: 20 }, //The margins of the SVG
+                levels: 5,				//How many levels or inner circles should there be drawn
+                maxValue: 0, 			//What is the value that the biggest circle will represent
+                labelFactor: 1.25, 	//How much farther than the radius of the outer circle should the labels be placed
+                wrapWidth: 60, 		//The number of pixels after which a label needs to be given a new line
+                opacityArea: 0.35, 	//The opacity of the area of the blob
+                dotRadius: 4, 			//The size of the colored circles of each blog
+                opacityCircles: 0.1, 	//The opacity of the circles of each blob
+                strokeWidth: 2, 		//The width of the stroke around each blob
+                roundStrokes: false,	//If true the area and stroke will follow a round path (cardinal-closed)
+                color: color	//Color function
+            };
+
+            //Put all of the options into a variable called cfg
+            if ('undefined' !== typeof radarChartOptions2) {
+                for (var i in radarChartOptions2) {
+                    if ('undefined' !== typeof radarChartOptions2[i]) { cfg2[i] = radarChartOptions2[i]; }
+                }
+            }
+
+            var allAxis2 = fileds2,	//Names of each axis
+                total2 = allAxis2.length,					//The number of different axes
+                radius2 = Math.min(cfg2.w / 2, cfg2.h / 2), 	//Radius of the outermost circle
+                angleSlice2 = Math.PI * 2 / total2;
+
+            var rScale2 = d3.scaleLinear()
+                .range([0, radius2])
+                .domain([0, 150]);
+
+
+            /////////////////////////////////////////////////////////
+            //////////// Create the container SVG and g /////////////
+            /////////////////////////////////////////////////////////
+
+            //Remove whatever chart with the same id/class was present before
+            d3.select("#my_dataviz3").select("svg").remove();
+
+            //Initiate the radar chart SVG
+            var svg_radar2 = d3.select("#my_dataviz3").append("svg")
+                .attr("width", cfg2.w + cfg2.margin.left + cfg2.margin.right)
+                .attr("height", cfg2.h + cfg2.margin.top + cfg2.margin.bottom)
+                .attr("class", "radar" + "#my_dataviz3");
+
+            //Append a g element
+            var g_radar2 = svg_radar2.append("g")
+                .attr("transform", "translate(" + (cfg2.w / 2 + 100) + "," + (cfg2.h / 2 + cfg2.margin.top + 50) + ")");
+
+            /////////////////////////////////////////////////////////
+            ////////// Glow filter for some extra pizzazz ///////////
+            /////////////////////////////////////////////////////////
+
+            //Filter for the outside glow
+            var filter2 = g_radar2.append('defs').append('filter').attr('id', 'glow'),
+                feGaussianBlur2 = filter2.append('feGaussianBlur').attr('stdDeviation', '2.5').attr('result', 'coloredBlur'),
+                feMerge2 = filter2.append('feMerge'),
+                feMergeNode_12 = feMerge2.append('feMergeNode').attr('in', 'coloredBlur'),
+                feMergeNode_22 = feMerge2.append('feMergeNode').attr('in', 'SourceGraphic');
+
+            var maxValue2 = 160;
+
+            /////////////////////////////////////////////////////////
+            /////////////// Draw the Circular grid //////////////////
+            /////////////////////////////////////////////////////////
+
+            //Wrapper for the grid & axes
+            var axisGrid2 = g_radar2.append("g").attr("class", "axisWrapper");
+
+            //Draw the background circles
+            axisGrid2.selectAll(".levels")
+                .data(d3.range(1, (cfg2.levels + 1)).reverse())
+                .enter()
+                .append("circle")
+                .attr("class", "gridCircle")
+                .attr("r", function (d, i) {
+                    return radius2 / cfg2.levels * d;
+                })
+                .style("fill", "#CDCDCD")
+                .style("stroke", "#CDCDCD")
+                .style("fill-opacity", cfg2.opacityCircles)
+                .style("filter", "url(#glow)");
+
+            //Text indicating at what % each level is
+            axisGrid2.selectAll(".axisLabel")
+                .data(d3.range(1, (cfg2.levels + 1)).reverse())
+                .enter().append("text")
+                .attr("class", "axisLabel")
+                .attr("x", 4)
+                .attr("y", function (d) { return -d * radius2 / cfg2.levels; })
+                .attr("dy", "0.4em")
+                .style("font-size", "10px")
+                .attr("fill", "white")
+                .text(function (d, i) {
+                    return (160 * d / cfg2.levels);  // maxValue * d/cfg.levels
+                });
+
+            /////////////////////////////////////////////////////////
+            //////////////////// Draw the axes //////////////////////
+            /////////////////////////////////////////////////////////
+
+            //Create the straight lines radiating outward from the center
+            var axis2 = axisGrid2.selectAll(".axis")
+                .data(allAxis2)
+                .enter()
+                .append("g")
+                .attr("class", "axis");
+            //Append the lines
+            axis2.append("line")
+                .attr("x1", 0)
+                .attr("y1", 0)
+                .attr("x2", function (d, i) { return rScale(maxValue * 1.1) * Math.cos(angleSlice2 * i - Math.PI / 2); })
+                .attr("y2", function (d, i) { return rScale(maxValue * 1.1) * Math.sin(angleSlice2 * i - Math.PI / 2); })
+                .attr("class", "line")
+                .style("stroke", "#DDDDDD")
+                .style("stroke-width", "2px");
+
+            //Append the labels at each axis
+            axis2.append("text")
+                .attr("class", "legend")
+                .style("font-size", "11px")
+                .attr("text-anchor", "middle")
+                .attr("dy", "0.35em")
+                .attr("x", function (d, i) { return rScale(120 * cfg2.labelFactor) * Math.cos(angleSlice2 * i - Math.PI / 2); })
+                .attr("y", function (d, i) { return rScale(110 * cfg2.labelFactor) * Math.sin(angleSlice2 * i - Math.PI / 2); })
+                .text(function (d) { return d })
+                .style("fill", "white")
+                .call(wrap, cfg2.wrapWidth);
+
+
+
+
+
+
+
+
+            /////////////////// 整體的bar chart /////////////////////////////////
+            // 確保為數值
+            DATA.forEach(function (d) {
+                d.cost_of_living_index = +d.cost_of_living_index;
+                d.rent_index = +d.rent_index;
+                d.cost_of_living_plus_rent_index = +d.cost_of_living_plus_rent_index;
+                d.groceries_index = +d.groceries_index;
+                d.restaurant_price_index = +d.restaurant_price_index;
+                d.local_purchasing_power_index = +d.local_purchasing_power_index;
+                d.overall_score = +d.overall_score;
+                d.ar_score = +d.ar_score;
+                d.er_score = +d.er_score;
+                d.fsr_score = +d.fsr_score;
+                d.cpf_score = +d.cpf_score;
+                d.ifr_score = +d.ifr_score;
+                d.isr_score = +d.isr_score;
+                d.irn_score = +d.irn_score;
+                d.ger_score = +d.ger_score;
+                d.sus_score = +d.sus_score;
+            });
+            var tempData = [];
+            tempData.push(DATA);
+            var firstBrush = 0;
+
+            const svg_all = d3.select("#my_dataviz4") // return selection
+                .append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.left + margin.right);
+
+            var background_all = svg_all.append("rect")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.left + margin.right)
+                .attr("fill", "none")
+                .attr("pointer-events", "all")
+                .attr("cursor", "pointer")
+                .on("dblclick", function (d) {
+                    updateChart(tempData[firstBrush - 1])
+                    firstBrush -= 1;
+                });
+
+            // y 比例尺
+            var y_all = d3.scaleLinear()
+                .domain([0, d3.max(DATA,
+                    function (d) {
+                        return d[all_index1];
+                    }
+                )])
+                .range([height, 0]);
+
+            var y2_all = d3.scaleLinear()
+                .domain([0, d3.max(DATA, function (d) { return d[all_index2]; })])
+                .range([height, 0])
+
+            console.log(d3.max(DATA, function (d) { return d[all_index2] }));
+
+            // x 比例尺
+            var x_all = d3.scaleBand()
+                .domain(DATA.map(function (d) { return d.institution; }))
+                .range([0, width])
+                .padding(0.1);
+
+            // g
+            var g_all = svg_all.append("g")
+                .attr("class", "background")
+                .attr("fill", "none")
+                .attr("pointer-events", "all")
+                .attr("width", width)
+                .attr("height", height)
+                .attr("cursor", "pointer")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            // xAxis - add x
+            var xAxis_all = g_all.append("g")
+                .attr("class", "axis axis--x")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x_all));
+
+            // yAxis - add y
+            var yAxis_all = g_all.append('g')
+                .attr("text-anchor", "end")
+                .call(d3.axisLeft(y_all))
+
+
+            xAxis_all.selectAll("text")
+                .attr("transform", "translate(-10,0)rotate(-45)")
+                .style("display", "none");
+
+            xAxis_all.selectAll(".tick line")
+                .style("display", "none");
+            // Hide the tick marks
+            var yAxis2_all = g_all.append('g')
+                .attr("text-anchor", "end")
+                .attr("transform", "translate(" + width + ",0)")
+                .call(d3.axisRight(y2_all))
+            // bar
+            var bars_all = g_all.selectAll(".bar")
+                .data(DATA)
+                .join("rect")
+                .attr("class", "bar")
+                .attr("x", function (d) { return x_all(d.institution); })
+                .attr("width", x_all.bandwidth() / 2)
+                // .attr("height", function(d) { return height - y_all(0); }) // always equal to 0
+                // .attr("y", function(d) { return y_all(0); })
+                .attr("y", function (d) { return y_all(d[all_index1]); })
+                .attr("height", d => height - y_all(d[all_index1]))
+                .style("fill", "#4D869C")
+                .on("dblclick", function (d) { // double click
+                    // swithc to country view
+                    // var data = d3.select(this).datum();
+                    // var direction = "down";
+                    // makeChangeData(data.name, direction);
+                    // switchToCountryView(data.name);
+                })
+
+
+            var bars2_all = g_all.selectAll(".bar2")
+                .data(DATA)
+                .join("rect")
+                .attr("class", "bar2")
+                .attr("x", function (d) { return x_all(d.institution) + x_all.bandwidth() / 2; })
+                // .attr("y", function(d) { return y_all(0); })
+                // .attr("height", function (d) { return height - y2_all(0); })
+                .attr("y", function (d) { return y2_all(d[all_index2]); })
+                .attr("height", d => height - y2_all(d[all_index2]))
+                .attr("width", x_all.bandwidth() / 2)
+                // .attr("height", function(d) { return height - y(d.Overall_Score); })
+                // .attr("height", d => height - y2(d.Cost_of_Living_Index) ) // always equal to 0
+                // .attr("y", function(d){ return y2(d.Cost_of_Living_Index);})
+                .style("fill", "#7AB2B2")
+                .on("dblclick", function (d) { // double click
+                    // swithc to country view
+                    // var data = d3.select(this).datum();
+                    // var direction = "down";
+                    // console.log("default change data", data.name);
+                    // makeChangeData(data.name, direction);
+                    // switchToCountryView(data.name);
+                })
+
+
+
+
+            var brush = d3.brushX()
+                .extent([[0, 0], [width, height]])
+                .on("end", brushEnded);
+
+            svg_all.append("g")
+                .attr("class", "brush")
+                .call(brush);
+
+            var brushCheckbox = d3.select("#brush-checkbox")
+                .append("input")
+                .attr("type", "checkbox")
+                .attr("checked", true)
+                .on("change", function () {
+                    if (this.checked) {
+                        // Enable brush
+                        svg_all.append("g")
+                            .attr("class", "brush")
+                            .call(brush);
+
+                    } else {
+                        // Disable brush
+                        console.log("Unchecked");
+                        svg_all.selectAll(".brush").remove();
+                    }
+                });
+
+            d3.select("#brush-checkbox").append('label').text("brush")
+
+            var filteredData;
+            function brushEnded(event) {
+                if (!event.selection) return;
+
+                console.log("tempdata", tempData);
+                // // update tempData
+                if (firstBrush == 0) {
+                    firstBrush += 1;
+                } else {
+                    firstBrush += 1;
+                    tempData.push(filteredData);
+                }
+
+                // console.log(event);
+                var selection = event.selection;
+                var [x0, x1] = selection;
+
+                // 根据刷选区域过滤数据
+                filteredData = DATA.filter(d => {
+                    var position = x_all(d.institution) + x_all.bandwidth() / 2;
+                    return x0 <= position && position <= x1;
+                });
+                updateChart(filteredData);
+
+            }
+            function updateChart(filteredData) {
+
+                console.log(filteredData);
+
+                y2_all = d3.scaleLinear()
+                    .domain([0, d3.max(DATA, function (d) { return d[all_index2]; })])
+                    .range([height, 0])
+                // console.log(d3.max(DATA, function(d){return d[all_index2];}));
+
+                yAxis2_all
+                    .transition()
+                    .duration(1000)
+                    .call(d3.axisRight(y2_all))
+
+                // Update the x axis
+                d3.selectAll('#my_dataviz4 .bar').remove();
+                d3.selectAll('#my_dataviz4 .bar2').remove();
+                xAxis_all.selectAll("text").remove();
+                xAxis_all.selectAll('.tick line').remove();
+
+                x_all.domain(filteredData.map(d => d.institution));
+                xAxis_all = g_all.append("g")
+                    .attr("class", "axis axis--x")
+                    .attr("transform", "translate(0," + height + ")")
+                // .transition()
+                // .duration(1000)
+                // .call(d3.axisBottom(x_all));
+                xAxis_all
+                    .transition()
+                    .duration(500)
+                    .call(d3.axisBottom(x_all));
+
+                if (filteredData.length < 70) {
+
+                    xAxis_all
+                        .transition()
+                        .duration(1000)
+                        .call(d3.axisBottom(x_all));
+
+                    xAxis_all.selectAll("text")
+                        .style("display", "block");
+
+                    xAxis_all.selectAll(".tick line")
+                        .style("display", "block");
+
+                    xAxis_all.selectAll("text")
+                        .attr("transform", "translate(-10,0)rotate(-45)")
+                        .style("text-anchor", "end");
+
+
+                    // Update the bars
+                    bars_all = g_all.selectAll(".bar")
+                        .data(filteredData)
+                        .join("rect")
+                        .attr("class", "bar")
+                        .attr("x", function (d) { return x_all(d.institution); })
+                        .attr("width", x_all.bandwidth() / 2)
+                        .attr("y", y_all(0)) // Start the animation from the bottom
+                        .attr("height", height - y_all(0)) // Start with a height of 0
+                        .style("fill", "#4D869C");
+
+                    bars_all
+                        .data(filteredData)
+                        .transition()
+                        .duration(1000)
+                        .attr("x", function (d) { return x_all(d.institution); })
+                        .attr("width", x_all.bandwidth() / 2)
+                        .attr("y", function (d) { return y_all(d[all_index1]); })
+                        .attr("height", function (d) { return height - y_all(d[all_index1]); })
+                        .delay((d, i) => i * 60); // Delay for staggered animation
+
+
+                    // var bars2_all_enter = bars2_all.enter().append("rect")
+                    bars2_all = g_all.selectAll(".bar2")
+                        .data(filteredData)
+                        .join("rect")
+                        .attr("class", "bar2")
+                        .attr("x", function (d) { return x_all(d.institution) + x_all.bandwidth() / 2; })
+                        .attr("width", x_all.bandwidth() / 2)
+                        .attr("y", y2_all(0)) // Start the animation from the bottom
+                        .attr("height", height - y2_all(0)) // Start with a height of 0
+                        .style("fill", "#7AB2B2");
+
+                    bars2_all
+                        // .merge(bars2_all_enter)
+                        .data(filteredData)
+                        .transition()
+                        .duration(1000)
+                        .attr("x", function (d) { return x_all(d.institution) + x_all.bandwidth() / 2; })
+                        .attr("width", x_all.bandwidth() / 2)
+                        .attr("y", function (d) { return y2_all(d[all_index2]); })
+                        .attr("height", function (d) { return height - y2_all(d[all_index2]); })
+                        .delay((d, i) => i * 60); // Delay for staggered animation
+
+                    bars_all.on("dblclick", function (event, d) {
+                        checkRadarChartInstitution(d.institution);
+                        // console.log(radarChartInstitution);
+                        var radarData = createRadarData(DATA, radarChartInstitution, fileds1);
+                        // console.log("radardata", radarData);
+                        RadarChart("#my_dataviz2", radarData, radarChartOptions, radarChartInstitution);
+                        var radarData2 = createRadarData(DATA, radarChartInstitution, fileds2);
+                        RadarChart2("#my_dataviz3", radarData2, radarChartOptions, radarChartInstitution);
+                        // console.log("current index +++++++")
+                        showInfo(d, "radar");
+                        radarCurrentIndex += 1;
+                    });
+                    bars2_all.on("dblclick", function (event, d) {
+                        checkRadarChartInstitution(d.institution);
+                        // console.log(radarChartInstitution);
+                        var radarData = createRadarData(DATA, radarChartInstitution, fileds1);
+                        // console.log("radardata", radarData);
+                        RadarChart("#my_dataviz2", radarData, radarChartOptions, radarChartInstitution);
+                        var radarData2 = createRadarData(DATA, radarChartInstitution, fileds2);
+                        RadarChart2("#my_dataviz3", radarData2, radarChartOptions, radarChartInstitution);
+                        // console.log("current index +++++++");
+                        showInfo(d, "radar");
+                        radarCurrentIndex += 1;
+                    });
+                } else {
+                    // console.log(filteredData.length);
+                    var tiime = 15;
+                    if (filteredData.length > 400) {
+                        time = 2;
+                    } else if (filteredData.length < 250) {
+                        time = 4;
+                    }
+
+                    xAxis_all.selectAll("text")
+                        .style("display", "none");
+
+                    xAxis_all.selectAll(".tick line")
+                        .style("display", "none");
+
+
+                    // Update the bars
+                    bars_all = g_all.selectAll(".bar")
+                        .data(filteredData)
+                        .join("rect")
+                        .attr("class", "bar")
+                        .attr("x", function (d) { return x_all(d.institution); })
+                        .attr("width", x_all.bandwidth() / 2)
+                        .attr("y", y_all(0)) // Start the animation from the bottom
+                        .attr("height", height - y_all(0)) // Start with a height of 0
+                        .style("fill", "#4D869C");
+
+                    bars_all
+                        .data(filteredData)
+                        .transition()
+                        .duration(500)
+                        .attr("x", function (d) { return x_all(d.institution); })
+                        .attr("width", x_all.bandwidth() / 2)
+                        .attr("y", function (d) { return y_all(d[all_index1]); })
+                        .attr("height", function (d) { return height - y_all(d[all_index1]); })
+                        .delay((d, i) => i * time); // Delay for staggered animation
+
+
+                    // var bars2_all_enter = bars2_all.enter().append("rect")
+                    bars2_all = g_all.selectAll(".bar2")
+                        .data(filteredData)
+                        .join("rect")
+                        .attr("class", "bar2")
+                        .attr("x", function (d) { return x_all(d.institution) + x_all.bandwidth() / 2; })
+                        .attr("width", x_all.bandwidth() / 2)
+                        .attr("y", y2_all(0)) // Start the animation from the bottom
+                        .attr("height", height - y2_all(0)) // Start with a height of 0
+                        .style("fill", "#7AB2B2");
+
+                    bars2_all
+                        // .merge(bars2_all_enter)
+                        .data(filteredData)
+                        .transition()
+                        .duration(500)
+                        .attr("x", function (d) { return x_all(d.institution) + x_all.bandwidth() / 2; })
+                        .attr("width", x_all.bandwidth() / 2)
+                        .attr("y", function (d) { return y2_all(d[all_index2]); })
+                        .attr("height", function (d) { return height - y2_all(d[all_index2]); })
+                        .delay((d, i) => i * time); // Delay for staggered animation
+
+                    bars_all.on("dblclick", function (event, d) {
+                        checkRadarChartInstitution(d.institution);
+                        // console.log(radarChartInstitution);
+                        var radarData = createRadarData(DATA, radarChartInstitution, fileds1);
+                        // console.log("radardata", radarData);
+                        RadarChart("#my_dataviz2", radarData, radarChartOptions, radarChartInstitution);
+                        var radarData2 = createRadarData(DATA, radarChartInstitution, fileds2);
+                        RadarChart2("#my_dataviz3", radarData2, radarChartOptions, radarChartInstitution);
+                        showInfo(d.institution, "radar");
+                        radarCurrentIndex += 1;
+                    });
+                    bars2_all.on("dblclick", function (event, d) {
+                        checkRadarChartInstitution(d.institution);
+                        // console.log(radarChartInstitution);
+                        var radarData = createRadarData(DATA, radarChartInstitution, fileds1);
+                        // console.log("radardata", radarData);
+                        RadarChart("#my_dataviz2", radarData, radarChartOptions, radarChartInstitution);
+                        var radarData2 = createRadarData(DATA, radarChartInstitution, fileds2);
+                        RadarChart2("#my_dataviz3", radarData2, radarChartOptions, radarChartInstitution);
+                        showInfo(d.institution, "radar");
+                        radarCurrentIndex += 1;
+                    });
+                }
+
+
+            }
+
+
+        })
+    }
+    //////////////////radar chart reference //////////////////
+    //https://gist.github.com/nbremer/21746a9668ffdf6d8242////
+    //////////////////////////////////////////////////////////
+</script>

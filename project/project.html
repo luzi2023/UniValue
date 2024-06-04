@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>World Map Visualization</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://unpkg.com/topojson@3"></script>
+    <script src="https://kit.fontawesome.com/4bfa319983.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="nav-bar">
+        <a href=""><i class="fa-solid fa-graduation-cap"></i> <strong>UniValue</strong></a>
+    </div>
+
+
+    <div id="controls">
+        <select id="yearSelectbutton">
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+        </select>
+    </div>
+
+    <a href="./final_project.html" class="btn" id="btn-container">
+        <span>Swtich</span>
+        <svg width="13px" height="10px" viewBox="0 0 13 10">
+            <path d="M1,5 L11,5"></path>
+            <polyline points="8 1 12 5 8 9"></polyline>
+        </svg>
+    </a>
+
+    <div id="checkbox">
+        <input type="checkbox" id="showCircles" value="show"><label>Show</label>
+        <div id="showRankChange">
+            <input type="checkbox" value="showRankChange"><label>Rank Change</label>
+        </div>
+    </div>
+    <div id="my_dataviz">
+        <div id="tooltip"></div>
+    </div>
+    <div id="panel">
+        <div id="info">
+            <h3>Click on a region to see details</h3>
+        </div>
+        <div id="piechart"></div>
+        <div id="countryinfo"></div>
+        <div id="panel-controls">
+            <div>
+                <label for="x-axis">X Axis:</label>
+                <select id="x-axis">
+                    <option value="ar_score">AR Score</option>
+                    <option value="er_score">ER Score</option>
+                    <option value="fsr_score">FSR Score</option>
+                    <option value="cpf_score">CPF Score</option>
+                    <option value="overall_score">Overall</option>
+                    <option value="rank">Rank</option>
+                </select>
+                <br>
+                <label for="y-axis">Y Axis:</label>
+                <select id="y-axis">
+                    <option value="rank">Rank</option>
+                    <option value="Cost_of_Living_Index">Cost of Living Index</option>
+                    <option value="rent_index">Rent Index</option>
+                    <option value="groceries_index">Groceries Index</option>
+                    <option value="restaurant_index">Restaurant Price Index</option>
+                    <option value="local_purchase">Local Purchase Power Index</option>
+                </select>
+                <button id="update-chart">Update Chart</button>
+            </div>
+        </div>
+        <div id="scatterplot"></div>
+    </div>
+    <script>
+        const margin = { top: 30, right: 30, bottom: 70, left: 60 },
+            width = 1000 - margin.left - margin.right,
+            height = 1000 - margin.top - margin.bottom,
+            num = 800;
+
+        let minZoom;
+        let maxZoom;
+
+        const svg = d3.select("#my_dataviz")
+            .append("svg")
+            .attr("width", 1050)
+            .attr("height", 1000)
+            .attr("transform", `translate(-80, 0)`);
+
+        const projection = d3.geoNaturalEarth1()
+            .scale(180)
+            .translate([480, 285]);
+
+        const path = d3.geoPath(projection);
+
+        const size = d3.scaleLinear()
+            .domain([1, 100])
+            .range([1, 20]);
+
+
+        function updateUniversityPositions() {
+            circles.attr("cx", d => projection([d.longitude, d.latitude])[0])
+                .attr("cy", d => projection([d.longtitude, d.latitude])[1]);
+        }
+
+
+        d3.json("world.json").then(function (topo) {
+            d3.csv("./DATA/2023_data.csv").then(function (data2023) {
+                d3.csv("./DATA/2024_data.csv").then(function (data2024) {
+                    const allGroup = ["2023", "2024"];
+
+                    function updatedata(selectedGroup) {
+                        if (selectedGroup === "2023") {
+                            d3.select("#map2024").remove();
+                            d3.select("#dotsGroup2024").remove();
+                            d3.select(".tooltip2024").remove();
+                            d3.select("#indexdotsGroup2024").remove();
+                            d3.select(".titleoforgipie2024").remove();
+                            d3.select("#orgpie2024").remove();
+                            d3.select("#afterpie2024").remove();
+                            d3.select("#info").select("h3").text("");
+                            d3.select("#showDotInfo2024").remove();
+                            d3.select("#scatterplot2024").remove();
+                            d3.select("#info").select("p").remove();
+                            d3.select("#panel-controls").style("visibility", "visible");
+                            d3.select("#showRankChange").style("display", "none");
+
+
+                            const countriesGroup = svg.append("g").attr("id", "map2023").attr("transform", `translate(30, -20)`);
+                            const dotsGroup = svg.append("g").attr("id", "dotsGroup2023").attr("transform", `translate(60, -20)`);
+                            const indexdotsGroup = svg.append("g").attr("id", "indexdotsGroup2023")
+                            const tooltip = d3.select("#tooltip").attr("class", "tooltip2023");
+
+                            function zoomed(event) {
+                                const { transform } = event;
+                                countriesGroup.attr("transform", transform);
+                                countriesGroup.selectAll(".countryLabel")
+                                    .attr("transform", d => {
+                                        const [x, y] = projection(d3.geoCentroid(d));
+                                        return `translate(${transform.apply([x - 30, y])})`;
+                                    });
+
+                                dotsGroup.attr("transform", transform);
+                            }
+
+                            const zoom = d3.zoom().on("zoom", zoomed);
+
+                            function initiateZoom() {
+                                minZoom = Math.max(1050 / width, 1000 / height);
+                                maxZoom = 5 * minZoom;
+
+                                zoom.scaleExtent([minZoom, maxZoom])
+                                    .translateExtent([[0, 0], [width, height]]);
+
+                                const midX = (1050 - minZoom * width) / 2;
+                                const midY = (1000 - minZoom * height) / 2;
+
+                                svg.call(zoom.transform, d3.zoomIdentity.translate(midX, midY).scale(minZoom));
+                            }
+
+                            function boxZoom(box, centroid, paddingPerc) {
+                                const minXY = box[0];
+                                const maxXY = box[1];
+
+                                let zoomWidth = Math.abs(minXY[0] - maxXY[0]);
+                                let zoomHeight = Math.abs(minXY[1] - maxXY[1]);
+
+                                const zoomMidX = centroid[0];
+                                const zoomMidY = centroid[1] + 20;
+
+                                zoomWidth *= 1 + paddingPerc / 100;
+                                zoomHeight *= 1 + paddingPerc / 100;
+
+                                const maxXscale = 1050 / zoomWidth;
+                                const maxYscale = 1000 / zoomHeight;
+                                let zoomScale = Math.min(maxXscale, maxYscale);
+
+                                zoomScale = Math.min(zoomScale, maxZoom);
+                                zoomScale = Math.max(zoomScale, minZoom);
+
+                                const offsetX = zoomScale * zoomMidX;
+                                const offsetY = zoomScale * zoomMidY;
+
+                                let dleft = Math.min(0, 1200 / 2 - offsetX);
+                                let dtop = Math.min(0, 1000 / 2 - offsetY);
+
+                                dleft = Math.max(1200 - width * zoomScale, dleft);
+                                dtop = Math.max(1000 - height * zoomScale, dtop);
+
+                                svg.transition().duration(500).call(
+                                    zoom.transform,
+                                    d3.zoomIdentity.translate(dleft - 20, dtop - 80).scale(zoomScale)
+                                );
+                            };
+
+
+                            const universityCount = {};
+
+                            data2023.forEach(d => {
+                                if (d.country in universityCount) {
+                                    universityCount[d.country]++;
+                                } else {
+                                    universityCount[d.country] = 1;
+                                }
+                            });
+                            // console.log(universityCount)
+
+                            // Find the maximum university count for the color scale
+                            const maxCount = d3.max(Object.values(universityCount));
+
+                            // Create a color scale
+                            const colorScale = d3.scaleSequential(d3.interpolateBlues)
+                                .domain([0, maxCount]);
+
+                            const color = d3.scaleOrdinal()
+                                .domain(['NorthAmerica', 'Europe', 'Asia', 'Oceania', 'LatinAmerica', 'Africa'])
+                                .range(d3.schemePaired);
+
+                            // draw the region outline
+                            svg.append("path")
+                                .data(topo.features)
+                                .classed("county-borders", true) // need to make stroke white in CSS
+                                .attr("d", path(topojson.mesh(topo, topo.features, function (a,
+                                    b) { return a !== b; }))); // draw county borders (need CSS stroke setting)
+
+
+                            // draw the map
+                            countriesGroup.selectAll("path")
+                                .data(topo.features)
+                                .join("path")
+                                .attr("d", path)
+                                .attr("id", d => "country" + d.properties.name.replace(/\s+/g, ''))
+                                .attr("class", "country")
+                                .style("fill", d => {
+                                    const count = universityCount[d.properties.name] || 0;
+                                    return colorScale(count);
+                                })
+                                .on("mouseover", function (event, d) {
+                                    d3.select(this)
+                                        .style("fill", "#d0d0d0")
+                                    // d3.select("#countryLabel" + d.properties.name.replace(/\s+/g, '')).style("display", "block");
+                                    tooltip.style("visibility", "visible")
+                                        .text(d.properties.name);
+                                })
+                                .on("mousemove", (event) => {
+                                    tooltip.style("top", (event.pageY + 20) + "px")
+                                        .style("left", (event.pageX + 30) + "px")
+                                })
+                                .on("mouseout", function (event, d) {
+                                    d3.select(this)
+                                        .style("fill", d => {
+                                            const count = universityCount[d.properties.name] || 0;
+                                            return colorScale(count);
+                                        });
+                                    tooltip.style("visibility", "hidden");
+                                    // d3.select("#countryLabel" + d.properties.name.replace(/\s+/g, '')).style("display", "none");
+                                })
+                                .on("click", function (event, d) {
+                                    d3.selectAll(".country").classed("country-on", false);
+                                    d3.select(this).classed("country-on", true);
+                                    boxZoom(path.bounds(d), path.centroid(d), 5);
+
+                                    const selectedCountry = d.properties.name;
+                                    const continent = getContinentByCountry(selectedCountry);
+
+                                    d3.select("#panel-controls").style("visibility", "hidden");
+                                    d3.select(".titleoforgipie2023").remove();
+                                    d3.select("#scatterplot2023").remove();
+
+                                    const info = d3.select("#info").select("h3");
+                                    info.html(`${continent}`);
+                                    const orgpie = d3.select("#orgpie2023");
+                                    orgpie.style("display", "none");
+                                    updatePieChart(continent, selectedCountry);
+                                });
+
+                            data2023.forEach(d => {
+                                d.Cost_of_Living_Index = +d["Cost of Living Index"];
+                                d.rent_index = +d["Rent Index"];
+                                d.groceries_index = +d["Groceries Index"];
+                                d.restaurant_index = +d["Restaurant Price Index"];
+                                d.overall_score = +d["score scaled"];
+                                d.ar_score = +d["ar score"];
+                                d.er_score = +d["er score"];
+                                d.fsr_score = +d["fsr score"];
+                                d.cpf_score = +d["cpf score"];
+                                d.rank = +d["rank display"];
+                                d.local_purchase = +d["Local Purchasing Power Index"];
+                            });
+
+
+                            const maxARScore = d3.max(data2023, d => d.ar_score);
+                            const xARScale = d3.scaleLinear()
+                                .domain([0, maxARScore])
+                                .range([0, 230]);
+
+                            const maxRank = d3.max(data2023, d => d.rank);
+                            const xrankScale = d3.scaleLinear()
+                                .domain([0, maxRank])
+                                .range([0, 230]);
+
+                            const maxOverScore = d3.max(data2023, d => d.overall_score);
+                            const xOverScale = d3.scaleLinear()
+                                .domain([0, maxOverScore])
+                                .range([0, 230]);
+
+                            console.log(data2023)
+                            let preSelected = null;
+
+                            const piecolor = d3.scaleOrdinal()
+                                .range(d3.schemeTableau10);
+
+
+                            const redcircles = dotsGroup.selectAll("circle")
+                                .data(data2023)
+                                .join("circle")
+                                .attr("cx", d => projection([d.longitude, d.latitude])[0])
+                                .attr("cy", d => projection([d.longitude, d.latitude])[1])
+                                .attr("r", 1)
+                                .style("fill", d => piecolor(d.region))
+                                .attr("class", d => `continent-${d.region.replace(/\s+/g, '')}`)
+                                .on("click", function (event, d) {
+                                    if (preSelected) {
+                                        preSelected.attr("stroke", "none")
+                                            .attr("stroke-width", "0");
+                                    }
+                                    preSelected = d3.select(this);
+                                    d3.select(this)
+                                        .attr("stroke", "black")
+                                        .attr("stroke-width", "0.5px");
+
+                                    d3.select("#showDotInfo2023").remove();
+
+                                    const showDotInfo = d3.select("#countryinfo").append("div")
+                                        .attr("id", "showDotInfo2023");
+                                    d3.select("#showDotInfo2023")
+                                        .append("h3")
+                                        .html(`${d.institution}`)
+                                        .append("p")
+                                        .text("2023 Ranking");
+
+                                    const svg = showDotInfo.append("svg")
+                                        .attr("width", 300)
+                                        .attr("height", 500);
+
+                                    svg.append("text")
+                                        .attr("y", 20)
+                                        .text("QS Ranking")
+                                        .attr("fill", "white")
+                                        .style("font-size", "14px");
+
+                                    const backgroundRect1 = svg.append("rect")
+                                        .attr("y", 30)
+                                        .attr("width", 230)
+                                        .attr("height", 20)
+                                        .attr("fill", "#F3F3F4");
+
+                                    const scoreRect1 = svg.append("rect")
+                                        .attr("y", 30)
+                                        .attr("width", xrankScale(d.rank))
+                                        .attr("height", 20)
+                                        .attr("fill", "#3CC692");
+
+                                    svg.append("text")
+                                        .attr("x", xrankScale(d.rank))
+                                        .attr("y", 65)
+                                        .attr("dy", ".35em")
+                                        .text(`${d.rank}`)
+                                        .attr("fill", "white")
+                                        .style("font-size", "13px");
+
+                                    svg.append("text")
+                                        .attr("y", 80)
+                                        .text("Overall Score")
+                                        .attr("fill", "white")
+                                        .style("font-size", "14px");
+
+                                    const backgroundRect3 = svg.append("rect")
+                                        .attr("y", 90)
+                                        .attr("width", 230)
+                                        .attr("height", 20)
+                                        .attr("fill", "#F3F3F4");
+
+                                    const scoreRect3 = svg.append("rect")
+                                        .attr("y", 90)
+                                        .attr("width", xOverScale(d.overall_score))
+                                        .attr("height", 20)
+                                        .attr("fill", "#3CC692");
+
+                                    svg.append("text")
+                                        .attr("x", xOverScale(d.overall_score))
+                                        .attr("y", 125)
+                                        .attr("dy", ".35em")
+                                        .text(`${d.overall_score}`)
+                                        .attr("fill", "white")
+                                        .style("font-size", "13px");
+
+                                    svg.append("text")
+                                        .attr("y", 150)
+                                        .text("Academic Reputation")
+                                        .attr("fill", "white")
+                                        .style("font-size", "14px");
+
+                                    const backgroundRect2 = svg.append("rect")
+                                        .attr("y", 160)
+                                        .attr("width", 230)
+                                        .attr("height", 20)
+                                        .attr("fill", "#F3F3F4");
+
+                                    const scoreRect2 = svg.append("rect")
+                                        .attr("y", 160)
+                                        .attr("width", xARScale(d.ar_score))
+                                        .attr("height", 20)
+                                        .attr("fill", "#3CC692");
+
+                                    svg.append("text")
+                                        .attr("x", xARScale(d.ar_score))
+                                        .attr("y", 195)
+                                        .attr("dy", ".35em")
+                                        .text(`${d.ar_score}`)
+                                        .attr("fill", "white")
+                                        .style("font-size", "13px");
+                                });
+
+                            const circles = indexdotsGroup.selectAll("myCircles")
+                                .data(data2023)
+                                .join("circle")
+                                .attr("class", d => d.region.replace(' ', ''))
+                                .attr("cx", d => projection([d.longitude, d.latitude])[0] + 80)
+                                .attr("cy", d => projection([d.longitude, d.latitude])[1])
+                                .attr("r", d => size(d.Cost_of_Living_Index))
+                                .style("fill", d => color(d.region))
+                                .attr("stroke", d => color(d.region))
+                                .attr("fill-opacity", .4);
+
+                            // country label
+                            const countryLabels = countriesGroup
+                                .selectAll("g")
+                                .data(topo.features)
+                                .enter()
+                                .append("g")
+                                .attr("class", "countryLabel")
+                                .attr("id", d => "countryLabel" + d.properties.name.replace(/\s+/g, ''))
+                                .attr("transform", d => `translate(${projection(d3.geoCentroid(d))})`)
+                                // .attr("transform", d => {
+                                //     const [x, y] = projection(d3.geoCentroid(d));
+                                //     return `translate(${x}, ${y})`
+                                // })
+                                .on("mouseover", (event, d) => {
+                                    d3.select(event.currentTarget).style("display", "block");
+                                })
+                                .on("mouseout", (event, d) => {
+                                    d3.select(event.currentTarget).style("display", "none");
+                                })
+                                .on("click", (event, d) => {
+                                    d3.selectAll(".country").classed("country-on", false);
+                                    d3.select("#country" + d.properties.name.replace(/\s+/g, '')).classed("country-on", true);
+                                    boxZoom(path.bounds(d), path.centroid(d), 5);
+                                });
+
+                            countryLabels.append("text")
+                                .attr("class", "countryName")
+                                .style("text-anchor", "middle")
+                                .attr("dy", "0")
+                                .attr("dx", "0")
+                                .style("fill", "grey")
+                                .style("background-color", "black")
+                                .text(d => d.properties.name);
+
+                            function update() {
+                                const showCircles = d3.select("#showCircles").property("checked");
+
+                                circles.each(function (d) {
+                                    const circle = d3.select(this);
+                                    if (showCircles) {
+                                        circle.transition().duration(500).style("opacity", 1).attr("r", size(d.Cost_of_Living_Index));
+                                    } else {
+                                        circle.transition().duration(500).style("opacity", 0).attr("r", 0);
+                                    }
+                                });
+                            }
+
+
+                            d3.select("#showCircles").on("change", update);
+                            update();
+                            initiateZoom();
+
+                            const regionGroup = [{
+                                continent: "North America",
+                                country: [],
+                                college: []
+                            }, {
+                                continent: "Europe",
+                                country: [],
+                                college: []
+                            }, {
+                                continent: "Asia",
+                                country: [],
+                                college: []
+                            }, {
+                                continent: "Oceania",
+                                country: [],
+                                college: []
+                            }, {
+                                continent: "Africa",
+                                country: [],
+                                college: []
+                            }, {
+                                continent: "Latin America",
+                                country: [],
+                                college: []
+                            }];
+
+                            data2023.forEach(d => {
+                                if (d.region === "North America") {
+                                    regionGroup[0].country.push(d.country);
+                                    regionGroup[0].college.push(d.institution);
+                                } else if (d.region === "Europe") {
+                                    regionGroup[1].country.push(d.country);
+                                    regionGroup[1].college.push(d.institution);
+                                } else if (d.region === "Asia") {
+                                    regionGroup[2].country.push(d.country);
+                                    regionGroup[2].college.push(d.institution);
+                                } else if (d.region === "Oceania") {
+                                    regionGroup[3].country.push(d.country);
+                                    regionGroup[3].college.push(d.institution);
+                                } else if (d.region === "Africa") {
+                                    regionGroup[4].country.push(d.country);
+                                    regionGroup[4].college.push(d.institution);
+                                } else if (d.region === "Latin America") {
+                                    regionGroup[5].country.push(d.country);
+                                    regionGroup[5].college.push(d.institution);
+                                }
+                            });
+
+                            function getContinentByCountry(country) {
+                                for (const region of regionGroup) {
+                                    if (region.country.includes(country)) {
+                                        return region.continent;
+                                    }
+                                }
+                                return country;
+                            }
+
+                            d3.select("#piechart").append("p")
+                                .attr("class", "titleoforgipie2023")
+                                .html("How many top-500 colleges are there in each continent in 2023?")
+
+
+                            const pieSvg = d3.select("#piechart").append("svg")
+                                .attr("width", 300)
+                                .attr("height", 180)
+                                .attr("id", "orgpie2023")
+                                .append("g")
+                                .attr("transform", "translate(58, 80)");
+
+                            const radius = 70;
+
+                            const arc = d3.arc()
+                                .innerRadius(radius * 0.4)
+                                .outerRadius(radius * 0.8);
+
+                            const regionData = d3.rollup(data2023, v => v.length, d => d.region);
+
+                            const regionPie = Array.from(regionData, ([region, count]) => ({
+                                region: region,
+                                count: count
+                            }));
+
+                            const pie = d3.pie()
+                                .value(d => d.count)
+                                (regionPie);
+
+                            pieSvg.selectAll("path")
+                                .data(pie)
+                                .enter()
+                                .append("path")
+                                .attr("d", arc)
+                                .attr("fill", d => piecolor(d.data.region))
+                                .attr("stroke", "black")
+                                .style("stroke-width", "2px")
+                                // .style("opacity", 0.7)
+                                .on("mouseover", (event, d) => {
+                                    d3.select(event.currentTarget)
+                                        .attr("stroke", d => piecolor(d.data.region))
+                                        .attr("stroke-width", "20px");
+
+                                    const [x, y] = arc.centroid(d);
+
+                                    d3.selectAll(".tooltip").remove()
+
+                                    const tooltip = d3.select("body")
+                                        .append("div")
+                                        .attr("class", "tooltip")
+                                        .style("text-anchor", "middle")
+                                        .style("color", "black")
+                                        .style("font-size", "13px")
+                                        .style("position", "absolute")
+                                        .style("background", "white")
+                                        .style("padding", "10px")
+                                        .style("border", "1px solid black")
+                                        .style("border-radius", "5px")
+                                        .style("pointer-events", "none");
+
+                                    tooltip.html(`${d.data.region}: ${d.data.count}`)
+                                        .style("top", `${event.pageY + 5}px`)
+                                        .style("left", `${event.pageX + 5}px`);
+
+                                    d3.selectAll(`.continent-${d.data.region.replace(' ', '')}`)
+                                        .attr("r", 3)
+                                        .style("stroke", "black")
+                                        .style("stroke-width", "1px");
+
+                                })
+                                .on("mouseout", (event, d) => {
+                                    d3.select(event.currentTarget)
+                                        .attr("stroke-width", "2px")
+                                        .attr("stroke", "black");
+
+                                    d3.selectAll(`.continent-${d.data.region.replace(' ', '')}`)
+                                        .attr("r", 1)
+                                        .style("stroke-width", "0");
+
+                                    d3.select(".tooltip").remove();
+                                });
+
+                            const scattersvg = d3.select("#scatterplot")
+                                .append("svg")
+                                .attr("width", 250)
+                                .attr("height", 260)
+                                .attr("id", "scatterplot2023")
+                                .append("g")
+                                .attr("transform", `translate(25, 20)`);
+
+                            const x = d3.scaleLinear()
+                                .range([0, 200]);
+                            const y = d3.scaleLinear()
+                                .range([200, 0])
+
+                            const xAxisGroup = scattersvg.append("g")
+                                .attr("class", "x-axis")
+                                .attr("transform", `translate(0, 200)`);
+                            const yAxisGroup = scattersvg.append("g")
+                                .attr("class", "y-axis");
+
+                            const updatescatChart = (xField, yField) => {
+                                x.domain([0, d3.max(data2023, d => d[xField])]);
+                                y.domain([0, d3.max(data2023, d => d[yField])]);
+
+                                xAxisGroup.call(d3.axisBottom(x));
+                                yAxisGroup.call(d3.axisLeft(y));
+
+                                const scatcircles = scattersvg.selectAll("circle").data(data2023);
+
+                                scatcircles.exit().remove();
+
+                                scatcircles.join("circle")
+                                    .attr("cx", d => x(d[xField]))
+                                    .attr("cy", d => y(d[yField]))
+                                    .attr("r", 1)
+                                    .style("fill", d => piecolor(d.region));
+                            };
+
+                            updatescatChart("ar_score", "rank");
+
+                            document.getElementById("update-chart").addEventListener("click", () => {
+                                const xField = document.getElementById("x-axis").value;
+                                const yField = document.getElementById("y-axis").value;
+                                updatescatChart(xField, yField);
+                            });
+
+                            // scattersvg.append("g")
+                            //     .attr("transform", `translate(0, 200)`)
+                            //     .call(d3.axisBottom(x));
+
+                            // scattersvg.append("g")
+                            //     .call(d3.axisLeft(y));
+
+                            // scattersvg.append("g")
+                            //     .selectAll("dot")
+                            //     .data(data2023)
+                            //     .join("circle")
+                            //     .attr("cx", function (d) { return x(d.ar_score); })
+                            //     .attr("cy", function (d) { return y(d.rank); })
+                            //     .attr("r", 1)
+                            //     .style("fill", function (d) { return piecolor(d.region) });
+
+                            function updatePieChart(selectedContinent, selectedCountry) {
+                                const radius = 55;
+                                const piecolor = d3.scaleOrdinal()
+                                    .range(['#3CC692', '#F3F3F4']);
+
+                                const arc = d3.arc()
+                                    .innerRadius(48)
+                                    .outerRadius(radius)
+                                    .cornerRadius(10);
+
+                                const totalUniversities = data2023.length;
+
+                                const regionData = d3.rollup(data2023, v => v.length, d => d.region);
+                                const pieData = Array.from(regionData, ([region, count]) => ({
+                                    region: region,
+                                    count: count,
+                                    percentage: (count / totalUniversities) * 100
+                                }));
+
+                                const selectedData = pieData.filter(d => d.region === selectedContinent)[0];
+                                const otherData = {
+                                    region: "Other",
+                                    count: totalUniversities - selectedData.count,
+                                    percentage: (totalUniversities - selectedData.count) / totalUniversities
+                                };
+
+                                const finalPieData = [selectedData, otherData];
+
+                                const existPie = d3.select("#afterpie2023");
+
+                                if (!existPie.empty()) {
+                                    existPie.remove();
+                                }
+
+                                const pieSvg = d3.select("#piechart").append("svg")
+                                    .attr("width", 300)
+                                    .attr("height", 160)
+                                    .attr("id", "afterpie2023")
+                                    .append("g")
+                                    .attr("transform", "translate(58, 80)");
+                                const pieSlices = pieSvg.selectAll("path")
+                                    .data(d3.pie().value(d => d.count)(finalPieData), d => d.data.region);
+
+                                pieSlices.enter()
+                                    .append("path")
+                                    .attr("d", arc)
+                                    .attr("fill", d => piecolor(d.data.region))
+                                    .transition()
+                                    .duration(800);
+
+                                pieSlices.exit().remove();
+
+                                pieSvg.append("text")
+                                    .attr("text-anchor", "middle")
+                                    .attr("dy", ".35em")
+                                    .style("font-size", "24px")
+                                    .style("fill", "white")
+                                    .text(`${selectedData.percentage.toFixed(1)}%`);
+
+                                d3.select("#info").selectAll("p").remove();
+
+                                // Add the new info text
+                                d3.select("#info").append("p")
+                                    .text("The percentage of top 500 colleges in this continent:")
+                                    .style("margin-bottom", "0")
+                                    .style("font-size", "13px");
+
+                            }
+
+                        } else if (selectedGroup === "2024") {
+                            d3.select("#panel-controls").style("visibility", "visible");
+                            d3.select("#map2023").remove();
+                            d3.select("#dotsGroup2023").remove();
+                            d3.select(".tooltip2023").remove();
+                            d3.select("#indexdotsGroup2023").remove();
+                            d3.select(".titleoforgipie2023").remove();
+                            d3.select("#orgpie2023").remove();
+                            d3.select("#afterpie2023").remove();
+                            d3.select("#info").select("h3").text("");
+                            d3.select("#showDotInfo2023").remove();
+                            d3.select("#scatterplot2023").remove();
+                            d3.select("#info").select("p").remove();
+                            d3.select("#showRankChange").style("display", "block");
+
+                            const countriesGroup = svg.append("g").attr("id", "map2024").attr("transform", `translate(30, -20)`);
+                            const dotsGroup = svg.append("g").attr("id", "dotsGroup2024").attr("transform", `translate(60, -20)`);
+                            const indexdotsGroup = svg.append("g").attr("id", "indexdotsGroup2024")
+                            const tooltip = d3.select("#tooltip").attr("class", "tooltip2024");
+
+                            function zoomed(event) {
+                                const { transform } = event;
+                                countriesGroup.attr("transform", transform);
+                                countriesGroup.selectAll(".countryLabel")
+                                    .attr("transform", d => {
+                                        const [x, y] = projection(d3.geoCentroid(d));
+                                        return `translate(${transform.apply([x - 30, y])})`;
+                                    });
+
+                                dotsGroup.attr("transform", transform);
+                            }
+
+                            const zoom = d3.zoom().on("zoom", zoomed);
+
+                            function initiateZoom() {
+                                minZoom = Math.max(1050 / width, 1000 / height);
+                                maxZoom = 5 * minZoom;
+
+                                zoom.scaleExtent([minZoom, maxZoom])
+                                    .translateExtent([[0, 0], [width, height]]);
+
+                                const midX = (1050 - minZoom * width) / 2;
+                                const midY = (1000 - minZoom * height) / 2;
+
+                                svg.call(zoom.transform, d3.zoomIdentity.translate(midX, midY).scale(minZoom));
+                            }
+
+                            function boxZoom(box, centroid, paddingPerc) {
+                                const minXY = box[0];
+                                const maxXY = box[1];
+
+                                let zoomWidth = Math.abs(minXY[0] - maxXY[0]);
+                                let zoomHeight = Math.abs(minXY[1] - maxXY[1]);
+
+                                const zoomMidX = centroid[0];
+                                const zoomMidY = centroid[1] + 20;
+
+                                zoomWidth *= 1 + paddingPerc / 100;
+                                zoomHeight *= 1 + paddingPerc / 100;
+
+                                const maxXscale = 1050 / zoomWidth;
+                                const maxYscale = 1000 / zoomHeight;
+                                let zoomScale = Math.min(maxXscale, maxYscale);
+
+                                zoomScale = Math.min(zoomScale, maxZoom);
+                                zoomScale = Math.max(zoomScale, minZoom);
+
+                                const offsetX = zoomScale * zoomMidX;
+                                const offsetY = zoomScale * zoomMidY;
+
+                                let dleft = Math.min(0, 1200 / 2 - offsetX);
+                                let dtop = Math.min(0, 1000 / 2 - offsetY);
+
+                                dleft = Math.max(1200 - width * zoomScale, dleft);
+                                dtop = Math.max(1000 - height * zoomScale, dtop);
+
+                                svg.transition().duration(500).call(
+                                    zoom.transform,
+                                    d3.zoomIdentity.translate(dleft - 20, dtop - 80).scale(zoomScale)
+                                );
+                            };
+
+
+                            const universityCount = {};
+
+                            data2024.forEach(d => {
+                                if (d.country in universityCount) {
+                                    universityCount[d.country]++;
+                                } else {
+                                    universityCount[d.country] = 1;
+                                }
+                            });
+                            // console.log(universityCount)
+
+                            // Find the maximum university count for the color scale
+                            const maxCount = d3.max(Object.values(universityCount));
+
+                            // Create a color scale
+                            const colorScale = d3.scaleSequential(d3.interpolateBlues)
+                                .domain([0, maxCount]);
+
+                            const color = d3.scaleOrdinal()
+                                .domain(['NorthAmerica', 'Europe', 'Asia', 'Oceania', 'LatinAmerica', 'Africa'])
+                                .range(d3.schemePaired);
+
+                            // draw the region outline
+                            svg.append("path")
+                                .data(topo.features)
+                                .classed("county-borders", true) // need to make stroke white in CSS
+                                .attr("d", path(topojson.mesh(topo, topo.features, function (a,
+                                    b) { return a !== b; }))); // draw county borders (need CSS stroke setting)
+
+                            // draw the map
+                            countriesGroup.selectAll("path")
+                                .data(topo.features)
+                                .join("path")
+                                .attr("d", path)
+                                .attr("id", d => "country" + d.properties.name.replace(/\s+/g, ''))
+                                .attr("class", "country")
+                                .style("fill", d => {
+                                    const count = universityCount[d.properties.name] || 0;
+                                    return colorScale(count);
+                                })
+                                .on("mouseover", function (event, d) {
+                                    d3.select(this)
+                                        .style("fill", "#d0d0d0")
+                                    // d3.select("#countryLabel" + d.properties.name.replace(/\s+/g, '')).style("display", "block");
+                                    tooltip.style("visibility", "visible")
+                                        .text(d.properties.name);
+                                })
+                                .on("mousemove", (event) => {
+                                    tooltip.style("top", (event.pageY + 20) + "px")
+                                        .style("left", (event.pageX + 30) + "px")
+                                })
+                                .on("mouseout", function (event, d) {
+                                    d3.select(this)
+                                        .style("fill", d => {
+                                            const count = universityCount[d.properties.name] || 0;
+                                            return colorScale(count);
+                                        });
+                                    tooltip.style("visibility", "hidden");
+                                    // d3.select("#countryLabel" + d.properties.name.replace(/\s+/g, '')).style("display", "none");
+                                })
+                                .on("click", function (event, d) {
+                                    d3.selectAll(".country").classed("country-on", false);
+                                    d3.select(this).classed("country-on", true);
+                                    boxZoom(path.bounds(d), path.centroid(d), 5);
+
+                                    const selectedCountry = d.properties.name;
+                                    const continent = getContinentByCountry(selectedCountry);
+
+                                    d3.select("#panel-controls").style("visibility", "hidden");
+                                    d3.select(".titleoforgipie2024").remove();
+                                    d3.select("#scatterplot2024").remove();
+
+                                    const info = d3.select("#info").select("h3");
+                                    info.html(`${continent}`);
+                                    const orgpie = d3.select("#orgpie2024");
+                                    orgpie.style("display", "none");
+                                    updatePieChart(continent, selectedCountry);
+                                });
+
+                            data2024.forEach(d => {
+                                d.Cost_of_Living_Index = +d["Cost of Living Index"];
+                                d.rent_index = +d["Rent Index"];
+                                d.groceries_index = +d["Groceries Index"];
+                                d.restaurant_index = +d["Restaurant Price Index"];
+                                d.overall_score = +d["Overall Score"];
+                                d.ar_score = +d["ar score"];
+                                d.er_score = +d["er score"];
+                                d.fsr_score = +d["fsr score"];
+                                d.cpf_score = +d["cpf score"];
+                                d.rank = +d["rank display"];
+                                d.local_purchase = +d["Local Purchasing Power Index"];
+                            });
+
+
+                            const maxARScore = d3.max(data2024, d => d.ar_score);
+                            const xARScale = d3.scaleLinear()
+                                .domain([0, maxARScore])
+                                .range([0, 230]);
+
+                            const maxRank = d3.max(data2024, d => d.rank);
+                            const xrankScale = d3.scaleLinear()
+                                .domain([0, maxRank])
+                                .range([0, 230]);
+
+                            const maxOverScore = d3.max(data2024, d => d.overall_score);
+                            const xOverScale = d3.scaleLinear()
+                                .domain([0, maxOverScore])
+                                .range([0, 230]);
+
+                            console.log(data2024)
+                            let preSelected = null;
+
+                            const piecolor = d3.scaleOrdinal()
+                                .range(d3.schemeTableau10);
+
+
+                            const redcircles = dotsGroup.selectAll("circle")
+                                .data(data2024)
+                                .join("circle")
+                                .attr("cx", d => projection([d.longitude, d.latitude])[0])
+                                .attr("cy", d => projection([d.longitude, d.latitude])[1])
+                                .attr("r", 1)
+                                .style("fill", d => piecolor(d.region))
+                                .attr("class", d => `continent-${d.region.replace(/\s+/g, '')}`)
+                                .on("click", function (event, d) {
+                                    if (preSelected) {
+                                        preSelected.attr("stroke", "none")
+                                            .attr("stroke-width", "0");
+                                    }
+                                    preSelected = d3.select(this);
+                                    d3.select(this)
+                                        .attr("stroke", "black")
+                                        .attr("stroke-width", "0.5px");
+
+                                    d3.select("#showDotInfo2024").remove();
+
+                                    const showDotInfo = d3.select("#countryinfo").append("div")
+                                        .attr("id", "showDotInfo2024");
+                                    d3.select("#showDotInfo2024")
+                                        .append("h3")
+                                        .html(`${d.institution}`)
+                                        .append("p")
+                                        .text("2024 Ranking");
+
+
+                                    const rankInfo = getRankChange(d.institution);
+                                    if (rankInfo) {
+                                        const rankChangeText = rankInfo.rankChange > 0
+                                            ? `decreased by ${rankInfo.rankChange} positions`
+                                            : rankInfo.rankChange < 0
+                                                ? `increased by ${-rankInfo.rankChange} positions`
+                                                : "no change in ranking";
+
+                                        showDotInfo.append("div")
+                                            .attr("id", "rank-change-info")
+                                            .style("font-size", "13px")
+                                            .html(`
+                                        Rank Change:<br>
+                                        Rank of 2023: ${rankInfo.rank2023}<br>
+                                        Rank of 2024: ${rankInfo.rank2024}<br>
+                                        ${rankChangeText}<br>
+                                        `);
+                                    } else {
+                                        showDotInfo.append("div")
+                                            .style("font-size", "13px")
+                                            .attr("id", "rank-change-info").html(`no ${d.institution} ranking data<br>`);
+                                    }
+
+
+                                    const svg = showDotInfo.append("svg")
+                                        .attr("width", 300)
+                                        .attr("height", 500);
+
+                                    svg.append("text")
+                                        .attr("y", 25)
+                                        .text("QS Ranking")
+                                        .attr("fill", "white")
+                                        .style("font-size", "14px");
+
+                                    const backgroundRect1 = svg.append("rect")
+                                        .attr("y", 35)
+                                        .attr("width", 230)
+                                        .attr("height", 20)
+                                        .attr("fill", "#F3F3F4");
+
+                                    const scoreRect1 = svg.append("rect")
+                                        .attr("y", 35)
+                                        .attr("width", xrankScale(d.rank))
+                                        .attr("height", 20)
+                                        .attr("fill", "#3CC692");
+
+                                    svg.append("text")
+                                        .attr("x", xrankScale(d.rank))
+                                        .attr("y", 70)
+                                        .attr("dy", ".35em")
+                                        .text(`${d.rank}`)
+                                        .attr("fill", "white")
+                                        .style("font-size", "13px");
+
+                                    svg.append("text")
+                                        .attr("y", 90)
+                                        .text("Overall Score")
+                                        .attr("fill", "white")
+                                        .style("font-size", "14px");
+
+                                    const backgroundRect3 = svg.append("rect")
+                                        .attr("y", 100)
+                                        .attr("width", 230)
+                                        .attr("height", 20)
+                                        .attr("fill", "#F3F3F4");
+
+                                    const scoreRect3 = svg.append("rect")
+                                        .attr("y", 100)
+                                        .attr("width", xOverScale(d.overall_score))
+                                        .attr("height", 20)
+                                        .attr("fill", "#3CC692");
+
+                                    svg.append("text")
+                                        .attr("x", xOverScale(d.overall_score))
+                                        .attr("y", 135)
+                                        .attr("dy", ".35em")
+                                        .text(`${d.overall_score}`)
+                                        .attr("fill", "white")
+                                        .style("font-size", "13px");
+
+                                    svg.append("text")
+                                        .attr("y", 155)
+                                        .text("Academic Reputation")
+                                        .attr("fill", "white")
+                                        .style("font-size", "14px");
+
+                                    const backgroundRect2 = svg.append("rect")
+                                        .attr("y", 165)
+                                        .attr("width", 230)
+                                        .attr("height", 20)
+                                        .attr("fill", "#F3F3F4");
+
+                                    const scoreRect2 = svg.append("rect")
+                                        .attr("y", 165)
+                                        .attr("width", xARScale(d.ar_score))
+                                        .attr("height", 20)
+                                        .attr("fill", "#3CC692");
+
+                                    svg.append("text")
+                                        .attr("x", xARScale(d.ar_score))
+                                        .attr("y", 200)
+                                        .attr("dy", ".35em")
+                                        .text(`${d.ar_score}`)
+                                        .attr("fill", "white")
+                                        .style("font-size", "13px");
+                                });
+
+                            const circles = indexdotsGroup.selectAll("myCircles")
+                                .data(data2024)
+                                .join("circle")
+                                .attr("class", d => d.region.replace(' ', ''))
+                                .attr("cx", d => projection([d.longitude, d.latitude])[0] + 80)
+                                .attr("cy", d => projection([d.longitude, d.latitude])[1])
+                                .attr("r", d => size(d.Cost_of_Living_Index))
+                                .style("fill", d => color(d.region))
+                                .attr("stroke", d => color(d.region))
+                                .attr("fill-opacity", .4);
+
+                            // country label
+                            const countryLabels = countriesGroup
+                                .selectAll("g")
+                                .data(topo.features)
+                                .enter()
+                                .append("g")
+                                .attr("class", "countryLabel")
+                                .attr("id", d => "countryLabel" + d.properties.name.replace(/\s+/g, ''))
+                                .attr("transform", d => `translate(${projection(d3.geoCentroid(d))})`)
+                                // .attr("transform", d => {
+                                //     const [x, y] = projection(d3.geoCentroid(d));
+                                //     return `translate(${x}, ${y})`
+                                // })
+                                .on("mouseover", (event, d) => {
+                                    d3.select(event.currentTarget).style("display", "block");
+                                })
+                                .on("mouseout", (event, d) => {
+                                    d3.select(event.currentTarget).style("display", "none");
+                                })
+                                .on("click", (event, d) => {
+                                    d3.selectAll(".country").classed("country-on", false);
+                                    d3.select("#country" + d.properties.name.replace(/\s+/g, '')).classed("country-on", true);
+                                    boxZoom(path.bounds(d), path.centroid(d), 5);
+                                });
+
+                            countryLabels.append("text")
+                                .attr("class", "countryName")
+                                .style("text-anchor", "middle")
+                                .attr("dy", "0")
+                                .attr("dx", "0")
+                                .style("fill", "grey")
+                                .style("background-color", "black")
+                                .text(d => d.properties.name);
+
+                            function update() {
+                                const showCircles = d3.select("#showCircles").property("checked");
+
+                                circles.each(function (d) {
+                                    const circle = d3.select(this);
+                                    if (showCircles) {
+                                        circle.transition().duration(500).style("opacity", 1).attr("r", size(d.Cost_of_Living_Index));
+                                    } else {
+                                        circle.transition().duration(500).style("opacity", 0).attr("r", 0);
+                                    }
+                                });
+                            }
+
+                            function getRankChange(institution) {
+                                const rank2023 = data2023.find(d => d.institution === institution)?.rank;
+                                const rank2024 = data2024.find(d => d.institution === institution)?.rank;
+
+                                if (rank2023 !== undefined && rank2024 !== undefined) {
+                                    const rankChange = rank2024 - rank2023;
+                                    return { rank2023, rank2024, rankChange };
+                                } else {
+                                    const none = "--";
+                                    const rankChange1 = rank2024 - 500
+                                    return { none, rank2024, rankChange1 };
+                                }
+                            }
+
+
+                            d3.select("#showCircles").on("change", update);
+                            update();
+                            initiateZoom();
+
+                            const regionGroup = [{
+                                continent: "North America",
+                                country: [],
+                                college: []
+                            }, {
+                                continent: "Europe",
+                                country: [],
+                                college: []
+                            }, {
+                                continent: "Asia",
+                                country: [],
+                                college: []
+                            }, {
+                                continent: "Oceania",
+                                country: [],
+                                college: []
+                            }, {
+                                continent: "Africa",
+                                country: [],
+                                college: []
+                            }, {
+                                continent: "Latin America",
+                                country: [],
+                                college: []
+                            }];
+
+                            data2024.forEach(d => {
+                                if (d.region === "North America") {
+                                    regionGroup[0].country.push(d.country);
+                                    regionGroup[0].college.push(d.institution);
+                                } else if (d.region === "Europe") {
+                                    regionGroup[1].country.push(d.country);
+                                    regionGroup[1].college.push(d.institution);
+                                } else if (d.region === "Asia") {
+                                    regionGroup[2].country.push(d.country);
+                                    regionGroup[2].college.push(d.institution);
+                                } else if (d.region === "Oceania") {
+                                    regionGroup[3].country.push(d.country);
+                                    regionGroup[3].college.push(d.institution);
+                                } else if (d.region === "Africa") {
+                                    regionGroup[4].country.push(d.country);
+                                    regionGroup[4].college.push(d.institution);
+                                } else if (d.region === "Latin America") {
+                                    regionGroup[5].country.push(d.country);
+                                    regionGroup[5].college.push(d.institution);
+                                }
+                            });
+
+                            function getContinentByCountry(country) {
+                                for (const region of regionGroup) {
+                                    if (region.country.includes(country)) {
+                                        return region.continent;
+                                    }
+                                }
+                                return country;
+                            }
+
+                            d3.select("#piechart").append("p")
+                                .attr("class", "titleoforgipie2024")
+                                .html("How many top-500 colleges are there in each continent in 2024?")
+
+
+                            const pieSvg = d3.select("#piechart").append("svg")
+                                .attr("width", 300)
+                                .attr("height", 180)
+                                .attr("id", "orgpie2024")
+                                .append("g")
+                                .attr("transform", "translate(58, 80)");
+
+                            const radius = 70;
+
+                            const arc = d3.arc()
+                                .innerRadius(radius * 0.4)
+                                .outerRadius(radius * 0.8);
+
+                            const regionData = d3.rollup(data2024, v => v.length, d => d.region);
+
+                            const regionPie = Array.from(regionData, ([region, count]) => ({
+                                region: region,
+                                count: count
+                            }));
+
+                            const pie = d3.pie()
+                                .value(d => d.count)
+                                (regionPie);
+
+                            pieSvg.selectAll("path")
+                                .data(pie)
+                                .enter()
+                                .append("path")
+                                .attr("d", arc)
+                                .attr("fill", d => piecolor(d.data.region))
+                                .attr("stroke", "black")
+                                .style("stroke-width", "2px")
+                                // .style("opacity", 0.7)
+                                .on("mouseover", (event, d) => {
+                                    d3.select(event.currentTarget)
+                                        .attr("stroke", d => piecolor(d.data.region))
+                                        .attr("stroke-width", "20px");
+
+                                    const [x, y] = arc.centroid(d);
+
+                                    d3.selectAll(".tooltip").remove()
+
+                                    const tooltip = d3.select("body")
+                                        .append("div")
+                                        .attr("class", "tooltip")
+                                        .style("text-anchor", "middle")
+                                        .style("color", "black")
+                                        .style("font-size", "13px")
+                                        .style("position", "absolute")
+                                        .style("background", "white")
+                                        .style("padding", "10px")
+                                        .style("border", "1px solid black")
+                                        .style("border-radius", "5px")
+                                        .style("pointer-events", "none");
+
+                                    tooltip.html(`${d.data.region}: ${d.data.count}`)
+                                        .style("top", `${event.pageY + 5}px`)
+                                        .style("left", `${event.pageX + 5}px`);
+
+                                    d3.selectAll(`.continent-${d.data.region.replace(' ', '')}`)
+                                        .attr("r", 3)
+                                        .style("stroke", "black")
+                                        .style("stroke-width", "1px");
+
+                                })
+                                .on("mouseout", (event, d) => {
+                                    d3.select(event.currentTarget)
+                                        .attr("stroke-width", "2px")
+                                        .attr("stroke", "black");
+
+                                    d3.selectAll(`.continent-${d.data.region.replace(' ', '')}`)
+                                        .attr("r", 1)
+                                        .style("stroke-width", "0");
+
+                                    d3.select(".tooltip").remove();
+                                });
+
+                            const scattersvg = d3.select("#scatterplot")
+                                .append("svg")
+                                .attr("width", 250)
+                                .attr("height", 260)
+                                .attr("id", "scatterplot2024")
+                                .append("g")
+                                .attr("transform", `translate(25, 20)`);
+
+                            const x = d3.scaleLinear()
+                                .range([0, 200]);
+                            const y = d3.scaleLinear()
+                                .range([200, 0])
+
+
+                            const xAxisGroup = scattersvg.append("g")
+                                .attr("class", "x-axis")
+                                .attr("transform", `translate(0, 200)`);
+                            const yAxisGroup = scattersvg.append("g")
+                                .attr("class", "y-axis");
+
+                            const updatescatChart = (xField, yField) => {
+                                x.domain([0, d3.max(data2024, d => d[xField])]);
+                                y.domain([0, d3.max(data2024, d => d[yField])]);
+
+                                xAxisGroup.call(d3.axisBottom(x));
+                                yAxisGroup.call(d3.axisLeft(y));
+
+                                const scatcircles = scattersvg.selectAll("circle").data(data2024);
+
+                                scatcircles.exit().remove();
+
+                                scatcircles.join("circle")
+                                    .attr("cx", d => x(d[xField]))
+                                    .attr("cy", d => y(d[yField]))
+                                    .attr("r", 1)
+                                    .style("fill", d => piecolor(d.region));
+                            };
+
+                            updatescatChart("ar_score", "rank");
+
+                            document.getElementById("update-chart").addEventListener("click", () => {
+                                const xField = document.getElementById("x-axis").value;
+                                const yField = document.getElementById("y-axis").value;
+                                updatescatChart(xField, yField);
+                            });
+
+                            // scattersvg.append("g")
+                            //     .attr("transform", `translate(0, 200)`)
+                            //     .call(d3.axisBottom(x));
+
+                            // scattersvg.append("g")
+                            //     .call(d3.axisLeft(y));
+
+                            // scattersvg.append("g")
+                            //     .selectAll("dot")
+                            //     .data(data2024)
+                            //     .join("circle")
+                            //     .attr("cx", function (d) { return x(d.ar_score); })
+                            //     .attr("cy", function (d) { return y(d.rank); })
+                            //     .attr("r", 1)
+                            //     .style("fill", function (d) { return piecolor(d.region) });
+
+                            function updatePieChart(selectedContinent, selectedCountry) {
+                                const radius = 55;
+                                const piecolor = d3.scaleOrdinal()
+                                    .range(['#3CC692', '#F3F3F4']);
+
+                                const arc = d3.arc()
+                                    .innerRadius(48)
+                                    .outerRadius(radius)
+                                    .cornerRadius(10);
+
+                                const totalUniversities = data2024.length;
+
+                                const regionData = d3.rollup(data2024, v => v.length, d => d.region);
+                                const pieData = Array.from(regionData, ([region, count]) => ({
+                                    region: region,
+                                    count: count,
+                                    percentage: (count / totalUniversities) * 100
+                                }));
+
+                                const selectedData = pieData.filter(d => d.region === selectedContinent)[0];
+                                const otherData = {
+                                    region: "Other",
+                                    count: totalUniversities - selectedData.count,
+                                    percentage: (totalUniversities - selectedData.count) / totalUniversities
+                                };
+
+                                const finalPieData = [selectedData, otherData];
+
+                                const existPie = d3.select("#afterpie2024");
+
+                                if (!existPie.empty()) {
+                                    existPie.remove();
+                                }
+
+                                const pieSvg = d3.select("#piechart").append("svg")
+                                    .attr("width", 300)
+                                    .attr("height", 160)
+                                    .attr("id", "afterpie2024")
+                                    .append("g")
+                                    .attr("transform", "translate(58, 80)");
+                                const pieSlices = pieSvg.selectAll("path")
+                                    .data(d3.pie().value(d => d.count)(finalPieData), d => d.data.region);
+
+                                pieSlices.enter()
+                                    .append("path")
+                                    .attr("d", arc)
+                                    .attr("fill", d => piecolor(d.data.region))
+                                    .transition()
+                                    .duration(800);
+
+                                pieSlices.exit().remove();
+
+                                pieSvg.append("text")
+                                    .attr("text-anchor", "middle")
+                                    .attr("dy", ".35em")
+                                    .style("font-size", "24px")
+                                    .style("fill", "white")
+                                    .text(`${selectedData.percentage.toFixed(1)}%`);
+
+                                d3.select("#info").selectAll("p").remove();
+
+                                // Add the new info text
+                                d3.select("#info").append("p")
+                                    .text("The percentage of top 500 colleges in this continent:")
+                                    .style("margin-bottom", "0")
+                                    .style("font-size", "13px");
+
+                            }
+                        }
+                    }
+
+                    function showRankChange() {
+                        const showChange = d3.select("#showRankChange").property("checked");
+                        const dotsGroup = svg.selectAll("#dotsGroup2024 circle");
+                        function getRankChange(institution) {
+                            const rank2023 = data2023.find(d => d.institution === institution)?.rank;
+                            const rank2024 = data2024.find(d => d.institution === institution)?.rank;
+
+                            if (rank2023 !== undefined && rank2024 !== undefined) {
+                                const rankChange = rank2024 - rank2023;
+                                return { rank2023, rank2024, rankChange };
+                            } else {
+                                const none = "--";
+                                const rankChange1 = rank2024 - 500
+                                return { none, rank2024, rankChange1 };
+                            }
+                        }
+
+                        dotsGroup.style("fill", d => {
+                            const rankInfo = getRankChange(d.institution);
+                            if (rankInfo) {
+                                if (rankInfo.rankChange < 0) {
+                                    return "red";
+                                } else if (rankInfo.rankChange > 0) {
+                                    return "green";
+                                } else {
+                                    return "black";
+                                }
+                            }
+                        });
+                        // .style("stroke-width", 1);
+                    }
+
+                    d3.select("#showRankChange").on("change", showRankChange);
+
+                    d3.select("#yearSelectbutton").on("change", function (event, d) {
+                        const selectedOption = d3.select(this).property("value");
+                        updatedata(selectedOption);
+                    });
+
+                    updatedata(allGroup[0]);
+                });
+            });
+
+        });
+    </script>
+</body>
